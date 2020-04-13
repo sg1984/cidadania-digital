@@ -1,5 +1,6 @@
 <?php
 
+use App\Resource;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $resources = Resource::with('subject', 'user')
+        ->get();
+
+    return view('home', compact('resources'));
 });
 
 Auth::routes();

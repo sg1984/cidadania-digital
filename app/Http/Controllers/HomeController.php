@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Resource;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $resources = Resource::where('user_id',auth()->id())
+            ->with('subject', 'user')
+            ->get();
+
+        return view('resources.index', compact('resources'));
     }
 }
