@@ -96,7 +96,7 @@ class ResourceController extends Controller
     public function edit(Resource $resource)
     {
         $tags = Tag::all();
-        $userSubjects = auth()->user()->subjects;
+        $userSubjects = auth()->user()->isAdmin() ? Subject::all() : auth()->user()->subjects;
         $formats = Resource::FORMAT_TYPES;
 
         return view('resources.edit', compact('resource', 'userSubjects', 'tags', 'formats'));
