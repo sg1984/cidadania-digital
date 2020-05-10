@@ -13,21 +13,23 @@ class SubjectSeeder extends Seeder
     public function run()
     {
         $subjectsToInsert = [
-            'Governança Digital',
-            'NET-ativismo',
-            'Mídia Nativa',
-            'Sustentabilidade Digital (ODS)',
-            'Fake News e Jornalismo Autônomo',
-            'Transliteracy para a Cidadania no Sec XXI',
-            'Transorganicidade',
-            'Regulamentação e Acesso de Dados',
-            'Direitos da Cidadania Digital',
-            'Arquiteturas Digitais para Cidadania',
-            'Ambientes Inteligentes (smart environments)',
-            'Redes Digitais e Governança Descentralizada',
-            'História da Cidadania Digital',
-            'Cidadania e info-consumo',
-            'Games, realidade aumentada e interatividade',
+            'Algoritmos para a cidadania',
+            'Blockchain para a cidadania',
+            'Competencias para a cidadania do seculo XXI',
+            'Database para a cidadania',
+            'Design civico e plataformas digitais de participação',
+            'Dispositivos moveis e inclusao digital para a cidadania',
+            'Ecologia da informaçao: Big data, fake news e mundos possiveis',
+            'E-governament Governanca digital',
+            'Games para a cidadania',
+            'Green data, mudanças climaticas e culturas ecológicas digitais',
+            'Medicina de dados e direito à saude digital',
+            'Net-ativismo e culturas haker',
+            'Net-ativismo indigena',
+            'Pós-cidades e redes de cidadanias',
+            'Significados e teorias das novas formas de cidadania',
+            'Software para a cidadania, regulamentaçao e acesso a dados',
+            'Transliteracia para a cidadania digital',
         ];
 
         foreach ($subjectsToInsert as $subject){

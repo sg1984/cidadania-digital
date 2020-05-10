@@ -13,4 +13,20 @@ class Subject extends Model
     {
         return $this->hasMany(Resource::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

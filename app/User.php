@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'is_admin', 'remember_token'
     ];
 
     /**
@@ -43,5 +43,21 @@ class User extends Authenticatable
     public function resources()
     {
         return $this->hasMany(Resource::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        return $this->is_admin;
     }
 }

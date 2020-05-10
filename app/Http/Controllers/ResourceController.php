@@ -4,10 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Resource;
 use App\Subject;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class ResourceController extends Controller
 {
+    /**
+     * ResourceController constructor.
+     *
+     * @return void|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     */
+    public function __construct()
+    {
+        if(!auth()->check()) {
+            return redirect('/resources');
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,9 +28,14 @@ class ResourceController extends Controller
      */
     public function index()
     {
-        $resources = Resource::where('user_id',auth()->id())
-            ->with('subject')
-            ->get();
+        $resources = Resource::with('subject', 'user', 'tags');
+        if (!auth()->user()->isAdmin()) {
+            $resources->where('created_by', auth()->id());
+        }
+
+        $resources = $resources
+            ->orderBy('created_at', 'desc')
+            ->paginate(20);
 
         return view('resources.index', compact('resources'));
     }
@@ -29,13 +47,11 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        if(!auth()->check()) {
-            return redirect('/resources');
-        }
+        $tags = Tag::all();
+        $userSubjects = auth()->user()->isAdmin() ? Subject::all() : auth()->user()->subjects;
+        $formats = Resource::FORMAT_TYPES;
 
-        $subjects = Subject::all();
-
-        return view('resources.create', compact('subjects'));
+        return view('resources.create', compact('tags', 'userSubjects', 'formats'));
     }
 
     /**
@@ -46,15 +62,16 @@ class ResourceController extends Controller
      */
     public function store(Request $request)
     {
-        if(!auth()->check()) {
-            return redirect('/resources');
-        }
-
         $storeData = $request->all([
-            'title', 'key_words', 'description', 'format', 'source', 'subject_id'
+            'title', 'author', 'key_words', 'description', 'publisher',
+            'source', 'format_id', 'language', 'subject_id',
         ]);
-        $storeData['user_id'] = auth()->id();
-        Resource::create($storeData);
+        $storeData['created_by'] = auth()->id();
+        $resource = Resource::create($storeData);
+        $resource->tags()->attach($request->get('tags'),[
+            'created_at' => new \DateTime(),
+            'updated_at' => new \DateTime(),
+        ]);
 
         return redirect()->route('resources.index')->with('success', 'Documento salvo com sucesso');
     }
@@ -78,9 +95,11 @@ class ResourceController extends Controller
      */
     public function edit(Resource $resource)
     {
-        $subjects = Subject::all();
+        $tags = Tag::all();
+        $userSubjects = auth()->user()->subjects;
+        $formats = Resource::FORMAT_TYPES;
 
-        return view('resources.edit', compact('resource', 'subjects'));
+        return view('resources.edit', compact('resource', 'userSubjects', 'tags', 'formats'));
     }
 
     /**
@@ -92,14 +111,19 @@ class ResourceController extends Controller
      */
     public function update(Request $request, Resource $resource)
     {
-        if(!auth()->check()) {
-            return redirect('/resources');
-        }
-
         $storeData = $request->all([
-            'title', 'key_words', 'description', 'format', 'source', 'subject_id'
+            'title', 'author', 'key_words', 'description', 'publisher',
+            'source', 'format_id', 'language', 'subject_id',
         ]);
+        $storeData['created_by'] = auth()->id();
+
+        $oldTags = $resource->tags()->pluck('id');
         $resource->update($storeData);
+        $resource->tags()->detach($oldTags);
+        $resource->tags()->attach($request->get('tags'),[
+            'created_at' => new \DateTime(),
+            'updated_at' => new \DateTime(),
+        ]);
 
         return redirect()->route('resources.index')->with('success', 'Documento atualizado com sucesso');
     }
@@ -113,12 +137,64 @@ class ResourceController extends Controller
      */
     public function destroy(Resource $resource)
     {
-        if(!auth()->check()) {
-            return redirect('/resources');
-        }
-
         $resource->delete();
 
         return redirect()->route('resources.index')->with('success', 'Documento apagado com sucesso!');
+    }
+
+    /**
+     * @param int $tagId
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function searchByTag(int $tagId)
+    {
+        $tag = Tag::find($tagId);
+        $searchBy = $tag->name;
+        $resources = $tag->resources()
+            ->orderBy('created_at', 'desc')
+            ->paginate(20);
+
+        return view('resources.contents', compact('resources', 'searchBy'));
+    }
+
+    /**
+     * @param int $subjectId
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function searchBySubject(int $subjectId)
+    {
+        $subject = Subject::find($subjectId);
+        $searchBy = $subject->name;
+        $resources = $subject->resources()
+            ->orderBy('created_at', 'desc')
+            ->paginate(20);
+
+        return view('resources.contents', compact('resources', 'searchBy'));
+    }
+
+    /**
+     * @param int $subjectId
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function searchByFormat(int $typeId)
+    {
+        $searchBy = Resource::FORMAT_TYPES[$typeId];
+        $resources = Resource::where('format_id', $typeId)
+            ->orderBy('created_at', 'desc')
+            ->paginate(20);
+
+        return view('resources.contents', compact('resources', 'searchBy'));
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showAll()
+    {
+        $searchBy = 'Tudo';
+        $resources = Resource::orderBy('created_at', 'desc')
+            ->paginate(20);
+
+        return view('resources.contents', compact('resources', 'searchBy'));
     }
 }

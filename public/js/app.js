@@ -65856,6 +65856,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./components/Index */ "./resources/js/components/Index.js");
 
+$(".form-delete").on("submit", function () {
+  return confirm("Confirma exclusão?");
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

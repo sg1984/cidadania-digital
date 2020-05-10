@@ -13,3 +13,7 @@ require('./bootstrap');
  */
 
 require('./components/Index');
+
+$(".form-delete").on("submit", function(){
+    return confirm("Confirma exclusão?");
+});

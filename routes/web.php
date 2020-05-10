@@ -14,14 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $resources = Resource::with('subject', 'user')
-        ->get();
-
-    return view('home', compact('resources'));
-});
-
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('index');
+Route::get('/home', 'HomeController@home')->name('home');
+Route::get('/search/tags/{tagId}', 'ResourceController@searchByTag')->name('searchByTag');
+Route::get('/search/subject/{subjectId}', 'ResourceController@searchBySubject')->name('searchBySubject');
+Route::get('/search/type/{typeId}', 'ResourceController@searchByFormat')->name('searchByFormat');
+Route::get('/search/', 'ResourceController@showAll')->name('showAll');
 Route::resource('resources', ResourceController::class);
