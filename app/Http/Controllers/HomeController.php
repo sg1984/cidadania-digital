@@ -15,6 +15,7 @@ class HomeController extends Controller
     public function index()
     {
         $resources = Resource::with('subject', 'user', 'tags')
+            ->published()
             ->orderBy('created_at', 'desc')
             ->paginate(3);
 

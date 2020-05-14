@@ -40,10 +40,13 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-        if (!auth()->check() || !auth()->user()->isAdmin()) {
-            return redirect('home');
-        }
+        $this->middleware(function ($request, $next) {
+            if (!auth()->check() || !auth()->user()->isAdmin()) {
+                return redirect($this->redirectTo);
+            }
+
+            return $next($request);
+        });
     }
 
     /**
@@ -83,5 +86,56 @@ class RegisterController extends Controller
         );
 
         return $user;
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showUsers()
+    {
+        $users = User::paginate(20);
+
+        return view('auth.index', compact('users'));
+    }
+
+    /**
+     *
+     * Show the form for editing the specified user.
+     *
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function editUser(int $userId)
+    {
+        $user = User::find($userId);
+
+        return view('auth.edit', compact('user'));
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Exception
+     */
+    protected function updateUser(Request $request)
+    {
+        $user = User::find($request->get('user_id'));
+        $oldSubjects = $user->subjects()->pluck('id');
+        $user->update([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password'])
+        ]);
+        $user->subjects()->detach($oldSubjects);
+        $user->subjects()->attach(
+            $request['subject_id'],
+            [
+                'created_at' => new \DateTime(),
+                'updated_at' => new \DateTime(),
+            ]
+        );
+        $users = User::paginate(20);
+
+        return view('auth.index', compact('users'))->with('success', 'Documento atualizado com sucesso');;
     }
 }

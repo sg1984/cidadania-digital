@@ -31,6 +31,7 @@
                         <div>Nome</div>
                         <div><small>Tema</small></div>
                     </td>
+                    <td>Status</td>
                     <td>Criada em</td>
                     @if(Auth::check())
                         <td class="text-center">Ações</td>
@@ -57,6 +58,7 @@
                                 </a>
                             </div>
                         </td>
+                        <td>{{empty($resource->published_at) ? 'Rascunho' : 'Publicada' }}</td>
                         <td>{{$resource->created_at->format('Y-m-d')}}</td>
                         <td class="text-center">
                             <a href="{{ route('resources.edit', $resource->id)}}" class="btn btn-primary btn-sm">Alterar</a>

@@ -67,6 +67,8 @@ class ResourceController extends Controller
             'source', 'format_id', 'language', 'subject_id',
         ]);
         $storeData['created_by'] = auth()->id();
+        $storeData['published_at'] = $request->get('publish_now') ? new \DateTime() : null;
+
         $resource = Resource::create($storeData);
         $resource->tags()->attach($request->get('tags'),[
             'created_at' => new \DateTime(),
@@ -113,9 +115,10 @@ class ResourceController extends Controller
     {
         $storeData = $request->all([
             'title', 'author', 'key_words', 'description', 'publisher',
-            'source', 'format_id', 'language', 'subject_id',
+            'source', 'format_id', 'language', 'subject_id'
         ]);
         $storeData['created_by'] = auth()->id();
+        $storeData['published_at'] = $request->get('publish_now') ? new \DateTime() : null;
 
         $oldTags = $resource->tags()->pluck('id');
         $resource->update($storeData);
@@ -150,7 +153,9 @@ class ResourceController extends Controller
     {
         $tag = Tag::find($tagId);
         $searchBy = $tag->name;
-        $resources = $tag->resources()
+        $resources = $tag
+            ->resources()
+            ->published()
             ->orderBy('created_at', 'desc')
             ->paginate(20);
 
@@ -166,6 +171,7 @@ class ResourceController extends Controller
         $subject = Subject::find($subjectId);
         $searchBy = $subject->name;
         $resources = $subject->resources()
+            ->published()
             ->orderBy('created_at', 'desc')
             ->paginate(20);
 
@@ -180,6 +186,7 @@ class ResourceController extends Controller
     {
         $searchBy = Resource::FORMAT_TYPES[$typeId];
         $resources = Resource::where('format_id', $typeId)
+            ->published()
             ->orderBy('created_at', 'desc')
             ->paginate(20);
 
@@ -192,7 +199,8 @@ class ResourceController extends Controller
     public function showAll()
     {
         $searchBy = 'Tudo';
-        $resources = Resource::orderBy('created_at', 'desc')
+        $resources = Resource::published()
+            ->orderBy('created_at', 'desc')
             ->paginate(20);
 
         return view('resources.contents', compact('resources', 'searchBy'));

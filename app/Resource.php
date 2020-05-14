@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -31,13 +32,14 @@ class Resource extends Model
     protected $fillable = [
         'title', 'author', 'key_words', 'description', 'publisher',
         'source', 'format_id', 'language', 'subject_id', 'created_by',
-        'deleted_by',
+        'deleted_by', 'published_at',
     ];
 
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
+        'published_at' => 'datetime',
     ];
 
     /**
@@ -104,5 +106,14 @@ class Resource extends Model
             }
         }
         return false;
+    }
+
+    /**
+     * @param Builder $query
+     * @return Builder
+     */
+    public function scopePublished(Builder $query)
+    {
+        return $query->whereNotNull('published_at');
     }
 }

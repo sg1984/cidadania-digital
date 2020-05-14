@@ -22,3 +22,6 @@ Route::get('/search/subject/{subjectId}', 'ResourceController@searchBySubject')-
 Route::get('/search/type/{typeId}', 'ResourceController@searchByFormat')->name('searchByFormat');
 Route::get('/search/', 'ResourceController@showAll')->name('showAll');
 Route::resource('resources', ResourceController::class);
+Route::get('users', 'Auth\RegisterController@showUsers')->name('showUsers');
+Route::get('users/{userId}', 'Auth\RegisterController@editUser')->name('editUser');
+Route::post('new-users', 'Auth\RegisterController@updateUser')->name('updateUser');

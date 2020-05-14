@@ -27,7 +27,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }} <small>Alpha</small>
+                    {{ config('app.name', 'Laravel') }} <small style="font-size:x-small">(versão alpha)</small>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -44,26 +44,46 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('showAll') }}">{{ __('Conteúdos') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">{{ __('Sobre') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">{{ __('Equipe') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">{{ __('Parceiros') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">{{ __('Contato') }}</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ __('Idioma') }} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">{{ __('Português') }}</a>
+                                <a class="dropdown-item disabled" href="#">{{ __('Inglês') }}</a>
+                                <a class="dropdown-item disabled" href="#">{{ __('Italiano') }}</a>
+                                <a class="dropdown-item disabled" href="#">{{ __('Francês') }}</a>
+                            </div>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @else
-                            @if(auth()->user()->isAdmin())
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Novo Pesquisador') }}</a>
-                                </li>
-                            @endif
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}">{{ __('Meus Conteúdos') }}</a>
-                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('home') }}">{{ __('Meus Conteúdos') }}</a>
+                                    @if(auth()->user()->isAdmin())
+                                        <a class="dropdown-item" href="{{ route('showUsers') }}">{{ __('Pesquisadores') }}</a>
+                                    @endif
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -85,7 +105,7 @@
         </main>
     </div>
     <footer class="footer">
-        <div class="container">
+        <div class="container text-center">
             <span class="text-muted">© {{ now()->format('Y') }} Cidadania Digital. Todos os direitos reservados..</span>
         </div>
     </footer>

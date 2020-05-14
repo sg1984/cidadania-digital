@@ -1,3 +1,5 @@
 @foreach($resources->items() as $resource)
-    {{ view('resources.content', compact('resource')) }}
+    <div class="col-md-4">
+        {{ view('resources.content', compact('resource')) }}
+    </div>
 @endforeach

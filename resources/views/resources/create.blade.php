@@ -17,7 +17,7 @@
                         </ul>
                     </div><br />
                 @endif
-                <form method="post" action="{{ route('resources.store') }}">
+                <form method="post" action="{{ route('resources.store') }}" autocomplete="off">
                     @csrf
                     <div class="form-group row">
                         <div class="col-md-4">
@@ -47,34 +47,40 @@
                     </div>
                     <div class="form-group">
                         <label for="name">Título</label>
-                        <input type="text" class="form-control" name="title" required/>
+                        <input type="text" class="form-control" name="title" required autocomplete="false"/>
                     </div>
                     <div class="form-group">
                         <label for="description">Descrição</label>
                         <textarea class="form-control" name="description" rows="5" required></textarea>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <label for="source">Link</label>
-                            <input type="text" class="form-control" name="source" required/>
+                            <input type="text" class="form-control" name="source" required autocomplete="false"/>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <label for="key_words">Palavras-chave <small>(Separadas por vírgulas)</small></label>
-                            <input type="text" class="form-control" name="key_words" required/>
+                            <input type="text" class="form-control" name="key_words" required autocomplete="false"/>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check mt-4">
+                                <input class="form-check-input" name="publish_now" type="checkbox" id="publish_now">
+                                <label class="form-check-label" for="publish_now">Publicar Conteúdo</label>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-md-4">
                             <label for="author">Autor</label>
-                            <input type="text" class="form-control" name="author" required/>
+                            <input type="text" class="form-control" name="author" required autocomplete="false"/>
                         </div>
                         <div class="col-md-4">
                             <label for="publisher">Canal de Publicação</label>
-                            <input type="text" class="form-control" name="publisher" required/>
+                            <input type="text" class="form-control" name="publisher" required autocomplete="false"/>
                         </div>
                         <div class="col-md-4">
                             <label for="language">Idioma</label>
-                            <input type="text" class="form-control" name="language" required/>
+                            <input type="text" class="form-control" name="language" required autocomplete="false"/>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary float-right">Salvar</button>
