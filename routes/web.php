@@ -25,3 +25,5 @@ Route::resource('resources', ResourceController::class);
 Route::get('users', 'Auth\RegisterController@showUsers')->name('showUsers');
 Route::get('users/{userId}', 'Auth\RegisterController@editUser')->name('editUser');
 Route::post('new-users', 'Auth\RegisterController@updateUser')->name('updateUser');
+Route::post('bug-report', 'HomeController@bugReport')->name('bugReport');
+Route::post('help-request', 'HomeController@helpRequest')->name('helpRequest');

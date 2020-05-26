@@ -11,16 +11,6 @@
                     <h5 class="card-title">{{ $resource->title }}</h5>
                 </div>
             </a>
-            <div class="row collapse" id="description-{{$resource->id}}">
-                <div class="col-12 pb-2">
-                    <p>
-                        {{ $resource->description }}
-                    </p>
-                    <a target="_blank" href="{{ $resource->source }}" class="btn btn-outline-info btn-sm text-muted">
-                        Ir para conteúdo
-                    </a>
-                </div>
-            </div>
             @foreach($resource->tags as $tag)
                 <a href="{{ route('searchByTag', $tag->id) }}" class="badge badge-light">
                     <span>{{$tag->name}}</span>
@@ -34,8 +24,45 @@
                 </small>
             </div>
             <div class="float-left">
-                <a class="btn btn-outline-info btn-sm" data-toggle="collapse" href="#description-{{$resource->id}}" role="button" aria-expanded="false" aria-controls="description-{{$resource->id}}">
+                <button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#resource-{{$resource->id}}">
                     Descrição
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="resource-{{$resource->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="resourceLabel-{{$resource->id}}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a id="resourceLabel-{{$resource->id}}" href="{{ route('searchBySubject', $resource->subject->id) }}">
+                    <i class="{{ $resource->getFormatIcon() }}"></i> {{ $resource->subject->name }}
+                </a>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3 class="modal-title">{{ $resource->title }}</h3>
+                <p>
+                    {{ $resource->description }}
+                </p>
+                @foreach($resource->tags as $tag)
+                    <a href="{{ route('searchByTag', $tag->id) }}" class="badge badge-light">
+                        <span>{{$tag->name}}</span>
+                    </a>
+                @endforeach
+                <div class="float-right">
+                    <small class="text-right">
+                        Postado por <b>{{ $resource->user->name }} </b> em <b>{{ $resource->created_at->format('Y-m-d') }}</b>
+                    </small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm text-muted" data-dismiss="modal">Fechar</button>
+                <a target="_blank" href="{{ $resource->source }}" class="btn btn-outline-info btn-sm">
+                    Ir para conteúdo
                 </a>
             </div>
         </div>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ReportBug;
 use App\Resource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -36,5 +38,23 @@ class HomeController extends Controller
             ->paginate(20);
 
         return view('resources.index', compact('resources'));
+    }
+
+    public function bugReport(Request $request)
+    {
+        Mail::to(env('MAIL_FROM_ADDRESS'))
+            ->cc('sandrogallina1984@gmail.com')
+            ->send(new ReportBug(auth()->user(), 'Erro', $request->get('description')));
+
+        return back();
+    }
+
+    public function helpRequest(Request $request)
+    {
+        Mail::to(env('MAIL_FROM_ADDRESS'))
+            ->cc('sandrogallina1984@gmail.com')
+            ->send(new ReportBug(auth()->user(), 'Ajuda', $request->get('description')));
+
+        return back();
     }
 }

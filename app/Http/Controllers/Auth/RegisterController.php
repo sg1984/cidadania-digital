@@ -41,9 +41,9 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
-            if (!auth()->check() || !auth()->user()->isAdmin()) {
-                return redirect($this->redirectTo);
-            }
+//            if (!auth()->check() || !auth()->user()->isAdmin()) {
+//                return redirect($this->redirectTo);
+//            }
 
             return $next($request);
         });

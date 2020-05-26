@@ -196,10 +196,22 @@ class ResourceController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showAll()
+    public function showAll(Request $request)
     {
-        $searchBy = 'Tudo';
-        $resources = Resource::published()
+        $searchRequest = $request->get('search', null);
+        $resources = Resource::query();
+
+        if($searchRequest) {
+            $searchBy = $searchRequest;
+            $resources->where('title', 'LIKE', "%{$searchRequest}%")
+                ->orWhere('key_words', 'LIKE', "%{$searchRequest}%")
+                ->orWhere('description', 'LIKE', "%{$searchRequest}%")
+                ->orWhere('author', 'LIKE', "%{$searchRequest}%");
+        } else {
+            $searchBy = 'Tudo';
+        }
+        $resources = $resources
+            ->published()
             ->orderBy('created_at', 'desc')
             ->paginate(20);
 

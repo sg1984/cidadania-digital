@@ -70,10 +70,47 @@
                         </li>
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdownLogin" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ __('Login') }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="navbarDropdownLogin">
+                                    <form method="POST" action="{{ route('login') }}">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="email" class="col-form-label text-md-right">{{ __('E-Mail') }}</label>
+                                            <input id="email" type="email" class="form-control" name="email" required autocomplete="email" autofocus>
+                                            <label for="password" class="col-form-label text-md-right">{{ __('Senha') }}</label>
+                                            <input id="password" type="password" class="form-control" name="password" required autocomplete="current-password">
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="remember" id="remember">
+                                            <label class="form-check-label" for="remember">
+                                                {{ __('Lembrar de mim') }}
+                                            </label>
+                                        </div>
+                                        <div class="form-group mt-1">
+                                            <button type="submit" class="btn btn-primary">
+                                                {{ __('Entrar') }}
+                                            </button>
+                                        </div>
+                                    </form>
+                                    <a href="{{ route('password.request') }}">{{ __('Esqueci minha senha') }}</a>
+                                </div>
                             </li>
                         @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdownHelp" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ __('Ajuda') }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownHelp">
+                                    <a class="dropdown-item" data-toggle="modal" data-target="#bugReportHelp" href="#">{{ __('Tenho uma dúvida') }}</a>
+                                    <a class="dropdown-item" data-toggle="modal" data-target="#bugReportForm" href="#">{{ __('Reportar um erro') }}</a>
+                                </div>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -105,8 +142,58 @@
         </main>
     </div>
     <footer class="footer">
-        <div class="container text-center">
-            <span class="text-muted">© {{ now()->format('Y') }} Cidadania Digital. Todos os direitos reservados..</span>
+        <div class="container">
+            <div class="text-center">
+                <span class="text-muted">© {{ now()->format('Y') }} Cidadania Digital. Todos os direitos reservados.</span>
+            </div>
+            <!-- Modal Help -->
+            <div class="modal fade" id="bugReportHelp" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="bugReportHelpLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="bugReportHelpLabel">Tenho uma dúvida</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form method="post" action="{{ route('helpRequest') }}" autocomplete="false">
+                            @csrf
+                            <div class="modal-body">
+                                <label for="description">Qual sua dúvida?</label>
+                                <textarea class="form-control" name="description" rows="5" required></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-outline-primary">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Report Error -->
+            <div class="modal fade" id="bugReportForm" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Reportar erro</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form method="post" action="{{ route('bugReport') }}" autocomplete="false">
+                            @csrf
+                            <div class="modal-body">
+                                <label for="description">Descreva o erro:</label>
+                                <textarea class="form-control" name="description" rows="5" required></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-outline-primary">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 </body>
