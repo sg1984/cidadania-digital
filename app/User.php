@@ -42,7 +42,7 @@ class User extends Authenticatable
      */
     public function resources()
     {
-        return $this->hasMany(Resource::class);
+        return $this->hasMany(Resource::class, 'created_by');
     }
 
     /**

@@ -33,6 +33,10 @@ class HomeController extends Controller
             return redirect('/');
         }
 
+        if (auth()->user()->is_admin){
+            return redirect('/users');
+        }
+
         $resources = Resource::where('created_by',auth()->id())
             ->with('subject', 'user')
             ->paginate(20);

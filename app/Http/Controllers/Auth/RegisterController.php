@@ -41,9 +41,9 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
-//            if (!auth()->check() || !auth()->user()->isAdmin()) {
-//                return redirect($this->redirectTo);
-//            }
+            if (!auth()->check() || !auth()->user()->isAdmin()) {
+                return redirect($this->redirectTo);
+            }
 
             return $next($request);
         });
@@ -70,22 +70,23 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
         $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password'])
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'password' => Hash::make($request->get('password'))
         ]);
         $user->subjects()->attach(
-            $data['subject_id'],
+            $request->get('subject_id'),
             [
                 'created_at' => new \DateTime(),
                 'updated_at' => new \DateTime(),
             ]
         );
+        $users = User::paginate(20);
 
-        return $user;
+        return view('auth.index', compact('users'))->with('success', 'Pesquisador incluído com sucesso');;
     }
 
     /**

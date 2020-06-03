@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Resource;
 use App\Subject;
 use App\Tag;
+use App\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class ResourceController extends Controller
@@ -206,7 +208,13 @@ class ResourceController extends Controller
             $resources->where('title', 'LIKE', "%{$searchRequest}%")
                 ->orWhere('key_words', 'LIKE', "%{$searchRequest}%")
                 ->orWhere('description', 'LIKE', "%{$searchRequest}%")
-                ->orWhere('author', 'LIKE', "%{$searchRequest}%");
+                ->orWhere('author', 'LIKE', "%{$searchRequest}%")
+                ->orWhereHas('tags', function (Builder $query) use ($searchRequest) {
+                    $query->where('name', 'LIKE', "%{$searchRequest}%");
+                }, '>=', 1)
+                ->orWhereHas('subject', function (Builder $query) use ($searchRequest) {
+                    $query->where('name', 'LIKE', "%{$searchRequest}%");
+                }, '>=', 1);
         } else {
             $searchBy = 'Tudo';
         }
@@ -216,5 +224,17 @@ class ResourceController extends Controller
             ->paginate(20);
 
         return view('resources.contents', compact('resources', 'searchBy'));
+    }
+
+    public function showByUser(int $userId)
+    {
+        $user = User::find($userId);
+        $resources = $user
+            ->resources()
+            ->published()
+            ->orderBy('created_at', 'desc')
+            ->paginate(20);
+
+        return view('resources.index', compact('resources', 'user'));
     }
 }

@@ -53,7 +53,6 @@ class Resource extends Model
         });
     }
 
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
