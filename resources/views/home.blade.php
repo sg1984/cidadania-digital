@@ -36,20 +36,16 @@
                         Este é Diretório de Conteúdos.
                     </p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 pr-0">
                     <div class="push-top">
-                        <div class="row">
-                            @foreach($resources->items() as $resource)
-                                {{ view('resources.content', compact('resource')) }}
-                            @endforeach
-                        </div>
-                        <div class="row">
-                            <div class="col-12 pb-2 p-0">
-                                <div class="float-right">
-                                    <a href="{{ route('showAll') }}" class="btn btn-sm btn-outline-info">
-                                        {{ __('Acessar Diretório') }}
-                                    </a>
-                                </div>
+                        @foreach($resources->items() as $resource)
+                            {{ view('resources.content', compact('resource')) }}
+                        @endforeach
+                        <div class="col-12 pb-2 p-0">
+                            <div class="float-right">
+                                <a href="{{ route('showAll') }}" class="btn btn-sm btn-outline-info">
+                                    {{ __('Acessar Diretório') }}
+                                </a>
                             </div>
                         </div>
                     </div>

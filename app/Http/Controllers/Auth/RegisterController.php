@@ -139,4 +139,20 @@ class RegisterController extends Controller
 
         return view('auth.index', compact('users'))->with('success', 'Documento atualizado com sucesso');;
     }
+
+    /**
+     * @param int $userId
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    protected function toggleStatus(int $userId)
+    {
+        $user = User::find($userId);
+        $new_is_active_status = ! $user->is_active;
+        $user->update([
+            'is_active' => $new_is_active_status
+        ]);
+        $users = User::paginate(20);
+
+        return view('auth.index', compact('users'))->with('success', 'Documento atualizado com sucesso');;
+    }
 }

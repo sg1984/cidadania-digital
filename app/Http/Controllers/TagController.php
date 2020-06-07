@@ -8,13 +8,29 @@ use Illuminate\Http\Request;
 class TagController extends Controller
 {
     /**
+     * TagController constructor.
+     *
+     * @return void|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     */
+    public function __construct()
+    {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $tags = Tag::query()
+            ->orderBy('name')
+            ->paginate(20);
+
+        return view('tags.index', compact('tags'));
     }
 
     /**
@@ -24,7 +40,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('tags.create');
     }
 
     /**
@@ -35,7 +51,12 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $storeData = $request->all(['name']);
+        $storeData['is_active'] = $request->get('is_active') ? true : false;
+
+        $tag = Tag::create($storeData);
+
+        return redirect()->route('tags.index')->with('success', 'Tag salva com sucesso');
     }
 
     /**
@@ -46,7 +67,7 @@ class TagController extends Controller
      */
     public function show(Tag $tag)
     {
-        //
+        return view('tags.show', compact('tag'));
     }
 
     /**
@@ -57,7 +78,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return view('tags.edit', compact('tag'));
     }
 
     /**
@@ -69,7 +90,12 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        //
+        $storeData = $request->all(['name']);
+        $storeData['is_active'] = $request->get('is_active') ? true : false;
+
+        $tag->update($storeData);
+
+        return redirect()->route('tags.index')->with('success', 'Tag atualizada com sucesso');
     }
 
     /**
@@ -80,6 +106,29 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        if(! $tag->canBeExcluded()) {
+            return redirect()->route('tags.index')->with('error', 'A tag não pode ser removida pois existe conteúdo associada a ela!');
+        }
+
+        $tag->delete();
+
+        return redirect()->route('tags.index')->with('success', 'Tag removida com sucesso!');
+    }
+
+    /**
+     * Change the status of the tag
+     *
+     * @param int $tagId
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function toggleStatus(int $tagId)
+    {
+        $tag = Tag::find($tagId);
+        $new_is_active_status = ! $tag->is_active;
+        $tag->update([
+            'is_active' => $new_is_active_status
+        ]);
+
+        return redirect()->route('tags.index')->with('success', 'Status da tag atualizada com sucesso!');
     }
 }

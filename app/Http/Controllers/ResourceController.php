@@ -49,7 +49,10 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        $tags = Tag::all();
+        $tags = Tag::query()
+            ->isActive()
+            ->orderBy('name')
+            ->get();
         $userSubjects = auth()->user()->isAdmin() ? Subject::all() : auth()->user()->subjects;
         $formats = Resource::FORMAT_TYPES;
 
@@ -99,7 +102,10 @@ class ResourceController extends Controller
      */
     public function edit(Resource $resource)
     {
-        $tags = Tag::all();
+        $tags = Tag::query()
+            ->isActive()
+            ->orderBy('name')
+            ->get();
         $userSubjects = auth()->user()->isAdmin() ? Subject::all() : auth()->user()->subjects;
         $formats = Resource::FORMAT_TYPES;
 
@@ -119,7 +125,6 @@ class ResourceController extends Controller
             'title', 'author', 'key_words', 'description', 'publisher',
             'source', 'format_id', 'language', 'subject_id'
         ]);
-        $storeData['created_by'] = auth()->id();
         $storeData['published_at'] = $request->get('publish_now') ? new \DateTime() : null;
 
         $oldTags = $resource->tags()->pluck('id');

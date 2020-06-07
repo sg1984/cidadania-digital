@@ -46,6 +46,15 @@
                         <td>{{$user->created_at->format('Y-m-d')}}</td>
                         <td class="text-center">
                             <a href="{{ route('editUser', $user->id)}}" class="btn btn-primary btn-sm">Alterar</a>
+                            <form action="{{ route('users.toggleStatus', $user->id)}}" method="post" style="display: inline-block">
+                                @csrf
+                                @method('PATCH')
+                                @if($user->is_active)
+                                    <input class="btn btn-warning btn-sm" type="submit" value="Desativar"/>
+                                @else
+                                    <input class="btn btn-info btn-sm" type="submit" value="Ativar"/>
+                                @endif
+                            </form>
                         </td>
                     </tr>
                 @endforeach

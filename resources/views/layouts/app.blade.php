@@ -118,6 +118,8 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if(auth()->user()->isAdmin())
                                         <a class="dropdown-item" href="{{ route('showUsers') }}">{{ __('Pesquisadores') }}</a>
+                                        <a class="dropdown-item" href="{{ route('subjects.index') }}">{{ __('Verbetes') }}</a>
+                                        <a class="dropdown-item" href="{{ route('tags.index') }}">{{ __('Tags') }}</a>
                                     @else
                                         <a class="dropdown-item" href="{{ route('home') }}">{{ __('Meus Conteúdos') }}</a>
                                     @endif
