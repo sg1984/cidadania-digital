@@ -32,7 +32,8 @@ class Resource extends Model
     protected $fillable = [
         'title', 'author', 'key_words', 'description', 'publisher',
         'source', 'format_id', 'language', 'subject_id', 'created_by',
-        'deleted_by', 'published_at',
+        'deleted_by', 'published_at', 'coverage', 'contributor',
+        'copy_rights', 'original_date', 'format', 'identifier',
     ];
 
     protected $casts = [

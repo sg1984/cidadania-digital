@@ -65859,6 +65859,9 @@ __webpack_require__(/*! ./components/Index */ "./resources/js/components/Index.j
 $(".form-delete").on("submit", function () {
   return confirm("Confirma exclusão?");
 });
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
 
 /***/ }),
 

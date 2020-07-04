@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('index');
 Route::resource('resources', ResourceController::class);
+Route::get('/about', 'HomeController@about')->name('about');
+
 
 Route::get('/search/tags/{tagId}', 'ResourceController@searchByTag')->name('searchByTag');
 Route::get('/search/subject/{subjectId}', 'ResourceController@searchBySubject')->name('searchBySubject');

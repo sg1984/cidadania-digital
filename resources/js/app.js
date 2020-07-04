@@ -17,3 +17,7 @@ require('./components/Index');
 $(".form-delete").on("submit", function(){
     return confirm("Confirma exclusão?");
 });
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})

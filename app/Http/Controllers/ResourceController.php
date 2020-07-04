@@ -49,6 +49,7 @@ class ResourceController extends Controller
      */
     public function create()
     {
+        $resource = new Resource();
         $tags = Tag::query()
             ->isActive()
             ->orderBy('name')
@@ -56,7 +57,7 @@ class ResourceController extends Controller
         $userSubjects = auth()->user()->isAdmin() ? Subject::all() : auth()->user()->subjects;
         $formats = Resource::FORMAT_TYPES;
 
-        return view('resources.create', compact('tags', 'userSubjects', 'formats'));
+        return view('resources.edit', compact('resource', 'tags', 'userSubjects', 'formats'));
     }
 
     /**
@@ -69,7 +70,8 @@ class ResourceController extends Controller
     {
         $storeData = $request->all([
             'title', 'author', 'key_words', 'description', 'publisher',
-            'source', 'format_id', 'language', 'subject_id',
+            'source', 'format_id', 'language', 'subject_id', 'coverage',
+            'contributor', 'copy_rights', 'original_date', 'format', 'identifier',
         ]);
         $storeData['created_by'] = auth()->id();
         $storeData['published_at'] = $request->get('publish_now') ? new \DateTime() : null;
@@ -123,7 +125,8 @@ class ResourceController extends Controller
     {
         $storeData = $request->all([
             'title', 'author', 'key_words', 'description', 'publisher',
-            'source', 'format_id', 'language', 'subject_id'
+            'source', 'format_id', 'language', 'subject_id', 'coverage',
+            'contributor', 'copy_rights', 'original_date', 'format', 'identifier',
         ]);
         $storeData['published_at'] = $request->get('publish_now') ? new \DateTime() : null;
 
