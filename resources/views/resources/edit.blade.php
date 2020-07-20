@@ -33,7 +33,7 @@
                         <div class="col-md-4">
                             <label for="subject_id">
                                 Assunto *
-                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="O tópico do recurso. Normalmente, o assunto será expresso como palavras-chave ou frases que descrevem o assunto ou o conteúdo do recurso. É encorajado o uso de vocabulários controlados e esquemas formais de classificação."></i>
+                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Tema abordado no documento, já pré-estabelecido pelos verbetes disponíveis."></i>
                             </label>
                             <select class="form-control selectpicker" id="subject_id" name="subject_id" required>
                                 @foreach($userSubjects as $userSubject)
@@ -43,8 +43,8 @@
                         </div>
                         <div class="col-md-4">
                             <label for="tags">
-                                Relações
-                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Um identificador de um segundo recurso e sua relação com o recurso atual. Este elemento é usado para expressar ligações entre recursos relacionados. Por uma questão de interoperabilidade, os relacionamentos devem ser selecionados a partir de uma lista enumerada atualmente em desenvolvimento na série de workshops."></i>
+                                Relações (Tags Relacionadas)
+                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Tags relacionadas ou que tangenciam o assunto abordado neste documento."></i>
                             </label>
                             <select class="form-control selectpicker" id="tags" name="tags[]" multiple>
                                 @foreach($tags as $tag)
@@ -55,7 +55,7 @@
                         <div class="col-md-4">
                             <label for="format_id">
                                 Tipo *
-                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="A categoria do recurso, como página inicial, romance, poema, documento de trabalho, relatório técnico, redação, dicionário. Para fins de interoperabilidade, o Tipo deve ser selecionado em uma lista enumerada que está atualmente em desenvolvimento na série de workshops."></i>
+                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Tipo do documento (texto, vídeo, áudio e imagem)."></i>
                             </label>
                             <select class="form-control selectpicker" id="format_id" name="format_id" required>
                                 @foreach($formats as $key => $name)
@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <label for="name">
                             Título *
-                            <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="O nome dado ao recurso, geralmente pelo Criador ou Publicador. O nome dado ao material/arquivo/conteúdo, normalmente pelo criador ou editor. (título do texto/vídeo/audio/imagem)."></i>
+                            <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Título do Documento (fornecido pela fonte primária). "></i>
                         </label>
                         <input type="text" class="form-control" name="title" required value="{{ $resource->title }}" autocomplete="false"/>
                     </div>
@@ -81,16 +81,16 @@
                     <div class="form-group row">
                         <div class="col-md-5">
                             <label for="source">
-                                Fonte *
-                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Informações sobre um segundo recurso do qual o presente recurso é derivado. Embora seja geralmente recomendado que os elementos contenham informações apenas sobre o recurso atual, esse elemento pode conter metadados para o segundo recurso quando for considerado importante para a descoberta do recurso atual."></i>
+                                Fonte (Link) *
+                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Link de acesso à fonte primária do documento."></i>
                             </label>
                             <input type="url" class="form-control" name="source" required value="{{ $resource->source }}" autocomplete="false"/>
                         </div>
 
                         <div class="col-md-4">
                             <label for="coverage">
-                                Cobertura
-                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="As características espaciais ou temporais do conteúdo intelectual do recurso. A cobertura espacial refere-se a uma região física (por exemplo, setor celeste) usando nomes de lugares ou coordenadas (por exemplo, longitude e latitude). A cobertura temporal refere-se ao conteúdo do recurso e não ao momento em que foi criado ou disponibilizado (o último pertencente ao elemento Data). A cobertura temporal é normalmente especificada usando períodos de tempo nomeados (por exemplo, neolítico) ou o mesmo formato de data / hora, conforme recomendado para o elemento Data."></i>
+                                Cobertura (Tempo/Espacial)
+                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="As características espaço-temporais do conteúdo intelectual do documento. A cobertura espacial refere-se a uma região física (país, região, cidade, localidade) e a cobertura temporal refere-se ao conteúdo do documento e não ao momento em que este foi criado, referindo-se a um período histórico, data ou intervalo de tempo. (Separar as informações por vírgulas)."></i>
                             </label>
                             <input type="text" class="form-control" name="coverage" value="{{ $resource->coverage }}" autocomplete="false"/>
                         </div>
@@ -140,7 +140,7 @@
                                 Direitos
                                 <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Uma declaração de gerenciamento de direitos, um identificador vinculado a uma declaração de gerenciamento de direitos ou um identificador vinculado a um serviço que fornece informações sobre o gerenciamento de direitos do recurso. (A plataforma em si e os recursos por ela produzidos são regidos pelo Creative Commons, no entanto, cada recurso adicionado vai ter as especificidades do seu canal de origem.)"></i>
                             </label>
-                            <input type="text" class="form-control" name="copy_rights" value="{{ $resource->copy_rights }}" autocomplete="false"/>
+                            <input disabled type="text" class="form-control" name="copy_rights" value="{{ $resource->copy_rights }}" autocomplete="false"/>
                         </div>
                     </div>
                 </div>
@@ -155,7 +155,7 @@
                         <div class="col-md-3">
                             <label for="original_date">
                                 Data
-                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Uma data associada à criação ou disponibilidade do recurso. A melhor prática recomendada é definida em um perfil da ISO 8601 que inclui (entre outras) datas dos formulários AAAA e AAAA-MM-DD. Nesse esquema, por exemplo, a data 1994-11-05 corresponde a 5 de novembro de 1994."></i>
+                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Data de publicação ou criação original do documento."></i>
                             </label>
                             <input type="date" class="form-control" name="original_date" value="{{ $resource->original_date }}" autocomplete="false"/>
                         </div>
@@ -164,19 +164,19 @@
                                 Formato
                                 <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="O formato dos dados e, opcionalmente, as dimensões (por exemplo, tamanho, duração) do recurso. O formato é usado para identificar o software e possivelmente o hardware que podem ser necessários para exibir ou operar o recurso."></i>
                             </label>
-                            <input type="text" class="form-control" name="format" value="{{ $resource->format }}" autocomplete="false"/>
+                            <input disabled type="text" class="form-control" name="format" value="{{ $resource->format }}" autocomplete="false"/>
                         </div>
                         <div class="col-md-3">
                             <label for="identifier">
                                 Identificador
-                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Uma sequência ou número usado para identificar exclusivamente o recurso. Exemplos de recursos em rede incluem URLs e URNs (quando implementados). Outros identificadores exclusivos globalmente, como ISBN (International Standard Book Numbers) ou outros nomes formais, também são candidatos a esse elemento."></i>
+                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Uma sequência ou número usado para identificar exclusivamente o documento, quando houver (pode ser um DOI, no caso de artigos, ISBN para livros, ou outros)."></i>
                             </label>
                             <input type="text" class="form-control" name="identifier" value="{{ $resource->identifier }}" autocomplete="false"/>
                         </div>
                         <div class="col-md-3">
                             <label for="language">
-                                Idioma *
-                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="A linguagem do conteúdo intelectual do recurso. A melhor prática recomendada é definida na RFC 1766 [4]."></i>
+                                Língua *
+                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Idioma no qual o documento se encontra."></i>
                             </label>
                             <input type="text" class="form-control" name="language" required value="{{ $resource->language }}" autocomplete="false"/>
                         </div>

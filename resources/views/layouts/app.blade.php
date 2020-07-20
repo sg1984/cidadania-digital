@@ -107,6 +107,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownHelp">
+                                    <a class="dropdown-item" href="{{ route('tickets.index') }}">{{ __('Tickets') }}</a>
                                     <a class="dropdown-item" data-toggle="modal" data-target="#bugReportHelp" href="#">{{ __('Tenho uma dúvida') }}</a>
                                     <a class="dropdown-item" data-toggle="modal" data-target="#bugReportForm" href="#">{{ __('Reportar um erro') }}</a>
                                 </div>

@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Subject extends Model
 {
@@ -14,7 +16,7 @@ class Subject extends Model
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function resources()
     {
@@ -22,7 +24,7 @@ class Subject extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return BelongsToMany
      */
     public function users()
     {
@@ -30,7 +32,7 @@ class Subject extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return BelongsToMany
      */
     public function tags()
     {
@@ -56,7 +58,7 @@ class Subject extends Model
                 return true;
             }
         }
-        return false;
 
+        return false;
     }
 }
