@@ -65,7 +65,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-sm text-muted" data-dismiss="modal">Fechar</button>
-                <a target="_blank" href="{{ $resource->source }}" class="btn btn-outline-info btn-sm">
+                <a target="_blank" href="{{ $resource->getSourceLink() }}" class="btn btn-outline-info btn-sm">
                     Ir para conteúdo
                 </a>
             </div>

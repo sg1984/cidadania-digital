@@ -5,16 +5,24 @@ namespace App\Http\Controllers;
 use App\Resource;
 use App\Subject;
 use App\Tag;
+use App\UploadedFile;
 use App\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class ResourceController extends Controller
 {
     /**
      * ResourceController constructor.
      *
-     * @return void|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     * @return void|Redirector|RedirectResponse
      */
     public function __construct()
     {
@@ -26,7 +34,7 @@ class ResourceController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -45,7 +53,7 @@ class ResourceController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -63,24 +71,54 @@ class ResourceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
-        $storeData = $request->all([
-            'title', 'author', 'key_words', 'description', 'publisher',
-            'source', 'format_id', 'language', 'subject_id', 'coverage',
-            'contributor', 'copy_rights', 'original_date', 'format', 'identifier',
-        ]);
-        $storeData['created_by'] = auth()->id();
-        $storeData['published_at'] = $request->get('publish_now') ? new \DateTime() : null;
+        try {
+            $uploadedFile = $request->file('source_file');
+            $sourceLink = $request->get('source');
+            if ((empty($uploadedFile) && empty($sourceLink))
+                || (!empty($uploadedFile) && !empty($sourceLink))) {
+                return back()->withInput()->withErrors(['Favor enviar Link ou um Arquivo']);
+            }
+            $fileMetadata = null;
+            if ($uploadedFile) {
+                $errorMessage = $uploadedFile->getError() ? $uploadedFile->getErrorMessage() : false;
+                if ($errorMessage) {
+                    return back()->withInput()->withErrors(['Erro com o arquivo enviado. Erro: ' . $errorMessage]);
+                }
 
-        $resource = Resource::create($storeData);
-        $resource->tags()->attach($request->get('tags'),[
-            'created_at' => new \DateTime(),
-            'updated_at' => new \DateTime(),
-        ]);
+                $sourceLink = $uploadedFile->store('public/documents/' . auth()->user()->id);
+
+                $fileMetadata = new UploadedFile([
+                    'path'          => $sourceLink,
+                    'original_name' => $uploadedFile->getClientOriginalName(),
+                    'mimeType'      => $uploadedFile->getMimeType(),
+                    'size'          => $uploadedFile->getSize(),
+                    'uploaded_by'   => auth()->id(),
+                ]);
+            }
+            $storeData = $request->all([
+                'title', 'author', 'key_words', 'description', 'publisher',
+                'format_id', 'language', 'subject_id', 'coverage',
+                'contributor', 'copy_rights', 'original_date', 'format', 'identifier',
+            ]);
+            $storeData['source'] = $sourceLink;
+            $storeData['created_by'] = auth()->id();
+            $storeData['published_at'] = $request->get('publish_now') ? new \DateTime() : null;
+            $resource = Resource::create($storeData);
+            $resource->tags()->attach($request->get('tags'), [
+                'created_at' => new \DateTime(),
+                'updated_at' => new \DateTime(),
+            ]);
+            if ($fileMetadata) {
+                $resource->uploadedFile()->save($fileMetadata);
+            }
+        } catch (\Exception $e) {
+            return back()->withInput()->withErrors(['Erro ao salvar o documento, favor tentar novamente. Erro: ' . $e->getMessage()]);
+        }
 
         return redirect()->route('resources.index')->with('success', 'Documento salvo com sucesso');
     }
@@ -88,8 +126,8 @@ class ResourceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Resource  $resource
-     * @return \Illuminate\Http\Response
+     * @param Resource $resource
+     * @return Response
      */
     public function show(Resource $resource)
     {
@@ -99,8 +137,8 @@ class ResourceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Resource  $resource
-     * @return \Illuminate\Http\Response
+     * @param Resource $resource
+     * @return Response
      */
     public function edit(Resource $resource)
     {
@@ -117,26 +155,70 @@ class ResourceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Resource  $resource
-     * @return \Illuminate\Http\Response
+     * @param Request  $request
+     * @param Resource $resource
+     * @return RedirectResponse
      */
     public function update(Request $request, Resource $resource)
     {
-        $storeData = $request->all([
-            'title', 'author', 'key_words', 'description', 'publisher',
-            'source', 'format_id', 'language', 'subject_id', 'coverage',
-            'contributor', 'copy_rights', 'original_date', 'format', 'identifier',
-        ]);
-        $storeData['published_at'] = $request->get('publish_now') ? new \DateTime() : null;
+        try {
+            $uploadedFile = $request->file('source_file');
+            $sourceFormLink = $request->get('source');
+            if (!empty($uploadedFile) && !empty($sourceFormLink)) {
+                return back()->withInput()->withErrors(['Favor enviar Link ou um arquivo']);
+            }
+            $hasSourceChanged = false;
+            $sourceLink = null;
+            $fileMetadata = null;
+            $oldSource = $resource->source;
+            if ($uploadedFile) {
+                $errorMessage = $uploadedFile->getError() ? $uploadedFile->getErrorMessage() : false;
+                if ($errorMessage) {
+                    return back()->withInput()->withErrors(['Erro com o arquivo enviado. Erro: ' . $errorMessage]);
+                }
 
-        $oldTags = $resource->tags()->pluck('id');
-        $resource->update($storeData);
-        $resource->tags()->detach($oldTags);
-        $resource->tags()->attach($request->get('tags'),[
-            'created_at' => new \DateTime(),
-            'updated_at' => new \DateTime(),
-        ]);
+                $sourceLink = $uploadedFile->store('public/documents/' . auth()->user()->id);
+
+                $fileMetadata = new UploadedFile([
+                    'path'          => $sourceLink,
+                    'original_name' => $uploadedFile->getClientOriginalName(),
+                    'mimeType'      => $uploadedFile->getMimeType(),
+                    'size'          => $uploadedFile->getSize(),
+                    'uploaded_by'   => auth()->id(),
+                ]);
+
+                $hasSourceChanged = true;
+            }
+            if (!empty($sourceFormLink) && $sourceFormLink !== $oldSource) {
+                $sourceLink = $sourceFormLink;
+                $hasSourceChanged = true;
+            }
+            $storeData = $request->all([
+                'title', 'author', 'key_words', 'description', 'publisher',
+                'format_id', 'language', 'subject_id', 'coverage',
+                'contributor', 'copy_rights', 'original_date', 'format', 'identifier',
+            ]);
+            $storeData['published_at'] = $request->get('publish_now') ? new \DateTime() : null;
+            if ($sourceLink && $hasSourceChanged) {
+                $storeData['source'] = $sourceLink;
+            }
+            $oldTags = $resource->tags()->pluck('id');
+            $resource->update($storeData);
+            $resource->tags()->detach($oldTags);
+            $resource->tags()->attach($request->get('tags'), [
+                'created_at' => new \DateTime(),
+                'updated_at' => new \DateTime(),
+            ]);
+            if ($hasSourceChanged) {
+                $resource->uploadedFile()->delete();
+                Storage::delete($oldSource);
+            }
+            if ($fileMetadata) {
+                $resource->uploadedFile()->save($fileMetadata);
+            }
+        } catch (\Exception $e) {
+            return back()->withInput()->withErrors(['Erro ao atualizar o documento, favor tentar novamente. Erro: ' . $e->getMessage()]);
+        }
 
         return redirect()->route('resources.index')->with('success', 'Documento atualizado com sucesso');
     }
@@ -144,8 +226,8 @@ class ResourceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Resource $resource
-     * @return \Illuminate\Http\Response
+     * @param Resource $resource
+     * @return Response
      * @throws \Exception
      */
     public function destroy(Resource $resource)
@@ -157,7 +239,7 @@ class ResourceController extends Controller
 
     /**
      * @param int $tagId
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function searchByTag(int $tagId)
     {
@@ -174,7 +256,7 @@ class ResourceController extends Controller
 
     /**
      * @param int $subjectId
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function searchBySubject(int $subjectId)
     {
@@ -189,8 +271,8 @@ class ResourceController extends Controller
     }
 
     /**
-     * @param int $subjectId
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param int $typeId
+     * @return Factory|View
      */
     public function searchByFormat(int $typeId)
     {
@@ -204,7 +286,8 @@ class ResourceController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param Request $request
+     * @return Application|Factory|View
      */
     public function showAll(Request $request)
     {
@@ -234,6 +317,10 @@ class ResourceController extends Controller
         return view('resources.contents', compact('resources', 'searchBy'));
     }
 
+    /**
+     * @param int $userId
+     * @return Application|Factory|View
+     */
     public function showByUser(int $userId)
     {
         $user = User::find($userId);
