@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class Resource extends Model
 {
@@ -81,6 +83,14 @@ class Resource extends Model
     }
 
     /**
+     * @return HasOne
+     */
+    public function uploadedFile()
+    {
+        return $this->hasOne(UploadedFile::class);
+    }
+
+    /**
      * @return string
      */
     public function getFormatDescription(): string
@@ -111,11 +121,43 @@ class Resource extends Model
     }
 
     /**
+     * @return string
+     */
+    public function getSourceLink(): string
+    {
+        if( $this->uploadedFile()->count() ) {
+            return Storage::url($this->source);
+        }
+
+        return $this->source;
+    }
+
+    /**
      * @param Builder $query
      * @return Builder
      */
     public function scopePublished(Builder $query)
     {
         return $query->whereNotNull('published_at');
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasUploadedFile(): bool
+    {
+        return $this->uploadedFile()->count();
+    }
+
+    /**
+     * @return string
+     */
+    public function getUploadedFileOriginalName(): string
+    {
+        if ($this->uploadedFile){
+            return $this->uploadedFile->original_name;
+        }
+
+        return $this->source;
     }
 }

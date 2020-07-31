@@ -35,7 +35,11 @@
                     <dd class="col-sm-9">{{ $resource->description }}</dd>
 
                     <dt class="col-sm-3">Link</dt>
-                    <dd class="col-sm-9">{{ $resource->source }}</dd>
+                    <dd class="col-sm-9">
+                        <a href="{{ $resource->getSourceLink() }}" target="_blank">
+                            {{ $resource->getUploadedFileOriginalName() }}
+                        </a>
+                    </dd>
 
                     <dt class="col-sm-3">Palavras-chave</dt>
                     <dd class="col-sm-9">{{ $resource->key_words }}</dd>
