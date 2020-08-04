@@ -107,6 +107,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownHelp">
+                                    <a class="dropdown-item" href="{{ route('tickets.index') }}">{{ __('Tickets') }}</a>
                                     <a class="dropdown-item" data-toggle="modal" data-target="#bugReportHelp" href="#">{{ __('Tenho uma dúvida') }}</a>
                                     <a class="dropdown-item" data-toggle="modal" data-target="#bugReportForm" href="#">{{ __('Reportar um erro') }}</a>
                                 </div>
@@ -149,55 +150,10 @@
             <div class="text-center">
                 <span class="text-muted">© {{ now()->format('Y') }} Cidadania Digital. Todos os direitos reservados.</span>
             </div>
-            <!-- Modal Help -->
-            <div class="modal fade" id="bugReportHelp" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="bugReportHelpLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="bugReportHelpLabel">Tenho uma dúvida</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <form method="post" action="{{ route('helpRequest') }}" autocomplete="false">
-                            @csrf
-                            <div class="modal-body">
-                                <label for="description">Qual sua dúvida?</label>
-                                <textarea class="form-control" name="description" rows="5" required></textarea>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-outline-primary">Enviar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <!-- Modal Report Error -->
-            <div class="modal fade" id="bugReportForm" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Reportar erro</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <form method="post" action="{{ route('bugReport') }}" autocomplete="false">
-                            @csrf
-                            <div class="modal-body">
-                                <label for="description">Descreva o erro:</label>
-                                <textarea class="form-control" name="description" rows="5" required></textarea>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-outline-primary">Enviar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
     </footer>
+    @auth
+        {{ view('tickets.modals') }}
+    @endauth
 </body>
 </html>

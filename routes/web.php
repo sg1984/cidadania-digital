@@ -35,12 +35,20 @@ Route::group(['middleware' => ['auth', 'active_user']], function() {
     Route::post('new-user', 'Auth\RegisterController@create')->name('create');
     Route::patch('users/{userId}/toggle-status', 'Auth\RegisterController@toggleStatus')->name('users.toggleStatus');
 
-    Route::post('bug-report', 'HomeController@bugReport')->name('bugReport');
-    Route::post('help-request', 'HomeController@helpRequest')->name('helpRequest');
-
     Route::resource('tags', TagController::class);
     Route::patch('tags/{tagId}/toggle-status', 'TagController@toggleStatus')->name('tags.toggleStatus');
 
     Route::resource('subjects', SubjectController::class);
     Route::patch('subjects/{resourceId}/toggle-status', 'SubjectController@toggleStatus')->name('subjects.toggleStatus');
+
+    Route::get('tickets/created', 'TicketController@myCreatedTickets')->name('tickets.myCreatedTickets');
+    Route::get('tickets/received', 'TicketController@myReceivedTickets')->name('tickets.myReceivedTickets');
+    Route::post('tickets/bug-report', 'TicketController@bugReport')->name('bugReport');
+    Route::post('tickets/help-request', 'TicketController@helpRequest')->name('helpRequest');
+    Route::post('tickets/resource-report', 'TicketController@resourceReport')->name('resourceReport');
+
+    Route::resource('tickets', TicketController::class);
+    Route::post('tickets/{ticket}/add-comment', 'TicketController@addComment')->name('tickets.addComment');
+    Route::get('tickets/{ticket}/owner', 'TicketController@editOwner')->name('tickets.editOwner');
+    Route::get('tickets/{ticket}/responsible', 'TicketController@editResponsible')->name('tickets.editResponsible');
 });

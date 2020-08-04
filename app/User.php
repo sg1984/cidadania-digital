@@ -3,6 +3,11 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -39,7 +44,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function resources()
     {
@@ -47,11 +52,27 @@ class User extends Authenticatable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return BelongsToMany
      */
     public function subjects()
     {
         return $this->belongsToMany(Subject::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function createdTickets()
+    {
+        return $this->hasMany(Ticket::class, 'created_by');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function receivedTickets()
+    {
+        return $this->hasMany(Ticket::class, 'responsible_id');
     }
 
     /**
@@ -60,5 +81,14 @@ class User extends Authenticatable
     public function isAdmin(): bool
     {
         return $this->is_admin;
+    }
+
+    /**
+     * @return Builder|Model
+     */
+    public static function getAdminUser()
+    {
+        return User::query()
+            ->firstWhere('is_admin', '=', true);
     }
 }

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Tag extends Model
 {
@@ -16,7 +17,7 @@ class Tag extends Model
     ];
 
     /**
-     * @return HasMany
+     * @return BelongsToMany
      */
     public function subjects()
     {
@@ -24,7 +25,7 @@ class Tag extends Model
     }
 
     /**
-     * @return HasMany
+     * @return BelongsToMany
      */
     public function resources()
     {

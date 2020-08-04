@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Ticket;
 use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -12,31 +13,31 @@ class ReportBug extends Mailable
 {
     use Queueable, SerializesModels;
 
+    private const TYPE_VIEW_MAPPING = [
+        Ticket::TYPE_SYSTEM_REPORT_BUG => 'mail.mail-contact',
+        Ticket::TYPE_HELP => 'mail.mail-contact',
+        Ticket::TYPE_REPORT_RESOURCE => 'mail.resource-report',
+    ];
+
     /**
      * @var User
      */
     public $user;
 
     /**
-     * @var string
+     * @var Ticket
      */
-    public $content;
+    public $ticket;
 
     /**
-     * @var string
+     * ReportBug constructor.
+     * @param User   $user
+     * @param Ticket $ticket
      */
-    public $type;
-
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct(User $user, string $type, string $content)
+    public function __construct(User $user, Ticket $ticket)
     {
         $this->user = $user;
-        $this->type = $type;
-        $this->content = $content;
+        $this->ticket = $ticket;
     }
 
     /**
@@ -46,6 +47,6 @@ class ReportBug extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.mail-contact');
+        return $this->view(self::TYPE_VIEW_MAPPING[$this->ticket->ticket_type]);
     }
 }

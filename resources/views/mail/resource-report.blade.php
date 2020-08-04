@@ -1,5 +1,10 @@
 <div>
-    <p>Olá, <b>{{ $ticket->responsible->name }}</b>, recebemos este ticket:</p>
+    <p>
+        Olá, <b>{{ $ticket->responsible->name }}</b>, recebemos um ticket relacionado ao seu documento: <br>
+        <a href="{{ route('resources.show', $ticket->resource->id) }}" target="_blank">
+            {{ $ticket->resource->title }}
+        </a>
+    </p>
 
     <p><b>Tipo de ticket:</b> {{ $ticket->getTicketTypeDescription() }} </p>
     <p><b>Usuário: </b> {{ $user->name }}</p>
