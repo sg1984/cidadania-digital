@@ -59,13 +59,14 @@
                     <dt class="col-sm-3">Idioma</dt>
                     <dd class="col-sm-9">{{ $resource->language }}</dd>
                 </dl>
-                @auth
-                    <div class="float-left">
-                        <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#resourceReportForm-{{ $resource->id }}" data-dismiss="modal">{{ __('Sugerir alteração') }}</button>
-                    </div>
-                @endauth
 
                 <a href="{{ url()->previous() }}" class="btn btn-outline-info float-right mr-3">Voltar</a>
+
+                @auth
+                    <div class="float-right">
+                        <button type="button" class="btn btn btn-outline-secondary mr-3" data-toggle="modal" data-target="#resourceReportForm-{{ $resource->id }}" data-dismiss="modal">{{ __('Sugerir alteração') }}</button>
+                    </div>
+                @endauth
             </div>
         </div>
     </div>
