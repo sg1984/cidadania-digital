@@ -22,6 +22,7 @@ class CreateTicketsTable extends Migration
             $table->foreignId('created_by');
             $table->foreignId('responsible_id');
             $table->foreignId('updated_by')->nullable();
+            $table->integer('resource_id')->nullable();
             $table->timestamps();
 
             $table->foreign('created_by')->references('id')->on('users');

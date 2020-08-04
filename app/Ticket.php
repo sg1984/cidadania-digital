@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Ticket extends Model
 {
@@ -29,10 +30,16 @@ class Ticket extends Model
     const TYPE_HELP = 2;
     const TYPE_REPORT_RESOURCE = 3;
 
+    const TYPES_TEXTS = [
+        self::TYPE_SYSTEM_REPORT_BUG => 'Bug',
+        self::TYPE_HELP => 'Dúvida',
+        self::TYPE_REPORT_RESOURCE => 'Sugestão',
+    ];
+
     protected $fillable = [
         'ticket_type', 'title', 'description',
         'status', 'created_by', 'responsible_id',
-        'updated_by', 'created_by', 'responsible_id',
+        'updated_by', 'resource_id',
     ];
 
     protected $casts = [
@@ -65,11 +72,19 @@ class Ticket extends Model
     }
 
     /**
-     * @return BelongsToMany
+     * @return HasMany
      */
     public function comments()
     {
-        return $this->belongsToMany(TicketComment::class);
+        return $this->hasMany(TicketComment::class);
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function resource()
+    {
+        return $this->belongsTo(Resource::class);
     }
 
     /**
@@ -98,5 +113,31 @@ class Ticket extends Model
     public function getStatusText()
     {
         return self::STATUSES_TEXTS[$this->status];
+    }
+
+    /**
+     * @return string
+     */
+    public function getTicketTypeDescription()
+    {
+        return self::TYPES_TEXTS[$this->ticket_type];
+    }
+
+    /**
+     * @param User $user
+     * @return bool
+     */
+    public function canEdit(User $user)
+    {
+        return $user->id === $this->created_by && $this->status === self::STATUS_OPEN;
+    }
+
+    /**
+     * @param User $user
+     * @return bool
+     */
+    public function canWork(User $user)
+    {
+        return $user->id === $this->responsible_id;
     }
 }

@@ -45,8 +45,10 @@
                             <table class="table">
                                 <thead>
                                 <tr class="table-warning">
+                                    <td>Tipo</td>
                                     <td>Título</td>
                                     <td>Criado em</td>
+                                    <td>Criado por</td>
                                     <td>Status</td>
                                     <td>Responsável</td>
                                     <td class="text-center">Ações</td>
@@ -55,16 +57,25 @@
                                 <tbody>
                                 @foreach($tickets as $ticket)
                                     <tr>
+                                        <td>{{ $ticket->getTicketTypeDescription() }}</td>
                                         <td>
                                             <a href="{{ route('tickets.show', $ticket->id) }}" class="text-reset">
                                                 <b>{{ $ticket->title }}</b>
                                             </a>
                                         </td>
                                         <td>{{ $ticket->created_at->format('Y-m-d') }}</td>
+                                        <td>{{ $ticket->createdBy->name }}</td>
                                         <td>{{ $ticket->getStatusText() }}</td>
                                         <td>{{ $ticket->responsible->name }}</td>
+
                                         <td class="text-center">
-                                            <a href="{{ route('tickets.edit', $ticket->id)}}" class="btn btn-primary btn-sm">Alterar</a>
+                                            @if($ticket->canEdit(auth()->user()))
+                                                <a href="{{ route('tickets.editOwner', $ticket->id)}}" class="btn btn-outline-primary btn-sm">Alterar</a>
+                                            @endif
+                                            @if($ticket->canWork(auth()->user()))
+                                                <a href="{{ route('tickets.editResponsible', $ticket->id)}}" class="btn btn-outline-secondary btn-sm">Resolver</a>
+                                            @endif
+                                            <a href="{{ route('tickets.show', $ticket->id)}}" class="btn btn-outline-dark btn-sm">Visualizar</a>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class TicketComment extends Model
 {
+    public const TYPE_USER_COMMENT = 1;
+    public const TYPE_SYSTEM_COMMENT = 2;
+
     protected $fillable = [
         'comment_type', 'ticket_id', 'created_by',
         'description',
