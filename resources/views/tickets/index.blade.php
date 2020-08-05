@@ -23,25 +23,27 @@
                     @endif
 
                     <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link {{ $tab === \App\Ticket::TAB_TICKETS_ALL ? 'active' : '' }}" href="{{ route('tickets.index') }}">
-                                Todos
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ $tab === \App\Ticket::TAB_TICKETS_SENT ? 'active' : '' }}" href="{{ route('tickets.myCreatedTickets') }}">
-                                Criados por mim
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ $tab === \App\Ticket::TAB_TICKETS_RECEIVED ? 'active' : '' }}" href="{{ route('tickets.myReceivedTickets') }}">
-                                Sob minha responsabilidade
-                            </a>
-                        </li>
+                        @foreach(\App\Ticket::TABS_SLUGS as $tabSlug)
+                            <li class="nav-item">
+                                <a class="nav-link {{ $tab === $tabSlug ? 'active' : '' }}" href="{{ route('tickets.tabs.index', [$tabSlug, \App\Ticket::SLUG_STATUS_OPEN]) }}">
+                                    {{ \App\Ticket::TABS_TEXTS[$tabSlug] }}
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
 
                     <div class="card-body">
-                        @if($tickets->count())
+                        <ul class="nav nav-tabs mb-3">
+                            @foreach(\App\Ticket::SLUGS_STATUSES as $statusSlug => $statusId)
+                                <li class="nav-item">
+                                    <a class="nav-link {{ $status === $statusSlug ? 'active' : '' }}" href="{{ route('tickets.tabs.index', [\App\Ticket::TABS_SLUGS[$tab], $statusSlug]) }}">
+                                        {{ \App\Ticket::STATUSES_TEXTS[$statusId] }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+
+                    @if($tickets->count())
                             <table class="table">
                                 <thead>
                                 <tr class="table-warning">

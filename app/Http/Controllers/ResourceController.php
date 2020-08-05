@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Resource;
 use App\Subject;
 use App\Tag;
+use App\Ticket;
 use App\UploadedFile;
 use App\User;
 use Illuminate\Contracts\Foundation\Application;

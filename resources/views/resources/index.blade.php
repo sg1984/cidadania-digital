@@ -10,6 +10,7 @@
                     </h5>
                 </div>
             @else
+                {{ view('tickets.open-ticket-cards', compact('tickets')) }}
                 <div class="card-header">
                     <h5>
                         Conteúdos

@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Ticket;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -95,8 +95,12 @@ class RegisterController extends Controller
     public function showUsers()
     {
         $users = User::paginate(20);
+        $tickets = Ticket::query()
+            ->byResponsibleUser(auth()->user())
+            ->byStatus(Ticket::STATUS_OPEN)
+            ->paginate(10);
 
-        return view('auth.index', compact('users'));
+        return view('auth.index', compact('users', 'tickets'));
     }
 
     /**
