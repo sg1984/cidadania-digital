@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\ReportBug;
 use App\Resource;
+use App\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -36,12 +37,17 @@ class HomeController extends Controller
         if (auth()->user()->is_admin){
             return redirect('/users');
         }
+        $tickets = Ticket::query()
+            ->byResponsibleUser(auth()->user())
+            ->byStatus([Ticket::STATUS_OPEN, Ticket::STATUS_IN_PROGRESS])
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
 
         $resources = Resource::where('created_by',auth()->id())
             ->with('subject', 'user')
             ->paginate(20);
 
-        return view('resources.index', compact('resources'));
+        return view('resources.index', compact('resources', 'tickets'));
     }
 
     public function bugReport(Request $request)

@@ -33,53 +33,29 @@ class TicketController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
+     * @param string $tab
+     * @param string $status
      * @return Application|Factory|View
      */
-    public function index()
+    public function index(string $tab = Ticket::SLUG_TAB_ALL, string $status = Ticket::SLUG_STATUS_OPEN)
     {
-        $tab = Ticket::TAB_TICKETS_ALL;
-        $tickets = Ticket::query()
-            ->with('responsible', 'createdBy')
+        $query = Ticket::query()
+            ->byStatus([Ticket::SLUGS_STATUSES[$status]])
+            ->with('responsible', 'createdBy');
+
+        if ($tab === Ticket::SLUG_TAB_CREATED) {
+            $query->byCreatedUser(auth()->user());
+        }
+
+        if ($tab === Ticket::SLUG_TAB_RECEIVED) {
+            $query->byResponsibleUser(auth()->user());
+        }
+
+        $tickets = $query
             ->orderBy('created_at', 'desc')
             ->paginate(self::PAGINATE_SIZE);
 
-        return view('tickets.index', compact('tickets', 'tab'));
-    }
-
-    /**
-     * Display a listing of tickets created by the logged user.
-     *
-     * @return Application|Factory|View
-     */
-    public function myCreatedTickets()
-    {
-        $tab = Ticket::TAB_TICKETS_SENT;
-        $tickets = Ticket::query()
-            ->byCreatedUser(auth()->user())
-            ->with('responsible', 'createdBy')
-            ->orderBy('created_at', 'desc')
-            ->paginate(self::PAGINATE_SIZE);
-
-        return view('tickets.index', compact('tickets', 'tab'));
-    }
-
-    /**
-     * Display a listing of tickets received by the logged user.
-     *
-     * @return Application|Factory|View
-     */
-    public function myReceivedTickets()
-    {
-        $tab = Ticket::TAB_TICKETS_RECEIVED;
-        $tickets = Ticket::query()
-            ->byResponsibleUser(auth()->user())
-            ->with('responsible', 'createdBy')
-            ->orderBy('created_at', 'desc')
-            ->paginate(self::PAGINATE_SIZE);
-
-        return view('tickets.index', compact('tickets', 'tab'));
+        return view('tickets.index', compact('tickets', 'tab', 'status'));
     }
 
     /**
@@ -115,10 +91,7 @@ class TicketController extends Controller
 
         $ticket = Ticket::create($storeData);
         $ticket->load(['responsible', 'resource']);
-
-        Mail::to($adminUser->email)
-            ->cc('sandrogallina1984@gmail.com')
-            ->send(new ReportBug(auth()->user(), $ticket));
+        $this->sendEmail($ticket, $adminUser);
 
         return back()->with('success', 'Ticket criado com sucesso!');
     }
@@ -136,12 +109,25 @@ class TicketController extends Controller
 
         $ticket = Ticket::create($storeData);
         $ticket->load(['responsible', 'resource']);
-
-        Mail::to($ticket->responsible->email)
-            ->cc('sandrogallina1984@gmail.com')
-            ->send(new ReportBug(auth()->user(), $ticket));
+        $this->sendEmail($ticket);
 
         return back()->with('success', 'Ticket criado com sucesso!');
+    }
+
+    /**
+     * @param Ticket    $ticket
+     * @param User|null $user
+     */
+    private function sendEmail(Ticket $ticket, User $user = null) {
+        if ($user) {
+            $emailTo = $user->email;
+        } else {
+            $emailTo = $ticket->responsible->email;
+        }
+
+//        Mail::to($emailTo)
+//            ->cc('sandrogallina1984@gmail.com')
+//            ->send(new ReportBug(auth()->user(), $ticket));
     }
 
     /**
@@ -195,6 +181,10 @@ class TicketController extends Controller
      */
     public function editOwner(Ticket $ticket)
     {
+        if (auth()->id() !== $ticket->createdBy){
+            return $this->show($ticket);
+        }
+
         return $this->edit($ticket, 'tickets.edit-owner');
     }
 
@@ -215,11 +205,11 @@ class TicketController extends Controller
     public function update(Request $request, Ticket $ticket)
     {
         try {
-            $newStatus = $request->get('status');
+            $newStatus = (int) $request->get('status');
             $newTitle = $request->get('title');
             $newDescription = $request->get('description');
             $storeData = [];
-            if ($newStatus) {
+            if (is_numeric($newStatus)) {
                 $storeData['status'] = $newStatus;
                 $comment = new TicketComment([
                     'description' => 'Mudou o status do ticket de "' . $ticket->getStatusText() . '" para "' . Ticket::STATUSES_TEXTS[$newStatus] . '"',

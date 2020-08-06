@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <div class="push-top">
+            {{ view('tickets.open-ticket-cards', compact('tickets')) }}
             <div class="card-header">
                 <h5>
                     Pesquisadores

@@ -41,13 +41,12 @@ Route::group(['middleware' => ['auth', 'active_user']], function() {
     Route::resource('subjects', SubjectController::class);
     Route::patch('subjects/{resourceId}/toggle-status', 'SubjectController@toggleStatus')->name('subjects.toggleStatus');
 
-    Route::get('tickets/created', 'TicketController@myCreatedTickets')->name('tickets.myCreatedTickets');
-    Route::get('tickets/received', 'TicketController@myReceivedTickets')->name('tickets.myReceivedTickets');
     Route::post('tickets/bug-report', 'TicketController@bugReport')->name('bugReport');
     Route::post('tickets/help-request', 'TicketController@helpRequest')->name('helpRequest');
     Route::post('tickets/resource-report', 'TicketController@resourceReport')->name('resourceReport');
 
     Route::resource('tickets', TicketController::class);
+    Route::get('tickets/management/{tab}/{status?}', 'TicketController@index')->name('tickets.tabs.index');
     Route::post('tickets/{ticket}/add-comment', 'TicketController@addComment')->name('tickets.addComment');
     Route::get('tickets/{ticket}/owner', 'TicketController@editOwner')->name('tickets.editOwner');
     Route::get('tickets/{ticket}/responsible', 'TicketController@editResponsible')->name('tickets.editResponsible');
