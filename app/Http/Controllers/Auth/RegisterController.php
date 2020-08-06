@@ -97,7 +97,7 @@ class RegisterController extends Controller
         $users = User::paginate(20);
         $tickets = Ticket::query()
             ->byResponsibleUser(auth()->user())
-            ->byStatus(Ticket::STATUS_OPEN)
+            ->byStatus([Ticket::STATUS_OPEN, Ticket::STATUS_IN_PROGRESS])
             ->paginate(10);
 
         return view('auth.index', compact('users', 'tickets'));
