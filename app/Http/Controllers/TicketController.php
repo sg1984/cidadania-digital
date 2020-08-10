@@ -125,9 +125,9 @@ class TicketController extends Controller
             $emailTo = $ticket->responsible->email;
         }
 
-//        Mail::to($emailTo)
-//            ->cc('sandrogallina1984@gmail.com')
-//            ->send(new ReportBug(auth()->user(), $ticket));
+        Mail::to($emailTo)
+            ->cc('sandrogallina1984@gmail.com')
+            ->send(new ReportBug(auth()->user(), $ticket));
     }
 
     /**

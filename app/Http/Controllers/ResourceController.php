@@ -39,16 +39,7 @@ class ResourceController extends Controller
      */
     public function index()
     {
-        $resources = Resource::with('subject', 'user', 'tags');
-        if (!auth()->user()->isAdmin()) {
-            $resources->where('created_by', auth()->id());
-        }
-
-        $resources = $resources
-            ->orderBy('created_at', 'desc')
-            ->paginate(20);
-
-        return view('resources.index', compact('resources'));
+        return redirect()->route('home');
     }
 
     /**
@@ -121,7 +112,7 @@ class ResourceController extends Controller
             return back()->withInput()->withErrors(['Erro ao salvar o documento, favor tentar novamente. Erro: ' . $e->getMessage()]);
         }
 
-        return redirect()->route('resources.index')->with('success', 'Documento salvo com sucesso');
+        return redirect()->route('home')->with('success', 'Documento salvo com sucesso');
     }
 
     /**
@@ -221,7 +212,7 @@ class ResourceController extends Controller
             return back()->withInput()->withErrors(['Erro ao atualizar o documento, favor tentar novamente. Erro: ' . $e->getMessage()]);
         }
 
-        return redirect()->route('resources.index')->with('success', 'Documento atualizado com sucesso');
+        return redirect()->route('home')->with('success', 'Documento atualizado com sucesso');
     }
 
     /**
