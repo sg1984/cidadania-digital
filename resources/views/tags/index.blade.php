@@ -23,6 +23,8 @@
                     {{ session()->get('error') }}
                 </div><br />
             @endif
+            <input class="form-control" id="search-tags-table" type="text" placeholder="Busca...">
+            <br>
             <table class="table">
                 <thead>
                 <tr class="table-warning">
@@ -32,10 +34,10 @@
                     <td class="text-center">Ações</td>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="tags-table-body">
                 @foreach($tags as $tag)
                     <tr>
-                        <td>
+                        <td data-search='1'>
                             <a href="{{ route('tags.show', $tag->id) }}" class="text-reset">
                                 <b>{{$tag->name}}</b>
                             </a>
@@ -75,9 +77,4 @@
                 @endforeach
                 </tbody>
             </table>
-            <div>
-                <div class="row d-flex justify-content-center">
-                    {{ $tags->render() }}
-                </div>
-            </div>
 @endsection

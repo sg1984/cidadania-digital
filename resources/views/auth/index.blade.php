@@ -24,6 +24,9 @@
                     {{ session()->get('error') }}
                 </div><br />
             @endif
+            <input class="form-control" id="search-users-table" type="text" placeholder="Busca...">
+            <br>
+
             <table class="table">
                 <thead>
                 <tr class="table-warning">
@@ -35,15 +38,15 @@
                     @endif
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="users-table-body">
                 @foreach($users as $user)
                     <tr>
-                        <td>
+                        <td data-search='1'>
                             <a href="{{route('showByUser', $user->id)}}">
                                 {{$user->name }}
                             </a>
                         </td>
-                        <td>{{$user->email}}</td>
+                        <td data-search='1'>{{$user->email}}</td>
                         <td>{{$user->created_at->format('Y-m-d')}}</td>
                         <td class="text-center">
                             <a href="{{ route('editUser', $user->id)}}" class="btn btn-primary btn-sm">Alterar</a>
@@ -61,9 +64,4 @@
                 @endforeach
                 </tbody>
             </table>
-            <div>
-                <div class="row d-flex justify-content-center">
-                    {{ $users->render() }}
-                </div>
-            </div>
 @endsection

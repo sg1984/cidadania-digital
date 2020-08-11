@@ -30,7 +30,7 @@ class SubjectController extends Controller
         $subjects = Subject::query()
             ->with('tags')
             ->orderBy('name')
-            ->paginate(20);
+            ->get();
 
         return view('subjects.index', compact('subjects'));
     }
