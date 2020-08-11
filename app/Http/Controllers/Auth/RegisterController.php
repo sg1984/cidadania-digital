@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewRegister;
 use App\Providers\RouteServiceProvider;
 use App\Ticket;
 use App\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\View\View;
 
 class RegisterController extends Controller
 {
@@ -67,15 +72,17 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
-     * @return \App\User
+     * @param Request $request
+     * @return Application|Factory|View
      */
     protected function create(Request $request)
     {
+        $password = $request->get('password');
+        $email = $request->get('email');
         $user = User::create([
             'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'password' => Hash::make($request->get('password'))
+            'email' => $email,
+            'password' => Hash::make($password)
         ]);
         $user->subjects()->attach(
             $request->get('subject_id'),
@@ -85,12 +92,19 @@ class RegisterController extends Controller
             ]
         );
         $users = User::paginate(20);
+        $tickets = Ticket::query()
+            ->byResponsibleUser(auth()->user())
+            ->byStatus([Ticket::STATUS_OPEN, Ticket::STATUS_IN_PROGRESS])
+            ->paginate(10);
 
-        return view('auth.index', compact('users'))->with('success', 'Pesquisador incluído com sucesso');;
+        Mail::to($email)
+            ->send(new NewRegister($user, $password));
+
+        return view('auth.index', compact('users', 'tickets'))->with('success', 'Pesquisador incluído com sucesso');;
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function showUsers()
     {
@@ -119,7 +133,7 @@ class RegisterController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      * @throws \Exception
      */
     protected function updateUser(Request $request)
@@ -140,13 +154,17 @@ class RegisterController extends Controller
             ]
         );
         $users = User::paginate(20);
+        $tickets = Ticket::query()
+            ->byResponsibleUser(auth()->user())
+            ->byStatus([Ticket::STATUS_OPEN, Ticket::STATUS_IN_PROGRESS])
+            ->paginate(10);
 
-        return view('auth.index', compact('users'))->with('success', 'Documento atualizado com sucesso');;
+        return redirect()->to('auth.index', compact('users', 'tickets'))->with('success', 'Documento atualizado com sucesso');;
     }
 
     /**
      * @param int $userId
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
      */
     protected function toggleStatus(int $userId)
     {
@@ -156,7 +174,11 @@ class RegisterController extends Controller
             'is_active' => $new_is_active_status
         ]);
         $users = User::paginate(20);
+        $tickets = Ticket::query()
+            ->byResponsibleUser(auth()->user())
+            ->byStatus([Ticket::STATUS_OPEN, Ticket::STATUS_IN_PROGRESS])
+            ->paginate(10);
 
-        return view('auth.index', compact('users'))->with('success', 'Documento atualizado com sucesso');;
+        return view('auth.index', compact('users', 'tickets'))->with('success', 'Documento atualizado com sucesso');;
     }
 }
