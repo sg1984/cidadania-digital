@@ -65862,6 +65862,26 @@ $(".form-delete").on("submit", function () {
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
+$(document).ready(function () {
+  $("#search-tags-table").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#tags-table-body tr td[data-search='1']").filter(function () {
+      $($(this).parent()[0]).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+  });
+  $("#search-subjects-table").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#subjects-table-body tr td[data-search='1']").filter(function () {
+      $($(this).parent()[0]).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+  });
+  $("#search-users-table").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#users-table-body tr td[data-search='1']").filter(function () {
+      $($(this).parent()[0]).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+  });
+});
 
 /***/ }),
 

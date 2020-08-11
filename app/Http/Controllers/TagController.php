@@ -28,7 +28,7 @@ class TagController extends Controller
     {
         $tags = Tag::query()
             ->orderBy('name')
-            ->paginate(20);
+            ->get();
 
         return view('tags.index', compact('tags'));
     }

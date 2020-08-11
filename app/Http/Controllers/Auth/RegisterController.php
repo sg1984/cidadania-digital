@@ -108,7 +108,7 @@ class RegisterController extends Controller
      */
     public function showUsers()
     {
-        $users = User::paginate(20);
+        $users = User::all();
         $tickets = Ticket::query()
             ->byResponsibleUser(auth()->user())
             ->byStatus([Ticket::STATUS_OPEN, Ticket::STATUS_IN_PROGRESS])
