@@ -37,7 +37,7 @@ class Tag extends Model
      */
     public function canBeExcluded()
     {
-        return ! ($this->subjects()->exists() || $this->subjects()->exists());
+        return ! ($this->subjects()->exists() || $this->resources()->exists());
     }
 
     /**
