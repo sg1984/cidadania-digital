@@ -3,14 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Tag;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
 
 class TagController extends Controller
 {
     /**
      * TagController constructor.
      *
-     * @return void|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     * @return void|Redirector|RedirectResponse
      */
     public function __construct()
     {
@@ -20,9 +25,7 @@ class TagController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -34,9 +37,7 @@ class TagController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -44,26 +45,32 @@ class TagController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
-        $storeData = $request->all(['name']);
-        $storeData['is_active'] = $request->get('is_active') ? true : false;
+        $tagsToStore = explode(';', $request->get('name'));
+        $savedTags = 0;
+        foreach ($tagsToStore as $tagName) {
+            if($tagName){
+                $storeData['name'] = trim($tagName);
+                $storeData['is_active'] = $request->get('is_active') ? true : false;
+                Tag::create($storeData);
+                $savedTags++;
+            }
+        }
 
-        $tag = Tag::create($storeData);
+        if ($savedTags && $savedTags > 0) {
+            return redirect()->route('tags.index')->with('success', 'Foram salvas ' . $savedTags . ' tag(s).');
+        }
 
-        return redirect()->route('tags.index')->with('success', 'Tag salva com sucesso');
+        return back()->withInput()->withErrors(['Erro ao salvar as tags, favor tentar novamente!']);
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Tag  $tag
-     * @return \Illuminate\Http\Response
+     * @param Tag $tag
+     * @return Application|Factory|View
      */
     public function show(Tag $tag)
     {
@@ -71,10 +78,8 @@ class TagController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Tag  $tag
-     * @return \Illuminate\Http\Response
+     * @param Tag $tag
+     * @return Application|Factory|View
      */
     public function edit(Tag $tag)
     {
@@ -82,11 +87,9 @@ class TagController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Tag  $tag
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Tag     $tag
+     * @return RedirectResponse
      */
     public function update(Request $request, Tag $tag)
     {
@@ -99,10 +102,9 @@ class TagController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Tag  $tag
-     * @return \Illuminate\Http\Response
+     * @param Tag $tag
+     * @return RedirectResponse
+     * @throws \Exception
      */
     public function destroy(Tag $tag)
     {
@@ -119,7 +121,7 @@ class TagController extends Controller
      * Change the status of the tag
      *
      * @param int $tagId
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function toggleStatus(int $tagId)
     {

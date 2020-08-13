@@ -20,17 +20,6 @@ use Illuminate\View\View;
 
 class ResourceController extends Controller
 {
-    /**
-     * ResourceController constructor.
-     *
-     * @return void|Redirector|RedirectResponse
-     */
-    public function __construct()
-    {
-        if(!auth()->check()) {
-            return redirect('/resources');
-        }
-    }
 
     /**
      * Display a listing of the resource.
@@ -43,12 +32,14 @@ class ResourceController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
+     * @return Application|Factory|RedirectResponse|View
      */
     public function create()
     {
+        if(is_null(auth()->id()) || !auth()->check()) {
+            return redirect()->to('home');
+        }
+
         $resource = new Resource();
         $tags = Tag::query()
             ->isActive()
@@ -68,6 +59,10 @@ class ResourceController extends Controller
      */
     public function store(Request $request)
     {
+        if(is_null(auth()->id()) || !auth()->check()) {
+            return redirect()->to('home');
+        }
+
         try {
             $uploadedFile = $request->file('source_file');
             $sourceLink = $request->get('source');
@@ -101,7 +96,21 @@ class ResourceController extends Controller
             $storeData['created_by'] = auth()->id();
             $storeData['published_at'] = $request->get('publish_now') ? new \DateTime() : null;
             $resource = Resource::create($storeData);
-            $resource->tags()->attach($request->get('tags'), [
+
+            $tags = $request->get('tags');
+            $tagsToAttach = [];
+            foreach ($tags as $tag) {
+                if (is_numeric($tag)){
+                    $tagsToAttach[] = $tag;
+                } else {
+                    $storeTagData['name'] = trim($tag);
+                    $storeTagData['is_active'] = true;
+                    $newTag = Tag::create($storeTagData);
+                    $tagsToAttach[] = $newTag->id;
+                }
+            }
+
+            $resource->tags()->attach($tagsToAttach, [
                 'created_at' => new \DateTime(),
                 'updated_at' => new \DateTime(),
             ]);
@@ -116,10 +125,8 @@ class ResourceController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
      * @param Resource $resource
-     * @return Response
+     * @return Application|Factory|View
      */
     public function show(Resource $resource)
     {
@@ -127,13 +134,15 @@ class ResourceController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
      * @param Resource $resource
-     * @return Response
+     * @return Application|Factory|RedirectResponse|View
      */
     public function edit(Resource $resource)
     {
+        if(is_null(auth()->id()) || !auth()->check()) {
+            return redirect()->to('home');
+        }
+
         $tags = Tag::query()
             ->isActive()
             ->orderBy('name')
@@ -153,6 +162,10 @@ class ResourceController extends Controller
      */
     public function update(Request $request, Resource $resource)
     {
+        if(is_null(auth()->id()) || !auth()->check()) {
+            return redirect()->to('home');
+        }
+
         try {
             $uploadedFile = $request->file('source_file');
             $sourceFormLink = $request->get('source');
@@ -197,7 +210,22 @@ class ResourceController extends Controller
             $oldTags = $resource->tags()->pluck('id');
             $resource->update($storeData);
             $resource->tags()->detach($oldTags);
-            $resource->tags()->attach($request->get('tags'), [
+
+            $tags = $request->get('tags');
+            $tagsToAttach = [];
+            foreach ($tags as $tag) {
+                if (is_numeric($tag)){
+                    $tagsToAttach[] = $tag;
+                } else {
+                    $storeTagData['name'] = trim($tag);
+                    $storeTagData['is_active'] = true;
+                    $newTag = Tag::create($storeTagData);
+                    $tagsToAttach[] = $newTag->id;
+                }
+            }
+
+
+            $resource->tags()->attach($tagsToAttach, [
                 'created_at' => new \DateTime(),
                 'updated_at' => new \DateTime(),
             ]);
@@ -216,14 +244,16 @@ class ResourceController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
      * @param Resource $resource
-     * @return Response
+     * @return RedirectResponse
      * @throws \Exception
      */
     public function destroy(Resource $resource)
     {
+        if(is_null(auth()->id()) || !auth()->check()) {
+            return redirect()->to('home');
+        }
+
         $resource->delete();
 
         return redirect()->route('resources.index')->with('success', 'Documento apagado com sucesso!');

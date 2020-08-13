@@ -21,24 +21,16 @@ class TicketController extends Controller
     private const PAGINATE_SIZE = 20;
 
     /**
-     * TicketController constructor.
-     *
-     * @return void|Redirector|RedirectResponse
-     */
-    public function __construct()
-    {
-        if(!auth()->check()) {
-            return redirect('/');
-        }
-    }
-
-    /**
      * @param string $tab
      * @param string $status
      * @return Application|Factory|View
      */
     public function index(string $tab = Ticket::SLUG_TAB_ALL, string $status = Ticket::SLUG_STATUS_OPEN)
     {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+
         $query = Ticket::query()
             ->byStatus([Ticket::SLUGS_STATUSES[$status]])
             ->with('responsible', 'createdBy');
@@ -64,6 +56,10 @@ class TicketController extends Controller
      */
     public function bugReport(Request $request)
     {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+
         return $this->createTicketToAdmin($request, Ticket::TYPE_SYSTEM_REPORT_BUG);
     }
 
@@ -73,6 +69,10 @@ class TicketController extends Controller
      */
     public function helpRequest(Request $request)
     {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+
         return $this->createTicketToAdmin($request, Ticket::TYPE_HELP);
     }
 
@@ -102,6 +102,10 @@ class TicketController extends Controller
      */
     public function resourceReport(Request $request)
     {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+
         $storeData = $request->all(['description', 'title', 'responsible_id', 'resource_id']);
         $storeData['ticket_type'] = Ticket::TYPE_REPORT_RESOURCE;
         $storeData['created_by'] = auth()->user()->id;
@@ -138,6 +142,10 @@ class TicketController extends Controller
      */
     public function show(Ticket $ticket)
     {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+
         $ticket->load(['createdBy', 'responsible', 'comments.createdBy', 'resource']);
 
         return view('tickets.show', compact('ticket'));
@@ -150,6 +158,10 @@ class TicketController extends Controller
      */
     public function addComment(Request $request, Ticket $ticket)
     {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+
         $comment = new TicketComment([
             'description' => $request->get('description'),
             'comment_type' => TicketComment::TYPE_USER_COMMENT,
@@ -170,6 +182,10 @@ class TicketController extends Controller
      */
     public function edit(Ticket $ticket, string $blade)
     {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+
         $ticket->load(['createdBy', 'responsible', 'comments.createdBy']);
 
         return view($blade, compact('ticket'));
@@ -181,6 +197,10 @@ class TicketController extends Controller
      */
     public function editOwner(Ticket $ticket)
     {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+
         if (auth()->id() !== $ticket->createdBy){
             return $this->show($ticket);
         }
@@ -194,6 +214,10 @@ class TicketController extends Controller
      */
     public function editResponsible(Ticket $ticket)
     {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+
         return $this->edit($ticket, 'tickets.edit-responsible');
     }
 
@@ -204,6 +228,10 @@ class TicketController extends Controller
      */
     public function update(Request $request, Ticket $ticket)
     {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+
         try {
             $newStatus = (int) $request->get('status');
             $newTitle = $request->get('title');

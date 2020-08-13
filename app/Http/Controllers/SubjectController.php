@@ -4,26 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Subject;
 use App\Tag;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
 
 class SubjectController extends Controller
 {
     /**
-     * SubjectController constructor.
-     *
-     * @return void|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
-     */
-    public function __construct()
-    {
-        if(!auth()->check()) {
-            return redirect('/');
-        }
-    }
-
-    /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -36,12 +30,14 @@ class SubjectController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|RedirectResponse|Redirector|View
      */
     public function create()
     {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+
         $tags = Tag::query()
             ->isActive()
             ->orderBy('name')
@@ -51,19 +47,33 @@ class SubjectController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function store(Request $request)
     {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+
         $storeData = $request->all(['name']);
         $storeData['created_by'] = auth()->id();
         $storeData['is_active'] = $request->get('is_active') ? true : false;
+        $tags = $request->get('tags');
+        $tagsToAttach = [];
+        foreach ($tags as $tag) {
+            if (is_numeric($tag)){
+                $tagsToAttach[] = $tag;
+            } else {
+                $storeTagData['name'] = trim($tag);
+                $storeTagData['is_active'] = true;
+                $newTag = Tag::create($storeTagData);
+                $tagsToAttach[] = $newTag->id;
+            }
+        }
 
         $subject = Subject::create($storeData);
-        $subject->tags()->attach($request->get('tags'),[
+        $subject->tags()->attach($tagsToAttach,[
             'created_at' => new \DateTime(),
             'updated_at' => new \DateTime(),
         ]);
@@ -72,10 +82,8 @@ class SubjectController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Subject  $subject
-     * @return \Illuminate\Http\Response
+     * @param Subject $subject
+     * @return Application|Factory|View
      */
     public function show(Subject $subject)
     {
@@ -85,13 +93,15 @@ class SubjectController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Subject  $subject
-     * @return \Illuminate\Http\Response
+     * @param Subject $subject
+     * @return Application|Factory|RedirectResponse|Redirector|View
      */
     public function edit(Subject $subject)
     {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+
         $subject->load('tags');
         $tags = Tag::query()
             ->isActive()
@@ -102,21 +112,37 @@ class SubjectController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Subject  $subject
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Subject $subject
+     * @return Application|RedirectResponse|Redirector
      */
     public function update(Request $request, Subject $subject)
     {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+
         $storeData = $request->all(['name']);
         $storeData['is_active'] = $request->get('is_active') ? true : false;
 
         $oldTags = $subject->tags()->pluck('id');
         $subject->update($storeData);
         $subject->tags()->detach($oldTags);
-        $subject->tags()->attach($request->get('tags'),[
+
+        $tags = $request->get('tags');
+        $tagsToAttach = [];
+        foreach ($tags as $tag) {
+            if (is_numeric($tag)){
+                $tagsToAttach[] = $tag;
+            } else {
+                $storeTagData['name'] = trim($tag);
+                $storeTagData['is_active'] = true;
+                $newTag = Tag::create($storeTagData);
+                $tagsToAttach[] = $newTag->id;
+            }
+        }
+
+        $subject->tags()->attach($tagsToAttach,[
             'created_at' => new \DateTime(),
             'updated_at' => new \DateTime(),
         ]);
@@ -125,13 +151,16 @@ class SubjectController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Subject  $subject
-     * @return \Illuminate\Http\Response
+     * @param Subject $subject
+     * @return Application|RedirectResponse|Redirector
+     * @throws \Exception
      */
     public function destroy(Subject $subject)
     {
+        if(!auth()->check()) {
+            return redirect('/');
+        }
+
         if(! $subject->canBeExcluded()) {
             return redirect()->route('subjects.index')->with('error', 'A verbete não pode ser removida pois existe conteúdo associada a ela!');
         }
@@ -146,7 +175,7 @@ class SubjectController extends Controller
      * Change the status of the tag
      *
      * @param int $subjectId
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function toggleStatus(int $subjectId)
     {
