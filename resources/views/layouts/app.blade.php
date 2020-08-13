@@ -16,11 +16,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fa/css/all.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/select2/select2.min.css') }}" rel="stylesheet" />
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/bootstrap-select.min.js') }}" defer></script>
+    <script src="{{ asset('js/select2/select2.min.js') }}" defer></script>
 </head>
 <body>
     <div id="app">

@@ -20,7 +20,7 @@
                 <form method="post" action="{{ route('tags.store') }}" autocomplete="off">
                     @csrf
                     <div class="form-group">
-                        <label for="name">Nome</label>
+                        <label for="name">Tag (Para incluir mais de uma, separe as tags com ";")</label>
                         <input type="text" class="form-control" name="name" required autocomplete="false"/>
                     </div>
                     <div class="form-check mt-4">

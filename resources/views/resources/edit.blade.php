@@ -43,17 +43,6 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="tags">
-                                Relações (Tags Relacionadas)
-                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Tags relacionadas ou que tangenciam o assunto abordado neste documento."></i>
-                            </label>
-                            <select class="form-control selectpicker" id="tags" name="tags[]" multiple>
-                                @foreach($tags as $tag)
-                                    <option value="{{$tag->id}}" {{ ($resource->id ? $resource->isTagSelected($tag->id) : (old('tags') ? in_array($tag->id, old('tags')) : false)) ? 'selected' : ''}}>{{ $tag->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-md-4">
                             <label for="format_id">
                                 Tipo *
                                 <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Tipo do documento (texto, vídeo, áudio e imagem)."></i>
@@ -61,6 +50,17 @@
                             <select class="form-control selectpicker" id="format_id" name="format_id" required>
                                 @foreach($formats as $key => $name)
                                     <option value="{{$key}}" {{ ($resource->id ? $resource->format_id : old('format_id')) === $key ? 'selected' : ''}}>{{ $name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="tags">
+                                Relações (Tags Relacionadas)
+                                <i class="fas fa-info-circle text-secondary" data-toggle="tooltip" data-placement="top" title="Tags relacionadas ou que tangenciam o assunto abordado neste documento."></i>
+                            </label>
+                            <select class="form-control" id="tags" name="tags[]" multiple required>
+                                @foreach($tags as $tag)
+                                    <option value="{{$tag->id}}" {{ ($resource->id ? $resource->isTagSelected($tag->id) : (old('tags') ? in_array($tag->id, old('tags')) : false)) ? 'selected' : ''}}>{{ $tag->name }}</option>
                                 @endforeach
                             </select>
                         </div>
