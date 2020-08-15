@@ -335,6 +335,7 @@ class ResourceController extends Controller
             ->published()
             ->orderBy('created_at', 'desc')
             ->paginate(20);
+        $resources->appends(['search' => $searchRequest]);
 
         return view('resources.contents', compact('resources', 'searchBy'));
     }
