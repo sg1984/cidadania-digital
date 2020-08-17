@@ -48,4 +48,32 @@ class Tag extends Model
     {
         return $query->where('is_active', '=', true);
     }
+
+
+    /**
+     * @param array $storeData
+     * @return Tag|null
+     */
+    public static function findOrCreate(array $storeData):? Tag
+    {
+        $name = $storeData['name'];
+        if ($name) {
+            $tag = Tag::query()
+                ->whereRaw("UPPER(name) = '" . strtoupper($name) . "'")
+                ->first();
+
+            if($tag){
+                return $tag;
+            }
+
+            return Tag::create($storeData);
+        }
+
+        return null;
+    }
+
+    public function scopeByName(Builder $query, string $name)
+    {
+        return $query->where('name', '=', $name);
+    }
 }

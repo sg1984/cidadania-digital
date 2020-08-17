@@ -56,7 +56,7 @@ class TagController extends Controller
             if($tagName){
                 $storeData['name'] = trim($tagName);
                 $storeData['is_active'] = $request->get('is_active') ? true : false;
-                Tag::create($storeData);
+                Tag::findOrCreate($storeData);
                 $savedTags++;
             }
         }

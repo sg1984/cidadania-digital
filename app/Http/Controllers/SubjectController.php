@@ -67,7 +67,7 @@ class SubjectController extends Controller
             } else {
                 $storeTagData['name'] = trim($tag);
                 $storeTagData['is_active'] = true;
-                $newTag = Tag::create($storeTagData);
+                $newTag = Tag::findOrCreate($storeTagData);
                 $tagsToAttach[] = $newTag->id;
             }
         }
@@ -137,7 +137,7 @@ class SubjectController extends Controller
             } else {
                 $storeTagData['name'] = trim($tag);
                 $storeTagData['is_active'] = true;
-                $newTag = Tag::create($storeTagData);
+                $newTag = Tag::findOrCreate($storeTagData);
                 $tagsToAttach[] = $newTag->id;
             }
         }
