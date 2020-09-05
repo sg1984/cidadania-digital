@@ -201,6 +201,8 @@ class TicketController extends Controller
             return redirect('/');
         }
 
+        $ticket->load('responsible', 'createdBy');
+
         if (auth()->id() !== $ticket->createdBy){
             return $this->show($ticket);
         }

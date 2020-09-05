@@ -52,6 +52,15 @@
                     <p class="card-text">
                         {{ $ticket->description }}
                     </p>
+                    @if ($ticket->resource)
+                        <hr>
+                        <h6 class="card-subtitle text-muted">
+                            Ticket criado como sugestão para o documento:
+                            <a href="{{ route('resources.show', $ticket->resource->id) }}" target="_blank">
+                                {{ $ticket->resource->title }}
+                            </a>
+                        </h6>
+                    @endif
                     <div class="row">
                         <div class="col-sm-12">
                             <button type="submit" class="btn btn-primary float-right">Atualizar status</button>
