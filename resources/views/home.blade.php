@@ -22,7 +22,7 @@
         <div class="container pt-5 pb-5">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <h2>Diretório de Conteúdos</h2>
+                    <h2 class="home-title">Diretório de Conteúdos</h2>
                     <p>
                         O Diretório de Conteúdos (DC), em fase inicial de desenvolvimento, funciona como o core da plataforma de Cidadania Digital. Neste espaço estão sendo disponibilizados artigos, arquivos de áudio e vídeo (filmes, docs, entrevistas, podcasts, etc) e imagens relacionadas à temática da cidadania digital. Este banco de dados é alimentado manualmente por professores e pesquisadores que são responsáveis por preencher um conjunto de metadados relacionados a cada informação (artigo, vídeo, áudio ou imagem) que é indexada no DC. Inicialmente, a plataforma não irá armazenar nenhum conteúdo em servidores próprios e todas as informações já estão disponibilizadas online em outros repositórios. Seu funcionamento será como um hub de conteúdos pertinentes cabendo aos professores e pesquisadores a curadoria e alimentação da plataforma com os metadados necessários para o redirecionamento dos conteúdos.
                     </p>
