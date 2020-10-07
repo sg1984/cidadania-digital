@@ -45,3 +45,41 @@ body {
     padding-right: 80px;
     padding-left: 80px;
 }
+
+.menu-navbar, .dropdown-menu {
+    background-color: rgb(198 222 232);
+}
+
+.navbar-light .navbar-nav .nav-link,
+.card-header a, .modal-header a {
+    color: #224A59;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.dropdown-item:hover {
+    font-weight: bold;
+    background-color: rgb(198 222 232);
+}
+
+.btn-outline-info {
+    color: #4B8CA6;
+    border-color: #4B8CA6;
+}
+
+.btn-outline-info:hover {
+    color: #212529;
+    background-color: #A3C9D9;
+    border-color: #A3C9D9;
+}
+
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(163,201,217,0.25);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-title, h2.home-title {
+    color: #224A59;
+    font-weight: bold;
+}
