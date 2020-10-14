@@ -30,7 +30,7 @@
         <nav class="navbar navbar-expand-md navbar-light menu-navbar shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ url('/images/cidig_logo.png') }}" height="45em" alt="Logo Plataforma Cidadania Digital">
+                    <img src="{{ url('/images/cidig_logo_white.png') }}" height="45em" alt="Logo Plataforma Cidadania Digital">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -95,7 +95,7 @@
                                             </label>
                                         </div>
                                         <div class="form-group mt-1">
-                                            <button type="submit" class="btn btn-outline-info">
+                                            <button type="submit" class="btn b-info">
                                                 {{ __('Entrar') }}
                                             </button>
                                         </div>

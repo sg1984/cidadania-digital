@@ -47,18 +47,19 @@ body {
 }
 
 .menu-navbar, .dropdown-menu {
-    background-color: rgb(198 222 232);
+    background-color: #224A59;
 }
 
 .navbar-light .navbar-nav .nav-link,
-.card-header a, .modal-header a {
-    color: #224A59;
+.card-header a, .dropdown-menu a, .modal-header a, .modal-header button {
+    color: white;
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
 .dropdown-item:hover {
     font-weight: bold;
-    background-color: rgb(198 222 232);
+    background-color: #224A59;
+    color: white;
 }
 
 .btn-outline-info {
@@ -72,14 +73,18 @@ body {
     border-color: #A3C9D9;
 }
 
-.card-header {
+.card-header, .modal-header {
     padding: 0.75rem 1.25rem;
     margin-bottom: 0;
-    background-color: rgba(163,201,217,0.25);
+    background-color: #224A59;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .card-title, h2.home-title {
     color: #224A59;
     font-weight: bold;
+}
+
+.dropdown-item.disabled, .nav-item .nav-link.disabled {
+    color: rgba(255, 255, 255, 0.5) !important;
 }
