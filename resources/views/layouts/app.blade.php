@@ -78,7 +78,7 @@
                                     {{ __('Login') }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="navbarDropdownLogin">
+                                <div id="navbarDropdownLoginForm" class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="navbarDropdownLogin">
                                     <form method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="form-group">
@@ -95,7 +95,7 @@
                                             </label>
                                         </div>
                                         <div class="form-group mt-1">
-                                            <button type="submit" class="btn b-info">
+                                            <button type="submit" class="btn btn-outline-info">
                                                 {{ __('Entrar') }}
                                             </button>
                                         </div>
