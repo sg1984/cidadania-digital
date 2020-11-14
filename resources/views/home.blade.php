@@ -55,7 +55,7 @@
     </div>
 
     <div class="container">
-        @if(auth() && in_array(auth()->id(), explode(',', env('WIKI_ACESS_USERS'))) && auth()->user() && auth()->user()->getWikiAccessToken() )
+        @if(auth()->user() && auth()->user()->hasWikiAccess())
             {{ view('new-next-steps') }}
         @else
             <div class="row pt-5 pb-5">
