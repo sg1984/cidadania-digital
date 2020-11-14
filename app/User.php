@@ -22,7 +22,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password', 'is_admin', 'remember_token',
-        'is_active'
+        'is_active', 'wiki_access_token'
     ];
 
     /**
@@ -90,5 +90,21 @@ class User extends Authenticatable
     {
         return User::query()
             ->firstWhere('is_admin', '=', true);
+    }
+
+    public function getWikiAccessToken()
+    {
+        return $this->wiki_access_token;
+    }
+
+    public function getWikiUrl()
+    {
+        $baseUrl = env('WIKI_BASE_URL');
+
+        if($this->getWikiAccessToken()) {
+            $baseUrl .= 'api.php?action=loginWithToken&format=json&loginToken=' . $this->getWikiAccessToken();
+        }
+
+        return $baseUrl;
     }
 }
