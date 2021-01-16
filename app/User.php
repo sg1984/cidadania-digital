@@ -110,7 +110,6 @@ class User extends Authenticatable
 
     public function hasWikiAccess()
     {
-        return $this->getWikiAccessToken()
-            && in_array($this->id, explode(',', env('WIKI_ACCESS_USERS')));
+        return $this->getWikiAccessToken();
     }
 }
