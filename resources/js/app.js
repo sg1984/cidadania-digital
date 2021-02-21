@@ -64,3 +64,42 @@ $(document).ready(function(){
         });
     });
 });
+
+$('#content-directory').carousel({
+    interval: 10000
+})
+
+$('#wiki-cidadania').carousel({
+    interval: 10000
+})
+
+$('.carousel .carousel-item').each(function(){
+    var minPerSlide = 3;
+    var next = $(this).next();
+    if (!next.length) {
+        next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+
+    for (var i=0;i<minPerSlide;i++) {
+        next=next.next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+
+        next.children(':first-child').clone().appendTo($(this));
+    }
+});
+
+$(function () {
+    $('.modal-home-video').on('click', (event) => {
+        $('#modal-video-title').empty();
+        $('#modal-video iframe').attr('src', '');
+        const $this = $(event.currentTarget);
+        const videoTitle = $this.data('video-title');
+        const videoUrl = $this.data('video-url');
+        $('#modal-video-title').append(videoTitle);
+        $('#modal-video iframe').attr('src', videoUrl);
+        $('#modal-video').modal('show');
+    })
+})
