@@ -51,7 +51,7 @@
                             <a class="nav-link" href="{{ route('about') }}">{{ __('Sobre') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#">{{ __('Equipe') }}</a>
+                            <a class="nav-link" href="{{ route('team') }}">{{ __('Equipe') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#">{{ __('Parceiros') }}</a>

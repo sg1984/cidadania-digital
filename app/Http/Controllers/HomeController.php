@@ -79,6 +79,11 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('resources.about');
+        return view('pages.about');
+    }
+
+    public function team()
+    {
+        return view('pages.team');
     }
 }

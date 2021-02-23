@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('index');
 Route::resource('resources', ResourceController::class);
 Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/team', 'HomeController@team')->name('team');
 
 
 Route::get('/search/tags/{tagId}', 'ResourceController@searchByTag')->name('searchByTag');
