@@ -17,12 +17,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $resources = Resource::with('subject', 'user', 'tags')
-            ->published()
-            ->orderBy('created_at', 'desc')
-            ->paginate(3);
+        $contentDirectoryVideosData = [
+            ['videoTitle' => 'Cidadania do terceiro milênio: a cidadania biosférica', 'idVideo' => '6f4PibNwpNk'],
+            ['videoTitle' => 'Cidadania do terceiro milênio: a cidadania das galáxias', 'idVideo' => 'oOlZj8kscVI'],
+            ['videoTitle' => 'Cidadania Terceiro Milênio: A info-cidadania', 'idVideo' => 'asd7GIoxz_A']
+        ];
+        $wikiCidadaniaVideosData = [
+            ['videoTitle' => 'Verbete Algoritmos para cidadania', 'idVideo' => 'v3fjnBDDjvQ'],
+            ['videoTitle' => 'Verbete Ecologia da informação: big data, fake news e mundos possíveis', 'idVideo' => 'oKINxlw6mMA'],
+            ['videoTitle' => 'Verbete Green Data, Ecologia e Mudanças Climáticas', 'idVideo' => 'DUFjMrIC1Is'],
+            ['videoTitle' => 'Verbete: E-government e governança digital', 'idVideo' => 'wRSy08pNOSk'],
+            ['videoTitle' => 'Verbete: Transliteracia para cidadania digital', 'idVideo' => 'vks7jfUt2ic'],
+            ['videoTitle' => 'Verbete Games para a cidadania digital', 'idVideo' => 'iLQfTFIs7DE'],
+        ];
 
-        return view('home', compact('resources'));
+        return view('home', compact('contentDirectoryVideosData', 'wikiCidadaniaVideosData'));
     }
 
     /**
@@ -70,6 +79,11 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('resources.about');
+        return view('pages.about');
+    }
+
+    public function team()
+    {
+        return view('pages.team');
     }
 }
