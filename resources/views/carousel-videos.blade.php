@@ -7,12 +7,18 @@
         @endforeach
     </div>
     <a class="carousel-control-prev w-auto" href="#{{$carouselId}}" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+        <div class="carousel-control-prev-icon arrow left">
+            <svg width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve">
+                <polyline points="45.63,75.8 0.375,38.087 45.63,0.375"/>
+            </svg>
+        </div>
     </a>
     <a class="carousel-control-next w-auto" href="#{{$carouselId}}" role="button" data-slide="next">
-        <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+        <div class="carousel-control-next-icon arrow right">
+            <svg width="60px" height="80px" viewBox="0 0 50 80" xml:space="preserve">
+                <polyline points="0.375,0.375 45.63,38.087 0.375,75.8"/>
+            </svg>
+        </div>
     </a>
 </div>
 

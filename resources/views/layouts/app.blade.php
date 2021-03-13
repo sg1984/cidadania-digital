@@ -53,12 +53,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('team') }}">{{ __('Equipe') }}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">{{ __('Parceiros') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">{{ __('Contato') }}</a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ __('Idioma') }} <span class="caret"></span>

@@ -6,14 +6,14 @@
             <div class="col-md-10">
                 <h1>Equipe</h1>
                 <hr/>
-                <h2>Coordenador Científico</h2>
-                <p>Massimo Di Felice</p>
+                <h5><strong>Coordenador Científico</strong></h5>
+                <p class="mb-5">Massimo Di Felice</p>
 
-                <h2>Pesquisadores</h2>
-                <p>Aline Pascoalino, Anna Claudia Fernandes Gomes, André Dala Possa, Beatrice Bonami Rosa, Bruno Madureira Ferreira, Claudia Leonor, Eli Borges Jr., Eliane Schlemmer, Eliete Pereira, Erick Roza, Evandro José Medeiros Laia, Genivaldo Monteiro, Ian Dawsey, Isabella Moura, Janaĩna Menezes, Juliana Cuotolo, Lara Linhalis Guimarâes, Leandro Yanaze, Marcella Schneider Faria, Marina Magalhães, Matheus Soares, Michelle Dias, Rita Nardy, Teresa Neves e Thiago Franco</p>
+                <h5><strong>Pesquisadores</strong></h5>
+                <p class="mb-5">Aline Pascoalino, Anna Claudia Fernandes Gomes, André Dala Possa, Beatrice Bonami Rosa, Bruno Madureira Ferreira, Claudia Leonor, Eli Borges Jr., Eliane Schlemmer, Eliete Pereira, Erick Roza, Evandro José Medeiros Laia, Genivaldo Monteiro, Ian Dawsey, Isabella Moura, Janaĩna Menezes, Juliana Cuotolo, Lara Linhalis Guimarâes, Leandro Yanaze, Marcella Schneider Faria, Marina Magalhães, Matheus Soares, Michelle Dias, Rita Nardy, Teresa Neves e Thiago Franco</p>
 
-                <h2>UI/UX Designer e Desenvolvedor</h2>
-                <p>Bruno Madureira Ferreira e Sandro Gallina</p>
+                <h5><strong>UI/UX Designer e Desenvolvedor</strong></h5>
+                <p class="mb-5">Bruno Madureira Ferreira e Sandro Gallina</p>
             </div>
         </div>
     </div>
