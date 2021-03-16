@@ -33,7 +33,7 @@ class HomeController extends Controller
                 ['videoTitle' => 'EP.06 – SIMPOIESE AMERÍNDIA por Thiago Franco', 'idVideo' => 'rWES2BjGdqo'],
                 ['videoTitle' => 'EP.07 – Fake news e pandemia Prof Teresa Neves UFJF 1', 'idVideo' => '9Ev5BV05EZQ'],
             ],
-            'Direito à cidadania digital' => [
+            'Direito à Saúde Digital' => [
                 ['videoTitle' => 'EP.01 – por Silvia Surrenti (Un. de Firence, ITA)', 'idVideo' => 'iw8feq27fPA'],
                 ['videoTitle' => 'EP.02 – por Silvia Surrenti (Un. de Firence, ITA)', 'idVideo' => 'QMZJKxepynI'],
                 ['videoTitle' => 'EP.03 – por Silvia Surrenti (Un. de Firence, ITA)', 'idVideo' => 'cRJQz0jcmAg'],
@@ -46,7 +46,7 @@ class HomeController extends Controller
                 ['videoTitle' => 'EP.04 – LiquidFeedback 4.0 · Introduction (English)', 'idVideo' => 'y0e9_-IeRt8'],
                 ['videoTitle' => 'EP.05 – Iniciativa MapBiomas', 'idVideo' => 'QmwI5b8aTSg'],
             ],
-            'Codice: inovação digital com Barbara Carfgna' => [
+            'Codice: inovação digital com Barbara Carfagna' => [
                 ['videoTitle' => 'EP.01 – Intervista ad Audrey Tang - Codice, La vita è digitale', 'idVideo' => 'D_IZVQysitc'],
                 ['videoTitle' => 'EP.02 – Intervista a Jacqueline Poh - Codice, La vita è digitale', 'idVideo' => 'xNCa9w51WBM'],
                 ['videoTitle' => 'EP.03 – Intervista a Hiroshi Ishiguro - Codice, La vita è digitale', 'idVideo' => 'RYpjvtXzWTE'],
