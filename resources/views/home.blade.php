@@ -20,13 +20,12 @@
             </div>
         @endif
 
-        <div class="container pt-5 pb-5">
-            {{ view('carousel-videos', ['videosData' => $contentDirectoryVideosData, 'sessionTitle' => 'Diretório de Conteúdos', 'buttonUrl' => route('showAll'), 'carouselId' => 'content-directory']) }}
-        </div>
+        @foreach($homeVideos as $moduleName => $videos)
+            <div class="container pt-5 pb-5">
+                {{ view('carousel-videos', ['videosData' => $videos, 'sessionTitle' => $moduleName, 'carouselId' => Illuminate\Support\Str::of($moduleName)->slug('-')]) }}
+            </div>
+            @endforeach
 
-        <div class="container pt-5 pb-5">
-            {{ view('carousel-videos', ['videosData' => $wikiCidadaniaVideosData, 'sessionTitle' => 'WikiCidadania', 'buttonUrl' => (auth() && auth()->user()) ? auth()->user()->getWikiUrl() : env('WIKI_BASE_URL'), 'carouselId' => 'wiki-cidadania']) }}
-        </div>
         <div class="modal fade modal-home-video-target" id="modal-video" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-video-label" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content" style="width:auto">
