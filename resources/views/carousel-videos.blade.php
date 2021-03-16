@@ -1,6 +1,6 @@
 <h2 class="home-title">{{ $sessionTitle }}</h2>
 
-<div id="{{$carouselId}}" class="row carousel slide w-100" data-ride="carousel">
+<div id="{{$carouselId}}" class="row carousel slide w-100">
     <div class="carousel-inner w-100" role="listbox">
         @foreach($videosData as $key => $videoData)
             {{ view('cards.video-modal', array_merge($videoData, ['key' => $key])) }}
@@ -20,12 +20,4 @@
             </svg>
         </div>
     </a>
-</div>
-
-<div class="col-12 mt-3 pb-2">
-    <div class="float-right">
-        <a href="{{ $buttonUrl }}" class="btn btn-primary">
-            Acessar
-        </a>
-    </div>
 </div>
