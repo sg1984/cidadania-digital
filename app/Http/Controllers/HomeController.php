@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\ReportBug;
 use App\Resource;
 use App\Subject;
+use App\Tag;
 use App\Ticket;
 use App\User;
 use Illuminate\Http\Request;
@@ -20,128 +21,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $series = [
-            [
-                'title' => 'blockchain',
-                'description' => 'Lorem ipsum dolor sit amet, csonsectetur adipiscing elit. Quisque sodales pulvinar odio, eget ultricies lacus venenatis nec. Pellentesque laoreet ultrices finibus. Aenean imperdiet leo eu semper sodales. Mauris volutpat eu ante a tempor. Nunc ac dolor sed orci lacinia imperdiet. Ut accumsan scelerisque purus eget pellentesque. Quisque nec luctus lorem.',
-                'tags' => [
-                    [
-                        'id' => 1,
-                        'name' => 'blockchain',
-                    ],
-                    [
-                        'id' => 2,
-                        'name' => 'blockchain',
-                    ],
-                    [
-                        'id' => 3,
-                        'name' => 'blockchain',
-                    ],
-                ],
-                'thumbnail' => url('/images/series/blockchain.jpg'),
-                'url' => route('showSpecialPage', Subject::BLOCKCHAIN_CIDADANIA_SERIE),
-            ],
-            [
-                'title' => 'cidadaniaTerceiroMilênio',
-                'description' => 'Lorem ipsum dolor sit amet, csonsectetur adipiscing elit. Quisque sodales pulvinar odio, eget ultricies lacus venenatis nec. Pellentesque laoreet ultrices finibus. Aenean imperdiet leo eu semper sodales. Mauris volutpat eu ante a tempor. Nunc ac dolor sed orci lacinia imperdiet. Ut accumsan scelerisque purus eget pellentesque. Quisque nec luctus lorem.',
-                'tags' => [
-                    [
-                        'id' => 1,
-                        'name' => 'cidadaniaTerceiroMilênio',
-                    ],
-                    [
-                        'id' => 2,
-                        'name' => 'cidadaniaTerceiroMilênio',
-                    ],
-                    [
-                        'id' => 3,
-                        'name' => 'cidadaniaTerceiroMilênio',
-                    ],
-                ],
-                'thumbnail' => url('/images/series/cidadaniaTerceiroMilênio.jpg'),
-                'url' => route('showSpecialPage', Subject::CIDADANIA_TERCEIRO_MILENIO),
-            ],
-            [
-                'title' => 'codice',
-                'description' => 'Lorem ipsum dolor sit amet, csonsectetur adipiscing elit. Quisque sodales pulvinar odio, eget ultricies lacus venenatis nec. Pellentesque laoreet ultrices finibus. Aenean imperdiet leo eu semper sodales. Mauris volutpat eu ante a tempor. Nunc ac dolor sed orci lacinia imperdiet. Ut accumsan scelerisque purus eget pellentesque. Quisque nec luctus lorem.',
-                'tags' => [
-                    [
-                        'id' => 1,
-                        'name' => 'codice',
-                    ],
-                    [
-                        'id' => 2,
-                        'name' => 'codice',
-                    ],
-                    [
-                        'id' => 3,
-                        'name' => 'codice',
-                    ],
-                ],
-                'thumbnail' => url('/images/series/codice.jpg'),
-                'url' => route('showSpecialPage', Subject::CODICE),
-            ],
-            [
-                'title' => 'dataEcologiaMudançaClimática',
-                'description' => 'Lorem ipsum dolor sit amet, csonsectetur adipiscing elit. Quisque sodales pulvinar odio, eget ultricies lacus venenatis nec. Pellentesque laoreet ultrices finibus. Aenean imperdiet leo eu semper sodales. Mauris volutpat eu ante a tempor. Nunc ac dolor sed orci lacinia imperdiet. Ut accumsan scelerisque purus eget pellentesque. Quisque nec luctus lorem.',
-                'tags' => [
-                    [
-                        'id' => 1,
-                        'name' => 'dataEcologiaMudançaClimática',
-                    ],
-                    [
-                        'id' => 2,
-                        'name' => 'dataEcologiaMudançaClimática',
-                    ],
-                    [
-                        'id' => 3,
-                        'name' => 'dataEcologiaMudançaClimática',
-                    ],
-                ],
-                'thumbnail' => url('/images/series/dataEcologiaMudançaClimática.jpg'),
-                'url' => route('showSpecialPage', Subject::DATA_ECOLOGIA_CLIMA),
-            ],
-            [
-                'title' => 'direitoSaudeDigital',
-                'description' => 'Lorem ipsum dolor sit amet, csonsectetur adipiscing elit. Quisque sodales pulvinar odio, eget ultricies lacus venenatis nec. Pellentesque laoreet ultrices finibus. Aenean imperdiet leo eu semper sodales. Mauris volutpat eu ante a tempor. Nunc ac dolor sed orci lacinia imperdiet. Ut accumsan scelerisque purus eget pellentesque. Quisque nec luctus lorem.',
-                'tags' => [
-                    [
-                        'id' => 1,
-                        'name' => 'direitoSaudeDigital',
-                    ],
-                    [
-                        'id' => 2,
-                        'name' => 'direitoSaudeDigital',
-                    ],
-                    [
-                        'id' => 3,
-                        'name' => 'direitoSaudeDigital',
-                    ],
-                ],
-                'thumbnail' => url('/images/series/direitoSaudeDigital.jpg'),
-                'url' => route('showSpecialPage', Subject::DIREITO_SAUDE_DIGITAL),
-            ],
-            [
-                'title' => 'dialogosAtopicos',
-                'description' => 'Lorem ipsum dolor sit amet, csonsectetur adipiscing elit. Quisque sodales pulvinar odio, eget ultricies lacus venenatis nec. Pellentesque laoreet ultrices finibus. Aenean imperdiet leo eu semper sodales. Mauris volutpat eu ante a tempor. Nunc ac dolor sed orci lacinia imperdiet. Ut accumsan scelerisque purus eget pellentesque. Quisque nec luctus lorem.',
-                'tags' => [
-                    [
-                        'id' => 1,
-                        'name' => 'diálogosAtopicos',
-                    ],
-                    [
-                        'id' => 2,
-                        'name' => 'diálogosAtopicos',
-                    ],
-                    [
-                        'id' => 3,
-                        'name' => 'diálogosAtopicos',
-                    ],
-                ],
-                'thumbnail' => url('/images/series/dialogos-atopicos.jpg'),
-                'url' => route('showSpecialPage', Subject::DIALOGOS_ATOPICOS),
-            ],
-        ];
+        $series = [];
+        foreach (Subject::SERIES_PAGES as $seriesId => $seriesData){
+            $series[] = [
+                'id' => $seriesId,
+                'description' => $seriesData['description'],
+                'tags' => Tag::byIds($seriesData['tags_ids'])->get(),
+                'thumbnail' => url($seriesData['thumbnail']),
+                'url' => route('showSpecialPage', $seriesId),
+            ];
+        }
 
         $subjects = array_filter(
             Subject::SUBJECT_NAMES_IMAGES,

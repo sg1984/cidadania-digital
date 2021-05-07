@@ -7,20 +7,20 @@
                  style="background-image: url({{ $serie['thumbnail'] }}); background-size: cover; height: 421px; "
             >
                 <div class="align-content-bottom">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{ $serie['title'] }}" aria-expanded="false" aria-controls="{{ $serie['title'] }}">
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{ $serie['id'] }}" aria-expanded="false" aria-controls="{{ $serie['id'] }}">
                         <i class="fas fa-chevron-up"></i>
                         <div class="triangle"></div>
                         <span class="small">menu</span>
                     </button>
-                    <div class="accordion-content collapse" id="{{ $serie['title'] }}">
-                        <p class="small">
+                    <div class="accordion-content collapse" id="{{ $serie['id'] }}">
+                        <p class="small truncate-overflow">
                             {{ $serie['description'] }}
                         </p>
                         <div class="row mt-2">
                             <div class="col-12">
                                 @foreach($serie['tags'] as $tag)
-                                    <a href="{{ route('searchByTag', $tag['id']) }}" class="badge badge-tag">
-                                        <span> {{ $tag['name'] }} </span>
+                                    <a href="{{ route('searchByTag', $tag->id) }}" class="badge badge-tag">
+                                        <span> {{ $tag->name }} </span>
                                     </a>
                                 @endforeach
                             </div>
