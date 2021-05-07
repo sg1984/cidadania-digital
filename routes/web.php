@@ -27,6 +27,8 @@ Route::get('/search/type/{typeId}', 'ResourceController@searchByFormat')->name('
 Route::get('/search/', 'ResourceController@showAll')->name('showAll');
 Route::get('/search/user/{userId}', 'ResourceController@showByUser')->name('showByUser');
 
+Route::get('/special/{subjectSlug}', 'SubjectController@showSpecialPage')->name('showSpecialPage');
+
 Route::group(['middleware' => ['auth', 'active_user']], function() {
     Route::get('/home', 'HomeController@home')->name('home');
 

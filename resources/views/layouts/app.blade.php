@@ -69,7 +69,7 @@
                         @guest
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdownLogin" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ __('Login') }} <span class="caret"></span>
+                                    {{ __('Login') }}
                                 </a>
 
                                 <div id="navbarDropdownLoginForm" class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="navbarDropdownLogin">

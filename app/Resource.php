@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -159,5 +160,12 @@ class Resource extends Model
         }
 
         return $this->source;
+    }
+
+    public function scopeGetByTagIds(Builder $query, array $tagIds)
+    {
+        return $query->whereHas('tags', function ($query) use ($tagIds) {
+            $query->whereIn('tag_id', $tagIds);
+        });
     }
 }
