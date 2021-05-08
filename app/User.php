@@ -19,7 +19,7 @@ class User extends Authenticatable
     const MASSIMO_DI_FELICE = [
         'name' => 'Massimo Di Felice',
         'university' => 'Universidade de São Paulo (USP)',
-        'picture_url' => '/images/team/massimo_foto.jpg',
+        'picture_url' => '/images/team/c_massimo_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/9759944648465918',
         'orcid_url' => 'https://orcid.org/0000-0002-6646-4321',
         'linkedin_url' => null,
@@ -30,7 +30,7 @@ class User extends Authenticatable
     const ALINE_PASCOALINO = [
         'name' => 'Aline Pascoalino',
         'university' => 'Universidade Estadual de Campinas (Unicamp)',
-        'picture_url' => '/images/team/aline_foto.jpg',
+        'picture_url' => '/images/team/c_aline_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/9310627652022593',
         'orcid_url' => 'https://orcid.org/0000-0003-0927-8474',
         'linkedin_url' => null,
@@ -41,7 +41,7 @@ class User extends Authenticatable
     const ANDRE_DALA_POSSA = [
         'name' => 'André Dala Possa',
         'university' => 'Instituto Federal de Santa Catarina (IFSC)',
-        'picture_url' => '/images/team/andre_foto.jpg',
+        'picture_url' => '/images/team/c_andre_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/5833428083593564',
         'orcid_url' => 'https://orcid.org/0000-0003-1995-6670',
         'linkedin_url' => null,
@@ -52,7 +52,7 @@ class User extends Authenticatable
     const BEATRICE_BONAMI_ROSA = [
         'name' => 'Beatrice Bonami Rosa',
         'university' => 'Atopos-USP',
-        'picture_url' => '/images/team/beatrice_foto.jpg',
+        'picture_url' => '/images/team/c_beatrice_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/4413923184921993',
         'orcid_url' => 'https://orcid.org/0000-0002-4012-8098',
         'linkedin_url' => null,
@@ -63,7 +63,7 @@ class User extends Authenticatable
     const BRUNO_MADUREIRA_FERREIRA = [
         'name' => 'Bruno Madureira Ferreira',
         'university' => 'Atopos-USP',
-        'picture_url' => '/images/team/bruno_foto.jpg',
+        'picture_url' => '/images/team/c_bruno_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/4326822090783006',
         'orcid_url' => 'https://orcid.org/0000-0002-3709-8801',
         'linkedin_url' => 'https://www.linkedin.com/in/brunomadureiraferreira',
@@ -74,7 +74,7 @@ class User extends Authenticatable
     const CLAUDIA_LEONOR_GUEDES = [
         'name' => 'Cláudia Leonor Guedes de Azevedo Oliveira',
         'university' => 'Atopos-USP',
-        'picture_url' => '/images/team/claudia_foto.jpg',
+        'picture_url' => '/images/team/c_claudia_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/2697481875629130',
         'orcid_url' => null,
         'linkedin_url' => null,
@@ -85,7 +85,7 @@ class User extends Authenticatable
     const ELI_BORGES_JR = [
         'name' => 'Eli Borges Jr.',
         'university' => 'Atopos-USP',
-        'picture_url' => '/images/team/eli_foto.jpg',
+        'picture_url' => '/images/team/c_eli_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/4808077090461020',
         'orcid_url' => null,
         'linkedin_url' => null,
@@ -107,7 +107,7 @@ class User extends Authenticatable
     const ELIETE_PEREIRA = [
         'name' => 'Eliete Pereira',
         'university' => 'Atopos - USP',
-        'picture_url' => '/images/team/eliete_foto.jpg',
+        'picture_url' => '/images/team/c_eliete_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/2632161956307005',
         'orcid_url' => 'http://orcid.org/0000-0002-4157-9608',
         'linkedin_url' => null,
@@ -129,7 +129,7 @@ class User extends Authenticatable
     const EVANDRO_MEDEIROS_LAIA = [
         'name' => 'Evandro José Medeiros Laia',
         'university' => 'Universidade Federal de Ouro Preto (UFOP)',
-        'picture_url' => '/images/team/evandro_foto.jpg',
+        'picture_url' => '/images/team/c_evandro_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/5801243635002643',
         'orcid_url' => 'https://orcid.org/0000-0002-8463-3176',
         'linkedin_url' => null,
@@ -140,7 +140,7 @@ class User extends Authenticatable
     const GENIVALDO_PAULINO_MONTEIRO = [
         'name' => 'Genivaldo Paulino Monteiro',
         'university' => 'Universidade Estadual da Paraíba (UEPB)',
-        'picture_url' => '/images/team/genivaldo_foto.jpg',
+        'picture_url' => '/images/team/c_genivaldo_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/0848365220724566',
         'orcid_url' => 'https://orcid.org/0000-0003-3227-2222',
         'linkedin_url' => null,
@@ -151,7 +151,7 @@ class User extends Authenticatable
     const IAN_DAWSEY = [
         'name' => 'Ian Dawsey',
         'university' => 'Atopos - USP',
-        'picture_url' => '/images/team/ian_foto.jpg',
+        'picture_url' => '/images/team/c_ian_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/0627036401578542',
         'orcid_url' => null,
         'linkedin_url' => null,
@@ -206,7 +206,7 @@ class User extends Authenticatable
     const LEANDRO_KEY_HIGUCHI_YANAZA = [
         'name' => 'Leandro Key Higuchi Yanaze',
         'university' => 'Universidade Federal de São Paulo (Unifesp)',
-        'picture_url' => '/images/team/leandro_foto.jpg',
+        'picture_url' => '/images/team/c_leandro_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/3243275619679099',
         'orcid_url' => null,
         'linkedin_url' => null,
@@ -228,7 +228,7 @@ class User extends Authenticatable
     const MARINA_MAGALHAES = [
         'name' => 'Marina Magalhães',
         'university' => 'Universidade Estadual da Paraíba (UEPB)',
-        'picture_url' => '/images/team/marina_foto.jpg',
+        'picture_url' => '/images/team/c_marina_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/8154864038845813',
         'orcid_url' => 'https://orcid.org/0000-0002-1124-8269',
         'linkedin_url' => null,
@@ -239,7 +239,7 @@ class User extends Authenticatable
     const MATHEUS_SOARES_CRUZ = [
         'name' => 'Matheus Soares Cruz',
         'university' => 'Atopos - USP',
-        'picture_url' => '/images/team/matheus_foto.jpg',
+        'picture_url' => '/images/team/c_matheus_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/7581313049842647',
         'orcid_url' => null,
         'linkedin_url' => null,
@@ -250,7 +250,7 @@ class User extends Authenticatable
     const MICHELLE_DIAS = [
         'name' => 'Michelle Dias',
         'university' => 'Atopos - USP',
-        'picture_url' => '/images/team/michelle_foto.jpg',
+        'picture_url' => '/images/team/c_michelle_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/5119529563864444',
         'orcid_url' => null,
         'linkedin_url' => null,
@@ -261,7 +261,7 @@ class User extends Authenticatable
     const RITA_MACHADO_NARDY = [
         'name' => 'Rita Machado de Campos Nardy',
         'university' => 'Atopos - USP',
-        'picture_url' => '/images/team/rita_foto.jpg',
+        'picture_url' => '/images/team/c_rita_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/7338523612572486',
         'orcid_url' => null,
         'linkedin_url' => null,
@@ -272,7 +272,7 @@ class User extends Authenticatable
     const SILVIA_SURRENTI = [
         'name' => 'Silvia Surrenti',
         'university' => 'Università degli Studi Firenzi (UniFI)',
-        'picture_url' => '/images/team/surrenti_foto.jpg',
+        'picture_url' => '/images/team/c_surrenti_foto.jpg',
         'lattes_url' => null,
         'orcid_url' => 'https://orcid.org/0000-0003-1307-8862',
         'linkedin_url' => null,
@@ -283,7 +283,7 @@ class User extends Authenticatable
     const TATIANA_REVOREDO = [
         'name' => 'Tatiana Revoredo',
         'university' => 'The Oxford Blockchain Foundation (OXBF) e The Global Strategy',
-        'picture_url' => '/images/team/tatiana_foto.jpg',
+        'picture_url' => '/images/team/c_tatiana_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/6569656306351959',
         'orcid_url' => null,
         'linkedin_url' => 'https://www.linkedin.com/in/tatianarevoredo/',
@@ -294,7 +294,7 @@ class User extends Authenticatable
     const TERESA_NEVES = [
         'name' => 'Teresa Neves',
         'university' => 'Universidade Federal de Juiz de Fora (UFJF)',
-        'picture_url' => '/images/team/teresa_foto.jpg',
+        'picture_url' => '/images/team/c_teresa_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/9383607198471679',
         'orcid_url' => null,
         'linkedin_url' => null,
@@ -305,7 +305,7 @@ class User extends Authenticatable
     const THIAGO_CARDOSO_FRANCO = [
         'name' => 'Thiago Cardoso Franco',
         'university' => 'Universidade Federal do Amazonas (UFAM)',
-        'picture_url' => '/images/team/thiago_foto.jpg',
+        'picture_url' => '/images/team/c_thiago_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/7735628705551412',
         'orcid_url' => 'https://orcid.org/0000-0002-1774-4706',
         'linkedin_url' => null,
