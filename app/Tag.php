@@ -49,7 +49,6 @@ class Tag extends Model
         return $query->where('is_active', '=', true);
     }
 
-
     /**
      * @param array $storeData
      * @return Tag|null
@@ -75,5 +74,15 @@ class Tag extends Model
     public function scopeByName(Builder $query, string $name)
     {
         return $query->where('name', '=', $name);
+    }
+
+    public function scopeByIds(Builder $query, array $ids)
+    {
+        return $query->whereIn('id', $ids);
+    }
+
+    public function scopeActive(Builder $query)
+    {
+        return $query->where('is_active', '=', 1);
     }
 }

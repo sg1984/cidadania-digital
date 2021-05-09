@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Resource;
 use App\Subject;
 use App\Tag;
 use Illuminate\Contracts\Foundation\Application;
@@ -186,5 +187,38 @@ class SubjectController extends Controller
         ]);
 
         return redirect()->route('subjects.index')->with('success', 'Status do verbete atualizado com sucesso!');
+    }
+
+    public function showSpecialPage(string $subjectSlug)
+    {
+        if (array_key_exists($subjectSlug, Subject::SUBJECT_PAGES_CONTENT)) {
+            $subjectData = Subject::SUBJECT_PAGES_CONTENT[$subjectSlug];
+            $subject = Subject::find($subjectData['subject_id']);
+            if ($subject) {
+                $subject->load('tags');
+                $resources = $subject->resources()
+                    ->published()
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(20);
+
+                return view('subjects.detail', compact('resources', 'subject', 'subjectData'));
+            }
+        }
+
+        if (array_key_exists($subjectSlug, Subject::SERIES_PAGES)) {
+            $seriesData = Subject::SERIES_PAGES[$subjectSlug];
+            $tags = Tag::byIds($seriesData['tags_ids'])
+                ->active()
+                ->get();
+            $resources = Resource::getByTagIds($seriesData['tags_ids'])
+                ->with('tags')
+                ->published()
+                ->orderBy('created_at', 'desc')
+                ->paginate(20);
+
+            return view('series.detail', compact('resources', 'tags', 'seriesData'));
+        }
+
+        return redirect()->route('showAll');
     }
 }

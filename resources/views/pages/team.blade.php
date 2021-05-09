@@ -1,19 +1,92 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container pt-5 pb-5">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <h1>Equipe</h1>
-                <hr/>
-                <h5><strong>Coordenador Científico</strong></h5>
-                <p class="mb-5">Massimo Di Felice</p>
+    <div class="bg-image content-bg-image content-team">
+        <div class="container pt-5 pb-5">
+            <div class="row justify-content-center">
+                <div class="col-md-10" style="margin-top: 30%">
+                    <h1>Equipe</h1>
+                    <hr/>
+                    @if ($coordinators)
+                        <h5><strong> {{ $coordinators['title'] }} </strong></h5>
+                        <div class="row">
+                            @foreach($coordinators['people'] as $coordinator)
+                                <div class="col-md-12 media mb-5">
+                                    <a data-toggle="modal" data-target="#{{ $coordinator['id'] }}" data-dismiss="modal">
+                                        <img src="{{ $coordinator['picture_url'] }}" alt="{{ $coordinator['name'] }}" class="team-person-picture rounded-circle mr-2">
+                                    </a>
+                                    <div class="media-body">
+                                        <a data-toggle="modal" data-target="#{{ $coordinator['id'] }}" data-dismiss="modal">
+                                            <h5 class="mt-4">{{ $coordinator['name'] }}</h5>
+                                            <h6 class="mt-0 font-italic">{{ $coordinator['university'] }}</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                {{ view('pages.team-modal', ['person' => $coordinator]) }}
+                            @endforeach
+                        </div>
+                    @endif
 
-                <h5><strong>Pesquisadores</strong></h5>
-                <p class="mb-5">Aline Pascoalino, Anna Claudia Fernandes Gomes, André Dala Possa, Beatrice Bonami Rosa, Bruno Madureira Ferreira, Claudia Leonor, Eli Borges Jr., Eliane Schlemmer, Eliete Pereira, Erick Roza, Evandro José Medeiros Laia, Genivaldo Monteiro, Ian Dawsey, Isabella Moura, Janaĩna Menezes, Juliana Cuotolo, Lara Linhalis Guimarâes, Leandro Yanaze, Marcella Schneider Faria, Marina Magalhães, Matheus Soares, Michelle Dias, Rita Nardy, Teresa Neves e Thiago Franco</p>
+                    @if ($researchers)
+                        <h5><strong> {{ $researchers['title'] }} </strong></h5>
+                        <div class="row">
+                            @foreach($researchers['people'] as $researcher)
+                                <div class="col-md-6 media mb-5">
+                                    <a data-toggle="modal" data-target="#{{ $researcher['id'] }}" data-dismiss="modal">
+                                        <img src="{{ $researcher['picture_url'] }}" alt="{{ $researcher['name'] }}" class="team-person-picture rounded-circle mr-2">
+                                    </a>
+                                    <div class="media-body">
+                                        <a data-toggle="modal" data-target="#{{ $researcher['id'] }}" data-dismiss="modal">
+                                            <h5 class="mt-4">{{ $researcher['name'] }}</h5>
+                                            <h6 class="mt-0 font-italic">{{ $researcher['university'] }}</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                {{ view('pages.team-modal', ['person' => $researcher]) }}
+                            @endforeach
+                        </div>
+                    @endif
 
-                <h5><strong>UI/UX Designer e Desenvolvedor</strong></h5>
-                <p class="mb-5">Bruno Madureira Ferreira e Sandro Gallina</p>
+                    @if ($designers)
+                        <h5><strong> {{ $designers['title'] }} </strong></h5>
+                        <div class="row">
+                            @foreach($designers['people'] as $designer)
+                                <div class="col-md-12 media mb-5">
+                                    <img src="{{ $designer['picture_url'] }}" alt="{{ $designer['name'] }}" class="team-person-picture rounded-circle mr-2">
+                                    <div class="media-body">
+                                        <h5 class="mt-4">{{ $designer['name'] }}</h5>
+                                        @if( $designer['linkedin_url'] )
+                                            <a href="{{ $designer['linkedin_url'] }}" target="_blank" style="text-decoration: none">
+                                                <img src="{{ url('/images/logos/linkedin.png') }}" alt="LinkedIn logo" style="height: 2rem;">
+                                            </a>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
+
+                    @if ($developers)
+                        <h5><strong> {{ $developers['title'] }} </strong></h5>
+                        <div class="row">
+                            @foreach($developers['people'] as $developer)
+                                <div class="col-md-12 media mb-5">
+                                    <img src="{{ $developer['picture_url'] }}" alt="{{ $developer['name'] }}" class="team-person-picture rounded-circle mr-2">
+                                    <div class="media-body">
+                                        <a href={{ $developer['website'] }} target="_blank" style="text-decoration: none">
+                                            <h5 class="mt-4">{{ $developer['name'] }}</h5>
+                                        </a>
+                                        @if( $developer['linkedin_url'] )
+                                            <a href="{{ $developer['linkedin_url'] }}" target="_blank" style="text-decoration: none">
+                                                <img src="{{ url('/images/logos/linkedin.png') }}" alt="LinkedIn logo" style="height: 2rem;">
+                                            </a>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

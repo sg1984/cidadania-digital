@@ -103,3 +103,7 @@ $(function () {
         $('#modal-video').modal('show');
     })
 })
+
+$(function() {
+    $( ".accordion-content" ).accordion({collapsible: true});
+});
