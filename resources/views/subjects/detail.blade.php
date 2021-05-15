@@ -23,7 +23,7 @@
                                     @foreach($subjectData['researchers'] as $person)
                                         @php($researcher = \App\User::getPersonMergedData($person))
                                         <div class="col-md-6 media mb-1">
-                                            <a data-toggle="modal" data-target="#{{ $researcher['id'] }}" data-dismiss="modal">
+                                            <a class="mr-2 team-person-link team-person-picture-link rounded-circle" data-toggle="modal" data-target="#{{ $researcher['id'] }}" data-dismiss="modal">
                                                 <img src="{{ $researcher['picture_url'] }}" alt="{{ $researcher['name'] }}" class="team-person-picture rounded-circle mr-2">
                                             </a>
                                             <div class="media-body">

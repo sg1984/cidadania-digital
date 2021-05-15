@@ -17,7 +17,6 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @param $SUBJECT_NAMES_IMAGES
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
