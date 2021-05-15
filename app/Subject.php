@@ -40,6 +40,7 @@ class Subject extends Model
             'name' => 'Algoritmos para Cidadania',
             'image' => '/images/subjects/algoritmosCidadania.jpg',
             'id' => self::ALGORITMOS_CIDADANIA,
+            'inactive' => true,
         ],
         self::BLOCKCHAIN_CIDADANIA => [
             'name' => 'Blockchain para Cidadania',
@@ -50,16 +51,19 @@ class Subject extends Model
             'name' => 'Competências para a Cidadania do Século XXI',
             'image' => self::DEFAULT_BACKGROUND_IMAGE,
             'id' => self::COMPETENCIAS_CIDADANIA_SECULO_XXI,
+            'inactive' => true,
         ],
         self::DESIGN_PLATAFORMAS_DIGITAIS => [
             'name' => 'Design e Plataformas digitais',
             'image' => '/images/subjects/designPlataformasDigitais.jpg',
             'id' => self::DESIGN_PLATAFORMAS_DIGITAIS,
+            'inactive' => true,
         ],
         self::DIGITALIZACAO_MEMORIA => [
             'name' => 'Digitalização da Memória',
             'image' => '/images/subjects/digitalizacaoMemoria.jpg',
             'id' => self::DIGITALIZACAO_MEMORIA,
+            'inactive' => true,
         ],
         self::ECOLOGIA_INFORMACAO => [
             'name' => 'Ecologia da Informação: Big Data, Fake News e Mundos Possíveis.',
