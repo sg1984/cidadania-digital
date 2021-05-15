@@ -20,7 +20,7 @@ class HomeController extends Controller
      * @param $SUBJECT_NAMES_IMAGES
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index($SUBJECT_NAMES_IMAGES)
+    public function index()
     {
         $series = [];
         foreach (Subject::SERIES_PAGES as $seriesId => $seriesData){
@@ -34,7 +34,7 @@ class HomeController extends Controller
         }
 
         $subjects = array_filter(
-            $SUBJECT_NAMES_IMAGES,
+            Subject::SUBJECT_NAMES_IMAGES,
             function ($subject) {
                 return strpos($subject['image'], 'subjects') > 0;
             }
