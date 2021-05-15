@@ -41,6 +41,7 @@
                             <p>
                                 Os metadados, por sua vez, se referem às informações específicas que estão sendo anexadas a cada uma das tags: tipo, sub-tema, título, autor, palavras chaves, descrição, canal de publicação, etc. Inicialmente estamos trabalhando com um grupo básico de metadados, mas à medida que os conteúdos forem se complexificando, pretendemos também expandir as informações referentes a cada um deles.
                             </p>
+                            <a href="{{ route('showAll') }}">{{ __('Acessar diretório de conteúdos') }}</a>
                         </div>
 
                         <div class="mb-4">
@@ -48,6 +49,7 @@
                             <p>
                                 A plataforma WikiCidadania funciona como um glossário colaborativo no qual todos os verbetes e conceitos (muitos oriundos das tags) abordados na plataforma Cidadania Digital serão explicados em toda sua profundidade e extensão, bem como interrelacionados entre si e outros conteúdos. A proposta é que a WikiCidadania seja construída de maneira colaborativa mesclando contribuições de pesquisadores, professores e usuários e, por isso, é compreendida como uma plataforma distinta, com um conjunto de funcionalidades específico, mas que poderá facilmente se integrar ao complexo da Plataforma de Cidadania Digital.
                             </p>
+                            <a href="http://wiki.plataformacidadaniadigital.com.br/" target="_blank">{{ __('Acessar WikiCidadania') }}</a>
                         </div>
 
                         <div class="mb-4">

@@ -8,7 +8,7 @@
      aria-hidden="true"
 >
     <div class="modal-dialog modal-dialog-centered team-modal">
-        <div class="modal-content">
+        <div class="modal-content" style="border: 1px solid #224A59;">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -16,7 +16,9 @@
             </div>
             <div class="modal-body team-modal-person">
                 <div class="media">
-                    <img src="{{ $person['picture_url'] }}" alt="{{ $person['name'] }}" class="team-person-picture rounded-circle mr-2 align-self-center mr-3">
+                    <a class="mr-2 team-person-link team-person-picture-link rounded-circle">
+                        <img src="{{ $person['picture_url'] }}" alt="{{ $person['name'] }}" class="team-person-picture rounded-circle mr-2 align-self-center mr-3">
+                    </a>
                     <div class="media-body col-6">
                         <h5 class="mt-4">{{ $person['name'] }}</h5>
                         <h6 class="mt-0 font-italic">{{ $person['university'] }}</h6>
@@ -36,16 +38,13 @@
                             </a>
                         @endif
                     </div>
-                    <div class="col-6 d-flex align-items-end">
+                    <div class="col-6 d-flex">
                         @if ($person['subject'] && $person['subject']['image'] && $person['subject']['name'] )
-                            <div class="media-body text-right">
-                                <h6 class="mt-0 font-italic">{{ $person['subject']['name'] }}</h6>
+                            <div class="media-body text-right" style="bottom: 0;position: absolute; top: 82px; right: 0;">
+                                <a href="{{ route('showSpecialPage', $person['subject']['id']) }}" style="text-decoration: none; color: #212529;">
+                                    <h6 class="mt-0 font-italic">{{ $person['subject']['name'] }}</h6>
+                                </a>
                             </div>
-                        @endif
-                        @if ($person['subject'] && $person['subject']['image'] && $person['subject']['name'] )
-                            <a href="{{ route('showSpecialPage', $person['subject']['id']) }}">
-                                <img src="{{ $person['subject']['image'] }}" alt="{{ $person['subject']['name'] }}" class="ml-3" style="height: 10em; margin-top: -16px">
-                            </a>
                         @endif
                     </div>
                 </div>

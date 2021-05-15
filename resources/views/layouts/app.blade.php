@@ -30,7 +30,7 @@
         <nav class="navbar navbar-expand-md navbar-light menu-navbar shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ url('/images/cidig_logo_white.png') }}" height="45em" alt="Logo Plataforma Cidadania Digital">
+                    <img src="{{ url('/images/logo_cidig_new.png') }}" height="45em" alt="Logo Plataforma Cidadania Digital">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -45,25 +45,13 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('showAll') }}">{{ __('Conteúdos') }}</a>
+                            <a class="nav-link" href="http://www.atopos.com.br/" target="_blank">{{ __('Atopos') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('about') }}">{{ __('Sobre') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('team') }}">{{ __('Equipe') }}</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ __('Idioma') }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">{{ __('Português') }}</a>
-                                <a class="dropdown-item disabled" href="#">{{ __('Inglês') }}</a>
-                                <a class="dropdown-item disabled" href="#">{{ __('Italiano') }}</a>
-                                <a class="dropdown-item disabled" href="#">{{ __('Francês') }}</a>
-                            </div>
                         </li>
                         <!-- Authentication Links -->
                         @guest
@@ -118,9 +106,8 @@
                                         <a class="dropdown-item" href="{{ route('showUsers') }}">{{ __('Pesquisadores') }}</a>
                                         <a class="dropdown-item" href="{{ route('subjects.index') }}">{{ __('Verbetes') }}</a>
                                         <a class="dropdown-item" href="{{ route('tags.index') }}">{{ __('Tags') }}</a>
-                                    @else
-                                        <a class="dropdown-item" href="{{ route('home') }}">{{ __('Meus Conteúdos') }}</a>
                                     @endif
+                                    <a class="dropdown-item" href="{{ route('home') }}">{{ __('Meus Conteúdos') }}</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
