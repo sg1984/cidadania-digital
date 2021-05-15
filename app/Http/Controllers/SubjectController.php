@@ -189,8 +189,7 @@ class SubjectController extends Controller
         return redirect()->route('subjects.index')->with('success', 'Status do verbete atualizado com sucesso!');
     }
 
-    public function showSpecialPage(string $subjectSlug)
-    {
+    public function showSpecialPage(string $subjectSlug) {
         if (array_key_exists($subjectSlug, Subject::SUBJECT_PAGES_CONTENT)) {
             $subjectData = Subject::SUBJECT_PAGES_CONTENT[$subjectSlug];
             $subject = Subject::find($subjectData['subject_id']);

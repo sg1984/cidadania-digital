@@ -5,7 +5,7 @@
         </a>
     </div>
     <div class="card-body">
-        <a target="_blank" href="{{ $resource->source }}" class="text-muted">
+        <a target="_blank" href="{{ $resource->getSourceLink() }}" class="text-muted">
             <div class="text-truncate1">
                 <h5 class="card-title">{{ $resource->title }}</h5>
             </div>

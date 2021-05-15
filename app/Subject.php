@@ -40,6 +40,7 @@ class Subject extends Model
             'name' => 'Algoritmos para Cidadania',
             'image' => '/images/subjects/algoritmosCidadania.jpg',
             'id' => self::ALGORITMOS_CIDADANIA,
+            'inactive' => true,
         ],
         self::BLOCKCHAIN_CIDADANIA => [
             'name' => 'Blockchain para Cidadania',
@@ -50,16 +51,19 @@ class Subject extends Model
             'name' => 'Competências para a Cidadania do Século XXI',
             'image' => self::DEFAULT_BACKGROUND_IMAGE,
             'id' => self::COMPETENCIAS_CIDADANIA_SECULO_XXI,
+            'inactive' => true,
         ],
         self::DESIGN_PLATAFORMAS_DIGITAIS => [
             'name' => 'Design e Plataformas digitais',
             'image' => '/images/subjects/designPlataformasDigitais.jpg',
             'id' => self::DESIGN_PLATAFORMAS_DIGITAIS,
+            'inactive' => true,
         ],
         self::DIGITALIZACAO_MEMORIA => [
             'name' => 'Digitalização da Memória',
             'image' => '/images/subjects/digitalizacaoMemoria.jpg',
             'id' => self::DIGITALIZACAO_MEMORIA,
+            'inactive' => true,
         ],
         self::ECOLOGIA_INFORMACAO => [
             'name' => 'Ecologia da Informação: Big Data, Fake News e Mundos Possíveis.',
@@ -435,8 +439,8 @@ class Subject extends Model
             'description' => 'A série Diálogos Atópicos aborda, a partir de uma perspectiva interdisciplinar, as diversas consequências originadas pela pandemia de Covid-19. Desde as relações socias aos processos decisórios, as  formas de aprendizagem até a economia, cada setor da sociedade foi profundamente afetado e transformado pela disseminação do vírus. Junto com este, difundiu-se a consciência do surgimento de uma nova época caraterizada pelo advento de um novo tipo de complexidade na qual a dúvida e as qualidades emergentes tornam-se o horizonte natural.',
             'researchers' => [User::MARINA_MAGALHAES, User::MATHEUS_SOARES_CRUZ, User::TERESA_NEVES, User::TATIANA_REVOREDO, User::THIAGO_CARDOSO_FRANCO, User::ELIANE_SCHLEMMER],
             'thumbnail' => '/images/series/dialogos-atopicos.jpg',
-            'background-image' => '/images/series/dialogos-atopicos.jpg',
-            'background-credit' => '',
+            'background-image' => '/images/series/dialogos-atopicos_alina-grubnyak-unsplash.jpg',
+            'background-credit' => 'alina-grubnyak/unsplash',
         ],
     ];
 

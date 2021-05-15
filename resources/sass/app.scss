@@ -150,6 +150,7 @@ svg {
 }
 
 .arrow {
+    color: #4d6d78;
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -159,12 +160,16 @@ svg {
     height: 90px;
 }
 
+.arrow:hover {
+    color: rgb(130, 152, 158);
+}
+
 .left {
     margin-left: -45px;
 }
 
 .right {
-    margin-right: -45px;
+    margin-right: -110px;
 }
 
 .left:hover polyline,
@@ -193,7 +198,6 @@ polyline {
 }
 
 .carrousel-background {
-    background-color: #4d6d78;
     height: 414px;
     width: 50px;
 }
@@ -250,12 +254,21 @@ polyline {
 }
 
 .team-person-picture {
-    background-size: contain;
-    border: 5px solid #224a59;
-    padding: 5px;
-    width: 8em;
+    border: 2px solid white;
     height: 8em;
+    width: 8em;
     object-fit: cover;
+}
+
+.team-person-picture-link {
+    background: linear-gradient(to right, #224A59, #4B8CA6);
+    height: 9em;
+    width: 9em;
+    padding: 6px;
+}
+
+.team-person-link {
+    cursor: pointer;
 }
 
 .team-modal-person .jumbotron p.collapse:not(.show) {
@@ -269,7 +282,7 @@ polyline {
 }
 
 .team-modal-person .jumbotron a.collapsed::after {
-    content: 'Mostrar mais...';
+    content: 'Mostrar mais';
 }
 
 .team-modal-person .jumbotron a:not(.collapsed)::after {
@@ -277,8 +290,7 @@ polyline {
 }
 
 .more-minibio {
-    text-align: right;
-    font-style: italic;
+    text-align: center;
 }
 
 .close:hover {
@@ -311,12 +323,11 @@ button.close:focus {
 .align-content-bottom {
     position: absolute;
     bottom: 0;
-    width: 101%;
+    width: 100%;
     background-color: #0f2027;
     color: white;
     margin-bottom: -8px;
-    margin-left: -1px;
-    border-right: solid white 1px;
+    min-height: 30px;
 }
 
 .align-content-bottom button,

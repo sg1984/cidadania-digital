@@ -17,6 +17,7 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
+     * @param $SUBJECT_NAMES_IMAGES
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
@@ -40,9 +41,11 @@ class HomeController extends Controller
         );
 
         $partners = [
+            url('/images/logos/logo_atopos.png'),
             url('/images/logos/avatar_jornalismos.png'),
             url('/images/logos/logo_fakenews.png'),
             url('/images/logos/logo_gped.png'),
+            url('/images/logos/logo_fapcom.png'),
         ];
 
         return view('home', compact('subjects', 'series', 'partners'));
@@ -57,9 +60,6 @@ class HomeController extends Controller
             return redirect('/');
         }
 
-        if (auth()->user()->is_admin){
-            return redirect('/users');
-        }
         $tickets = Ticket::query()
             ->byResponsibleUser(auth()->user())
             ->byStatus([Ticket::STATUS_OPEN, Ticket::STATUS_IN_PROGRESS])
