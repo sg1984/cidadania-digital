@@ -44,8 +44,8 @@ class Subject extends Model
         ],
         self::BLOCKCHAIN_CIDADANIA => [
             'name' => 'Blockchain para Cidadania',
-            'image' => '/images/series/blockchain-cidadania_blockchain.jpg',
-            'id' => self::BLOCKCHAIN_CIDADANIA_SERIE,
+            'image' => '/images/subjects/blockchainCidadania.jpg',
+            'id' => self::BLOCKCHAIN_CIDADANIA,
         ],
         self::COMPETENCIAS_CIDADANIA_SECULO_XXI => [
             'name' => 'Competências para a Cidadania do Século XXI',
@@ -82,7 +82,7 @@ class Subject extends Model
         ],
         self::GREEN_DATA => [
             'name' => 'Green Data, Ecologia e Mudanças Climáticas Globais',
-            'image' => self::DEFAULT_BACKGROUND_IMAGE,
+            'image' => '/images/subjects/greendataEcologiaMudancasAmbientais.jpg',
             'id' => self::GREEN_DATA,
         ],
         self::JORNALISMOS_POSSIVEIS => [
@@ -122,12 +122,12 @@ class Subject extends Model
         ],
         self::TEORIAS_NOVAS_FORMAS_CIDADANIA => [
             'name' => 'Significados e Teorias das Novas Formas de Cidadania',
-            'image' => self::DEFAULT_BACKGROUND_IMAGE,
+            'image' => '/images/subjects/significadoseTeoriasCidadania.jpg',
             'id' => self::TEORIAS_NOVAS_FORMAS_CIDADANIA,
         ],
         self::TRANSLITERACIA_CIDADANIA_DIGITAL => [
             'name' => 'Transliteracia para Cidadania Digital',
-            'image' => self::DEFAULT_BACKGROUND_IMAGE,
+            'image' => '/images/subjects/transliteraciasCidadania.jpg',
             'id' => self::TRANSLITERACIA_CIDADANIA_DIGITAL,
         ],
     ];
@@ -138,7 +138,7 @@ class Subject extends Model
             'videoId' => 'ruHWtX_pZkw',
             'description' => 'Blockchain é um veículo sem precedentes para digitalização da sociedade e transferência de valor,, viabilizando a junção do mundo off-line com o mundo on-line na Web3 – a internet democratica. Considerando que os “17 objetivos sustentáveis da ONU até 2030” para acabar com a pobreza e a fome no mundo, contam com a tecnologia blockchain para integrar indivíduos, empresas e governos, as arquiteturas blockchain impactam diretamente o desenvolvimento e exercício da cidadania digital.',
             'researchers' => [User::TATIANA_REVOREDO, User::ISABELLA_MOURA],
-            'background-image' => '',
+            'background-image' => '/images/subjects/blockchainCidadania.jpg',
             'background-credit' => '',
         ],
         self::ECOLOGIA_INFORMACAO => [
@@ -170,7 +170,7 @@ class Subject extends Model
             'videoId' => 'DUFjMrIC1Is',
             'description' => 'Aqui, conceitos relacionados ao estudo dos processos de comunicação e de conexão na biosfera, tais como a Teoria de Gaia, servem ao estudo de exemplos de diferentes ecossistemas nos quais componentes ambientais (tais como a biodiversidade, a atmosfera e o clima) interagem com dispositivos tecnológicos (como sensores, dados, algoritmos etc.), transformando a comunicação, as relações e, por fim, as próprias estruturas das redes ecológicas formadas. Nossa espécie é apenas um dos elementos dessa ecologia, tanto quanto o são os dispositivos e os demais integrantes dessa rede ecossistêmica com os quais ela interage, compondo um novo modelo de cidadania.',
             'researchers' => [User::ALINE_PASCOALINO, User::JULLIANA_CUTOLO_TORRES, User::RITA_MACHADO_NARDY],
-            'background-image' => '',
+            'background-image' => '/images/subjects/greendataEcologiaMudancasAmbientais.jpg',
             'background-credit' => '',
         ],
         self::JORNALISMOS_POSSIVEIS => [
@@ -203,7 +203,7 @@ class Subject extends Model
             'videoId' => 'aWbK1vRVQrQ',
             'description' => 'As transformações que interessam ao terceiro milênio não têm a ver apenas com as mudanças da nossa maneira de pensar e dos nossos hábitos. Muito mais interessa a alteração de nossa condição habitativa. As últimas gerações de tecnologias digitais, as mudanças climáticas e a pandemia contribuíram para a definitiva alteração da morfologia de nossa comunidade, mostrando a presença de novos atores no nosso convívio. O clima, as emissões, os vírus, mas também os algoritmos, os softwares, os dados, tornaram-se membros atuantes do nosso social, estendendo as fronteiras do mesmo para além dos muros da polis. Diante dessas mudanças, a ideia ocidental de sociedade baseada no contrato entre cidadãos e limitada ao convívio e à ação dos sujeitos humanos, assim como aquela de uma cidadania baseada apenas nos direitos fundamentais das pessoas, tornam-se inadequadas. A cidadania digital é hoje um âmbito de pesquisa transdisciplinar que se concentra sobre a superação do projeto político ocidental e o início de uma nova cultura da governança em redes complexas, caraterizadas por interações em arquiteturas não mais compostas de sujeito e de objeto. Objetivo deste verbetes é apresentar o debate, surgidos em diversos âmbitos disciplinares e as contribuições de diversos autores sobre os significados das transformações da ideia de cidadania.',
             'researchers' => [User::MASSIMO_DI_FELICE, User::MARCELLA_SCHNEIDER_FARIA_SANTOS],
-            'background-image' => '',
+            'background-image' => '/images/subjects/significadoseTeoriasCidadania.jpg',
             'background-credit' => '',
         ],
         self::ONTOLOGIAS_CONTEMPORANEAS => [
@@ -235,7 +235,7 @@ class Subject extends Model
             'videoId' => 'vks7jfUt2ic',
             'description' => 'Com o avanço cronológico da modernidade e pós-modernidade, o viés antropocêntrico da tecnologia foi colocado em xeque, congregando ao caráter social a ação de outros actantes não-humanos. Nesse contexto, a própria prática e pensamento sobre a comunicação se altera, já que partia do princípio e dos mecanismos transmissores de mensagens de humano para humano e passa a agregar outros focos de rede que fogem ao olhar humanista. Esta tendência acompanha o campo da educação, movimento que culminou na utilização de um outro termo para designação das habilidades do Século XXI: a palavra “literacia”. Algumas disparidades estão presentes na esfera do termo, que são frutos, também, da emergência do contemporâneo conectado em países com diferentes realidades linguísticas, econômicas, políticas e culturais. A discussão acerca do termo (entre alfabetização, letramento e literacia) é importante, para que sua articulação não seja inapropriada ou mesmo dicotômica, levando em consideração que o estudo do conceito tem como principal objetivo a capacidade de transmissão dos seus princípios e seu potencial de cidadania. A variedade de dimensões e leituras sobre essa perspectiva, contribuíram para a UNESCO expandir o termo de literacia de mídia e informação para o conceito de transliteracy (que pode ser traduzido como Transliteracia). A reboque da tecnologia emergente, a Internet se constitui nesse cenário como uma aparente extensão do mundo real e por isso as literacias digitais se associam com às transliteracias nesse cenário.',
             'researchers' => [User::BEATRICE_BONAMI_ROSA],
-            'background-image' => '',
+            'background-image' => '/images/subjects/transliteraciasCidadania.jpg',
             'background-credit' => '',
         ],
     ];
