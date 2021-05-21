@@ -27,10 +27,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light menu-navbar shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light menu-navbar shadow-sm p-0">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ url('/images/logo_cidig_new.png') }}" height="45em" alt="Logo Plataforma Cidadania Digital">
+                    <img src="{{ url('/images/logo_cidig_new.png') }}" height="80em" alt="Logo Plataforma Cidadania Digital">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -45,13 +45,13 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="http://www.atopos.com.br/" target="_blank">{{ __('Atopos') }}</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('about') }}">{{ __('Sobre') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('team') }}">{{ __('Equipe') }}</a>
+                        </li>
+                        <li class="nav-item mr-4">
+                            <a class="nav-link" href="http://www.atopos.com.br/" target="_blank">{{ __('Atopos') }}</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest

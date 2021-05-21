@@ -57,7 +57,6 @@ class Subject extends Model
             'name' => 'Design e Plataformas digitais',
             'image' => '/images/subjects/designPlataformasDigitais.jpg',
             'id' => self::DESIGN_PLATAFORMAS_DIGITAIS,
-            'inactive' => true,
         ],
         self::DIGITALIZACAO_MEMORIA => [
             'name' => 'Digitalização da Memória',
@@ -139,6 +138,14 @@ class Subject extends Model
             'description' => 'Blockchain é um veículo sem precedentes para digitalização da sociedade e transferência de valor,, viabilizando a junção do mundo off-line com o mundo on-line na Web3 – a internet democratica. Considerando que os “17 objetivos sustentáveis da ONU até 2030” para acabar com a pobreza e a fome no mundo, contam com a tecnologia blockchain para integrar indivíduos, empresas e governos, as arquiteturas blockchain impactam diretamente o desenvolvimento e exercício da cidadania digital.',
             'researchers' => [User::TATIANA_REVOREDO, User::ISABELLA_MOURA],
             'background-image' => '/images/subjects/blockchainCidadania.jpg',
+            'background-credit' => '',
+        ],
+        self::DESIGN_PLATAFORMAS_DIGITAIS => [
+            'subject_id' => 5,
+            'videoId' => null,
+            'description' => 'Acompanhando as transformações qualitativas tanto resultantes das sucessivas crises sociais, políticas, econômicas e ecológicas atribuídas ao pensamento dualista moderno, quanto o desenvolvimento e a difusão das tecnologias e plataformas digitais, o entendimento sobre design tem sido ressignificado tanto em extensão como profundidade, estendendo sua área de atuação para além dos objetos e peças gráficas cotidianos, alcançando cidades, paisagens, nações, culturas, genes e a própria natureza. A reflexão e o pensamento sobre o design elaborado por teóricos do campo, antropólogos, filósofos, sociólogos, historiados, cientistas da técnica, entre outros, tem servido como substrato para compreensão do nosso modo de ser no mundo e na busca por entender e reelaborar ontologias alternativas àquela oriunda da modernidade. Neste sentido, o verbete Design e Plataformas Digitais, visa abordar esses debates e reflexões, reunindo material que nos auxilie a pensar o papel do design no desenvolvimento da cidadania do terceiro milênio, na construção dos nossos espaços de participação que constituirão o nosso habitar e, consequentemente, na elaboração de uma nova ideia de social e sociedade.',
+            'researchers' => [User::BRUNO_MADUREIRA_FERREIRA],
+            'background-image' => '/images/subjects/designPlataformasDigitais.jpg',
             'background-credit' => '',
         ],
         self::ECOLOGIA_INFORMACAO => [

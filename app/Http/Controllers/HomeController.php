@@ -40,11 +40,10 @@ class HomeController extends Controller
         );
 
         $partners = [
-            url('/images/logos/logo_atopos.png'),
-            url('/images/logos/avatar_jornalismos.png'),
-            url('/images/logos/logo_fakenews.png'),
-            url('/images/logos/logo_gped.png'),
-            url('/images/logos/logo_fapcom.png'),
+            url('/images/logos/fapcom-logo.png'),
+            url('/images/logos/jornalismos-logo.png'),
+            url('/images/logos/fake-news-logo.png'),
+            url('/images/logos/gpe-du-logo.png'),
         ];
 
         return view('home', compact('subjects', 'series', 'partners'));
