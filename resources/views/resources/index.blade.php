@@ -42,7 +42,7 @@
                     </td>
                     <td>Status</td>
                     <td>Criada em</td>
-                    @if(Auth::check() && !auth()->user()->is_admin)
+                    @if(Auth::check())
                         <td class="text-center">Ações</td>
                     @endif
                 </tr>
@@ -69,7 +69,7 @@
                         </td>
                         <td>{{empty($resource->published_at) ? 'Rascunho' : 'Publicada' }}</td>
                         <td>{{$resource->created_at->format('Y-m-d')}}</td>
-                        @if(Auth::check() && !auth()->user()->is_admin)
+                        @if(Auth::check())
                             <td class="text-center">
                                 <a href="{{ route('resources.edit', $resource->id)}}" class="btn btn-primary btn-sm">Alterar</a>
                                 <form class="form-delete" action="{{ route('resources.destroy', $resource->id)}}" method="post" style="display: inline-block">

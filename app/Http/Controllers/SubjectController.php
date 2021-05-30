@@ -192,6 +192,7 @@ class SubjectController extends Controller
     public function showSpecialPage(string $subjectSlug) {
         if (array_key_exists($subjectSlug, Subject::SUBJECT_PAGES_CONTENT)) {
             $subjectData = Subject::SUBJECT_PAGES_CONTENT[$subjectSlug];
+            $subjectData['slug'] = $subjectSlug;
             $subject = Subject::find($subjectData['subject_id']);
             if ($subject) {
                 $subject->load('tags');
