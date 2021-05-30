@@ -23,7 +23,7 @@ class User extends Authenticatable
         'lattes_url' => 'http://lattes.cnpq.br/9759944648465918',
         'orcid_url' => 'https://orcid.org/0000-0002-6646-4321',
         'linkedin_url' => null,
-        'subject' => Subject::SUBJECT_NAMES_IMAGES[Subject::NOVAS_FORMAS_CIDADANIA],
+        'subject' => Subject::SUBJECT_NAMES_IMAGES[Subject::TEORIAS_NOVAS_FORMAS_CIDADANIA],
         'minibio' => 'Sociólogo pela Universidade La Sapienza de Roma e doutor em Ciências da Comunicação, é professor livre docente da Escola de Comunicações e Artes da Universidade de São Paulo (ECA/USP). Fundou e coordena o Centro de Pesquisa Internacional ATOPOS (ECA/USP) sobre redes digitais. É fundador do Centro de Pesquisa Internacional di Teoria Sociale per la Sostenibilitá - Sostenibilia da Universidade La Sapienza, e diretor científico do Istituto di Alti Studi Toposofia de Roma. Possui pós-doutorado pela Universidade Paris V Sorbonne, sendo professor visitante da Universidade Paul Valery de Montpellier e Universidade Lusófona do Porto. Autor de livros, ensaios e artigos editados na França, Itália, Portugal, Argentina e México, e em diversas revistas acadêmicas.',
     ];
 
@@ -313,6 +313,117 @@ class User extends Authenticatable
         'minibio' => 'Professor Adjunto da Universidade Federal do Amazonas. Membro/coordenador do Centro Internacional de Pesquisa ATOPOS (USP), onde trabalha com teorias da comunicação e redes digitais. No mesmo centro de pesquisa é integrante da linha de pesquisa - Tekó: a digitalização dos saberes locais. Membro do Sostenibilia (Osservatorio Internazionale di Teoria Sociale Sulle Nuove Tecnologie e la Sostenibilità), Università Sapienza di Roma. Pesquisador associado do Sostenibília. Doutor em Ciência da Comunicação pela Escola de Comunicações e Artes (ECA), da Universidade de São Paulo (USP), na área de Teoria e Pesquisa em Comunicação, na linha de Comunicação e Ambiências em Redes Digitais; mestre em Comunicação, Cidadania e Cultura (2014); especialista em Comunicação Integrada (2008); graduado em Ciência da Comunicação (2006), pela UFG. É um dos coordenadores do Projeto Xingu, realizado em parceria com a Universidade Sapienza de Roma. Coordenador Geral do projeto "Amazônia contra a Covid 19", em parceria com a UNESCO e membro do comitê de Combate a Covid 19 (UFAM).',
     ];
 
+    // International researchers
+    const JOSE_AUGUSTO_BRAGANCA_MIRANDA = [
+        'name' => 'José Augusto Bragança de Miranda',
+        'university' => 'Universidade Nova de Lisboa (UNL)',
+        'picture_url' => '/images/team/c_jbraganca_foto.jpg',
+        'lattes_url' => null,
+        'orcid_url' => null,
+        'linkedin_url' => null,
+        'subject' => null,
+        'minibio' => 'Sociólogo pelo Instituto ISCTE do Instituto Universitário de Lisboa (ISCTE-IUL) e doutor em Comunicação Social pela Universidade Nova de Lisboa (UNL). É professor da Faculdade de Ciências Sociais e Humanas da UNL, onde desenvolve trabalhos nas áreas de Teoria da Cultura, Teoria dos Media, Cibercultura, Artes Contemporâneas e Teoria Política. Para além das funções de professor, é presidente do Centro de Estudos de Comunicação de Linguagens (CECL) da Universidade Nova de Lisboa, tendo sido anteriormente diretor da Revista de Comunicação e Linguagens (RCL). Participa de conferências e colabora com diversas revistas especializadas em comunicação, centrando a sua investigação nas áreas da cultura e tecnologia. Das obras que publicou destacam-se Analítica da Atualidade (1994), Política e Modernidade: Linguagem e Violência na Cultura Contemporânea (1994), Teoria da Cultura (2002).',
+    ];
+
+    const ENEA_BIANCHI = [
+        'name' => 'Enea Bianchi',
+        'university' => 'National University of Ireland Galway (NUI Galway)',
+        'picture_url' => '/images/team/c_enea_foto.jpg',
+        'lattes_url' => null,
+        'orcid_url' => null,
+        'linkedin_url' => null,
+        'subject' => null,
+        'minibio' => 'Bacharel e mestre em filosofia teórica pela Universidade de Roma Tor Vergata, desenvolveu seu doutorado em Italian Studies na Universidade Nacional da Irlanda, Galway, da qual é atualmente professor. ',
+    ];
+
+    const ISABEL_MARIA_BABO = [
+        'name' => 'Isabel Maria Perez Da Silva Babo',
+        'university' => 'Universidade Lusófona do Porto (ULP)',
+        'picture_url' => '/images/team/c_isabel_foto.jpg',
+        'lattes_url' => null,
+        'orcid_url' => 'https://orcid.org/0000-0002-9894-5146',
+        'linkedin_url' => null,
+        'subject' => null,
+        'minibio' => 'Agregação em Ciências da Comunicação pela Universidade do Minho. Doutoramento e D.E.A. em Sociologia pela École des Hautes Etudes en Sciences Sociales de Paris. Licenciatura em Filosofia pela Universidade do Porto. Reitora da Universidade Lusófona do Porto (ULP) e diretora da Faculdade de Comunicação, Arquitetura, Artes e Tecnologias de Informação da ULP, onde leciona nas áreas da comunicação interpessoal, da sociologia da comunicação e dos públicos. Docente no doutoramento em Ciências da Comunicação na Universidade Lusófona de Humanidades e Tecnologias (Lisboa). A sua área de especialização é a sociologia da comunicação, a sociologia do acontecimento e os públicos, com livro, artigos científicos e comunicações sobre acontecimento, acontecimento mediático e jornalístico, memória coletiva, problema público, media e públicos. É investigadora do CICANT.',
+    ];
+
+    const COSIMO_ACCOTO = [
+        'name' => 'Cosimo Accoto',
+        'university' => 'Massachusetts Institute of Technology (MIT)',
+        'picture_url' => '/images/team/c_accoto_foto.jpg',
+        'lattes_url' => null,
+        'orcid_url' => null,
+        'linkedin_url' => null,
+        'subject' => null,
+        'minibio' => 'É filósofo, membro da Connection Science Fellow no MIT, Boston, onde seus projetos de pesquisa tecnocultural estão focados em: teoria do software, sociedade de sensores, ciência de dados, inteligência artificial, design de plataforma e tecnologia de blockchain. Cosimo publicou vários livros de negócios e cultura: “Il mondo ex machina. Cinque brevi lezioni di filosofia dell\'automazione” (Egea 2019); “Il mondo dato. Cinque brevi lezioni di filosofia digitale” (Egea 2017, edição em inglês: “In Data Time and Tide”, Bocconi University Press 2018); “Social mobile marketing” (em coautoria com a prof. Andreina Mandelli, Egea 2014).Consultor e palestrante principal, ele também publicou artigos de negócios em Economia e Gestão (SDA Bocconi School of Management), Harvard Business Review Italy, Sole24Ore-Nova24. Sua carreira gerencial e profissional amadureceu na indústria de dados e análises, bem como em consultoria de gestão estratégica. Ele atuou como parceiro e vice-presidente de inovação na OpenKnowledge (BIP Group), ajudando organizações e empresas a imaginar e implantar negócios digitais e projetos de transformação cultural. Anteriormente, ele trabalhou como Diretor Comercial na Memis, como Chefe de Desenvolvimento de Negócios na Jupiter Media Metrix (agora Comscore) e como Gerente de Vendas e Serviços na AGB Itália (agora Nielsen).',
+    ];
+
+    const PIERRE_LEVY = [
+        'name' => 'Pierre Lévy',
+        'university' => 'Université d’Ottawa (uOttawa)',
+        'picture_url' => '/images/team/c_levy_foto.jpg',
+        'lattes_url' => null,
+        'orcid_url' => 'https://orcid.org/0000-0003-1599-221X',
+        'linkedin_url' => null,
+        'subject' => null,
+        'minibio' => 'É um reconhecido pesquisador das tecnologias da inteligência e investiga as interações entre informação e sociedade. Mestre em História da Ciência e Ph.D. em Comunicação e Sociologia e Ciências da Informação pela Universidade de Sorbonne, é um dos mais importantes defensores do uso do computador, em especial da internet, para a ampliação e a democratização do conhecimento.  Sua vocação para a pesquisa surgiu durante um curso com o filósofo francês Michel Serres, e seu foco de estudo se concentrou na área da cibernética e da inteligência artificial. Em 1987, lançou seu primeiro livro, A máquina Universo – Criação, cognição e cultura informática. Também é autor de A inteligência coletiva, O que é virtual? e Cibercultura. Tornou-se mundialmente conhecido a partir de 1994 com a difusão de sua tese sobre a “árvore do conhecimento”, sistema criado junto com Michel Authier que é composto por um software de cartografia e pelo intercâmbio de conhecimentos entre comunidades, gerando uma enciclopédia virtual em constante transformação.  Atualmente, é professor de Inteligência Coletiva na Universidade de Ottawa. Nas duas últimas décadas, está trabalhando na criação de uma linguagem universal na rede através do Information Economy Meta-Language – IEML. Segundo o projeto, o mundo vive a quarta revolução e chegará a um sistema semântico de metadata universal situado na nuvem, construído colaborativamente e capaz de orientar o futuro da comunicação digital.',
+    ];
+
+    const MICHEL_MAFFESOLI = [
+        'name' => 'Michel Maffesoli',
+        'university' => 'Université de Paris (Sorbonne)',
+        'picture_url' => '/images/team/c_maffesoli_foto.jpg',
+        'lattes_url' => null,
+        'orcid_url' => null,
+        'linkedin_url' => null,
+        'subject' => null,
+        'minibio' => 'Eminente sociólogo francês, considerado criador da Sociologia do Imaginário e do Cotidiano. Professor de Sociologia da Universidade de Paris-Decartes V- Sorbonne, é diretor do Centro de Estudos sobre o Atual e o Cotidiano (CEAQ) e do Centro de Pesquisa sobre o Imaginário (CRI), em Paris.  Antigo aluno de Gilbert Durand, Michel Maffesoli construiu uma obra em torno da questão da ligação social comunitária e a prevalência do imaginário nas sociedades pós-modernas. É secretário geral do Centre de recherche sur l\'imaginaire e membro do comitê científico de revistas internacionais, como Social Movement Studies e Sociologia Internationalis. Michel recebeu o Grand Prix des Sciences Humaines da Academia Francesa, em 1992 por seu trabalho La transfiguration du politique. Ele é também vice-presidente do Institut International de Sociologie (I.I.S.), fundado em 1893 por René Worms, e membro do Institut universitaire de France - I.U.F. Em 2011, recebeu o doutoramento honoris causa da Universidade do Minho. É conhecido, ainda, pela popularização do conceito de tribo urbana.',
+    ];
+
+    const BARBARA_CARFAGNA = [
+        'name' => 'Barbara Carfagna',
+        'university' => 'Sapienza Università di Roma (Sapienza)',
+        'picture_url' => '/images/team/c_barbara_foto.jpg',
+        'lattes_url' => null,
+        'orcid_url' => null,
+        'linkedin_url' => 'https://www.linkedin.com/in/barbara-carfagna-4a3a9916/?originalSubdomain=it',
+        'subject' => null,
+        'minibio' => 'Com mais de 25 anos de experiência como jornalista, desde 2017 é âncora do programa "Codice" transmitido pela emissora de televisão italiana RAI sobre o mundo da tecnologia e da informação. Também apresenta, junto com Massimo Cerofolini o podcast "CodiceBeta". É professora na Sapienza Università di Roma, na Itália.',
+    ];
+
+    const MARIO_PIREDDU = [
+        'name' => 'Mario Pireddu',
+        'university' => 'Università degli Studi della Tuscia (Unitus)',
+        'picture_url' => '/images/team/c_mario_foto.jpg',
+        'lattes_url' => 'http://lattes.cnpq.br/0585535889063182',
+        'orcid_url' => 'https://orcid.org/0000-0002-4790-1311',
+        'linkedin_url' => null,
+        'subject' => null,
+        'minibio' => 'Professor associado na Università degli Studi della Tuscia, na Itália, possui Ph.D. em Teoria da Informação e Comunicação pela Universita Degli Studi Di Macerata e experiência Educação e mídia, com foco em Tecnologia Educacional. Pireddu é coordenador da comissão científica do curso acadêmico online em Ciências da Educação na Universidade de Roma Tre e membro do Laboratório de Técnica Audiovisual (LTA), unidade que realiza atividades de pesquisa, ensino, produção e atendimento ao uso pedagógico-didático de mídias, com especial atenção à integração de ferramentas conceituais/materiais tradicionais e novas. Suas publicações incluem "Social Learning" (Guerini, 2014), "História e pedagogia nos media" (Annablume,  2012) e "Mediologia" (ed., Liguori, 2012).',
+    ];
+
+    const DERRICK_DE_KERCKHOVE = [
+        'name' => 'Derrick de Kerckhove',
+        'university' => 'University of Toronto (UofT)',
+        'picture_url' => '/images/team/c_derrick_foto.jpg',
+        'lattes_url' => null,
+        'orcid_url' => null,
+        'linkedin_url' => null,
+        'subject' => null,
+        'minibio' => 'Derrick de Kerckhove é professor emérito do departamento de francês da Universidade de Toronto e leciona na Universidade Federico II, em Nápoles, na Itália. Ao longo de mais de 20 anos, foi diretor do Programa McLuhan em Cultura e Tecnologia, um dos maiores centros de pesquisa e estudo sobre tecnologia no mundo. Durante a década de 1970, inclusive, foi assistente e coautor do próprio Marshall McLuhan. Além disso, Kerckhove é professor convidado na Universidade Aberta da Catalunha em Barcelona (Espanha) e é autor de livros publicados em vários países, incluindo "A pele da Cultura" e "Connected Intelligences".',
+    ];
+
+    const JOSE_ALBERTO_SANCHEZ_MARTINEZ = [
+        'name' => 'José Alberto Sánchez Martínez',
+        'university' => 'Universidad Autónoma Metropolitana-Xochimilco (UAM-X)',
+        'picture_url' => '/images/team/c_alberto_foto.jpg',
+        'lattes_url' => null,
+        'orcid_url' => 'https://orcid.org/0000-0001-6624-4663',
+        'linkedin_url' => null,
+        'subject' => null,
+        'minibio' => 'José Alberto Sánchez Martínez é doutor em ciências sociais com ênfase em comunicação e política pela UAM-Xochimilco, México. Mestre em comunicação com especialidade em novas tecnologias (UNAM). Professor do Departamento de Relações Sociais da Divisão de Ciências e Humanidades da UAM-Xochimilco. Membro do Sistema Nacional de Pesquisadores (SNI), nível II, do Conselho Nacional de Ciência e Tecnologia (Conacyt) do México. Publicou diversos ensaios relacionados a questões como cultura digital, virtualidade e processos visuais. Atualmente trabalha a temática da cultura digital com enfoque no campo da arte e na sociologia da arte. Entre suas atividades, desenvolveu a poesia como campo de criação e pesquisa.',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -441,7 +552,6 @@ class User extends Authenticatable
             self::getPersonMergedData(self::MATHEUS_SOARES_CRUZ),
             self::getPersonMergedData(self::MICHELLE_DIAS),
             self::getPersonMergedData(self::RITA_MACHADO_NARDY),
-            self::getPersonMergedData(self::SILVIA_SURRENTI),
             self::getPersonMergedData(self::TATIANA_REVOREDO),
             self::getPersonMergedData(self::TERESA_NEVES),
             self::getPersonMergedData(self::THIAGO_CARDOSO_FRANCO),
@@ -478,6 +588,23 @@ class User extends Authenticatable
             $person
         );
     }
+
+    public static function getInvitedResearchers(): array {
+        return [
+            self::getPersonMergedData(self::BARBARA_CARFAGNA),
+            self::getPersonMergedData(self::COSIMO_ACCOTO),
+            self::getPersonMergedData(self::DERRICK_DE_KERCKHOVE),
+            self::getPersonMergedData(self::ENEA_BIANCHI),
+            self::getPersonMergedData(self::ISABEL_MARIA_BABO),
+            self::getPersonMergedData(self::JOSE_ALBERTO_SANCHEZ_MARTINEZ),
+            self::getPersonMergedData(self::JOSE_AUGUSTO_BRAGANCA_MIRANDA),
+            self::getPersonMergedData(self::MARIO_PIREDDU),
+            self::getPersonMergedData(self::MICHEL_MAFFESOLI),
+            self::getPersonMergedData(self::PIERRE_LEVY),
+            self::getPersonMergedData(self::SILVIA_SURRENTI),
+        ];
+    }
+
 
     public static function getSlugFrom(string $name): string {
         return Str::slug($name, '-');

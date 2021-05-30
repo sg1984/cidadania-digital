@@ -12,18 +12,4 @@
             </div>
         @endforeach
     </div>
-    <a class="carousel-control-prev-slide w-auto" href="#partners-list" role="button" data-slide="prev">
-        <div class="carrousel-background left" style="height: 295px">
-            <div class="arrow">
-                <i class="fas fa-chevron-circle-left fa-4x mt-4"></i>
-            </div>
-        </div>
-    </a>
-    <a class="carousel-control-next-slide w-auto" href="#partners-list" role="button" data-slide="next">
-        <div class="carrousel-background right" style="height: 295px">
-            <div class="arrow">
-                <i class="fas fa-chevron-circle-right fa-4x mt-4"></i>
-            </div>
-        </div>
-    </a>
 </div>

@@ -24,13 +24,12 @@
                                         @php($researcher = \App\User::getPersonMergedData($person))
                                         <div class="col-md-6 media mb-1">
                                             <a class="mr-2 team-person-link team-person-picture-link rounded-circle" data-toggle="modal" data-target="#{{ $researcher['id'] }}" data-dismiss="modal">
-                                                <img src="{{ $researcher['picture_url'] }}" alt="{{ $researcher['name'] }}" class="team-person-picture rounded-circle mr-2">
+                                                <img src="{{ $researcher['picture_url'] }}"
+                                                     alt="{{ $researcher['name'] }}"
+                                                     class="team-person-picture rounded-circle mr-2"
+                                                     title="{{ $researcher['name'] }}"
+                                                >
                                             </a>
-                                            <div class="media-body">
-                                                <a data-toggle="modal" data-target="#{{ $researcher['id'] }}" data-dismiss="modal">
-                                                    <h5 class="mt-4">{{ $researcher['name'] }}</h5>
-                                                </a>
-                                            </div>
                                         </div>
                                         {{ view('pages.team-modal', ['person' => $researcher]) }}
                                     @endforeach
@@ -64,16 +63,23 @@
                             <h2>Conteúdos relacionados</h2>
                             <hr/>
                             <div class="mt-3">
-                                @if ($subjectData['series'] ?? false)
+                                @php($series = \App\Subject::getSeriesIdsFromSubjectId($subjectData['slug']))
+                                @if (!empty($series) ?? false)
                                     <div class="mb-4">
                                         <h4>Séries especiais</h4>
-                                        @foreach($subjectData['series'] as $serie)
-                                            @if (array_key_exists($serie,\App\Subject::SERIES_PAGES))
-                                                <a href="{{ route('showSpecialPage', $serie) }}">
-                                                    <img class="img-fluid" src="{{ \App\Subject::SERIES_PAGES[$serie]['background-image'] }}" alt="{{ \App\Subject::SERIES_PAGES[$serie]['title'] }}">
-                                                </a>
-                                            @endif
-                                        @endforeach
+                                        <div class="row">
+                                            @foreach($series as $serie)
+                                                @if (array_key_exists($serie,\App\Subject::SERIES_PAGES))
+                                                    <div class="col-md-3 mb-3">
+                                                        <div class="card card-body p-0">
+                                                            <a href="{{ route('showSpecialPage', $serie) }}">
+                                                                <img class="img-fluid" src="{{ \App\Subject::SERIES_PAGES[$serie]['thumbnail'] }}" alt="{{ \App\Subject::SERIES_PAGES[$serie]['title'] }}">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endforeach
+                                        </div>
                                     </div>
                                 @endif
 

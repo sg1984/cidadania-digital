@@ -35,6 +35,38 @@ class Subject extends Model
 
     const DEFAULT_BACKGROUND_IMAGE = '/images/team/background.jpg';
 
+    const SERIES_SUBJECT_MAP = [
+        self::CIDADANIA_TERCEIRO_MILENIO => [
+            self::TEORIAS_NOVAS_FORMAS_CIDADANIA,
+            self::GREEN_DATA,
+            self::ONTOLOGIAS_CONTEMPORANEAS
+        ],
+        self::CODICE => [
+            self::BLOCKCHAIN_CIDADANIA,
+            self::DESIGN_PLATAFORMAS_DIGITAIS,
+            self::GOVERNANCA_DIGITAL,
+            self::NET_ATIVISMO_CULTURA_HACKER
+        ],
+        self::BLOCKCHAIN_CIDADANIA_SERIE => [
+            self::BLOCKCHAIN_CIDADANIA,
+        ],
+        self::DIREITO_SAUDE_DIGITAL => [
+            self::MEDICINA_DADOS,
+        ],
+        self::DATA_ECOLOGIA_CLIMA => [
+            self::GREEN_DATA,
+        ],
+        self::DIALOGOS_ATOPICOS => [
+            self::BLOCKCHAIN_CIDADANIA,
+            self::ECOLOGIA_INFORMACAO,
+            self::GREEN_DATA,
+            self::MEDICINA_DADOS,
+            self::NET_ATIVISMO_INDIGENA,
+            self::POS_CIDADES_REDES_DE_CIDADANIA,
+            self::TRANSLITERACIA_CIDADANIA_DIGITAL,
+        ],
+    ];
+
     const SUBJECT_NAMES_IMAGES = [
         self::ALGORITMOS_CIDADANIA => [
             'name' => 'Algoritmos para Cidadania',
@@ -91,7 +123,7 @@ class Subject extends Model
         ],
         self::MEDICINA_DADOS => [
             'name' => 'Medicina de Dados e Direito à Saúde Digital',
-            'image' => self::DEFAULT_BACKGROUND_IMAGE,
+            'image' => '/images/subjects/medicinaDadosSaudeDigital.jpg',
             'id' => self::MEDICINA_DADOS,
         ],
         self::NET_ATIVISMO_CULTURA_HACKER => [
@@ -137,7 +169,7 @@ class Subject extends Model
             'videoId' => 'ruHWtX_pZkw',
             'description' => 'Blockchain é um veículo sem precedentes para digitalização da sociedade e transferência de valor,, viabilizando a junção do mundo off-line com o mundo on-line na Web3 – a internet democratica. Considerando que os “17 objetivos sustentáveis da ONU até 2030” para acabar com a pobreza e a fome no mundo, contam com a tecnologia blockchain para integrar indivíduos, empresas e governos, as arquiteturas blockchain impactam diretamente o desenvolvimento e exercício da cidadania digital.',
             'researchers' => [User::TATIANA_REVOREDO, User::ISABELLA_MOURA],
-            'background-image' => '/images/subjects/blockchainCidadania.jpg',
+            'background-image' => '/images/subjects/blockchain.jpg',
             'background-credit' => '',
         ],
         self::DESIGN_PLATAFORMAS_DIGITAIS => [
@@ -145,8 +177,8 @@ class Subject extends Model
             'videoId' => null,
             'description' => 'Acompanhando as transformações qualitativas tanto resultantes das sucessivas crises sociais, políticas, econômicas e ecológicas atribuídas ao pensamento dualista moderno, quanto o desenvolvimento e a difusão das tecnologias e plataformas digitais, o entendimento sobre design tem sido ressignificado tanto em extensão como profundidade, estendendo sua área de atuação para além dos objetos e peças gráficas cotidianos, alcançando cidades, paisagens, nações, culturas, genes e a própria natureza. A reflexão e o pensamento sobre o design elaborado por teóricos do campo, antropólogos, filósofos, sociólogos, historiados, cientistas da técnica, entre outros, tem servido como substrato para compreensão do nosso modo de ser no mundo e na busca por entender e reelaborar ontologias alternativas àquela oriunda da modernidade. Neste sentido, o verbete Design e Plataformas Digitais, visa abordar esses debates e reflexões, reunindo material que nos auxilie a pensar o papel do design no desenvolvimento da cidadania do terceiro milênio, na construção dos nossos espaços de participação que constituirão o nosso habitar e, consequentemente, na elaboração de uma nova ideia de social e sociedade.',
             'researchers' => [User::BRUNO_MADUREIRA_FERREIRA],
-            'background-image' => '/images/subjects/designPlataformasDigitais.jpg',
-            'background-credit' => '',
+            'background-image' => '/images/subjects/design-plataformas-digitais_victor-garcia-unsplash.jpg',
+            'background-credit' => 'victor-garcia/unsplash',
         ],
         self::ECOLOGIA_INFORMACAO => [
             'subject_id' => 7,
@@ -161,24 +193,24 @@ class Subject extends Model
             'videoId' => 'iLQfTFIs7DE',
             'description' => 'Os games são produtos midiáticos interativos transdisciplinares com recursos artísticos, linguagem computacional e a construção da lógica de interação e ludicidade. Se trata de um produto complexo de ser e estar em um meio natural, artificial e, essencialmente, informacional, como é a cidadania digital. Assim, este verbete abarca a curadoria e mapeamento para identificar os games que tratam direta ou indiretamente a questão da cidadania. Também propõe investigar os conceitos de cidadania digital nos games e desenvolver um framework de game design para a cidadania digital.',
             'researchers' => [User::LEANDRO_KEY_HIGUCHI_YANAZA, User::IAN_DAWSEY],
-            'background-image' => '/images/subjects/games-cidadania_nika-benedictova-unsplash.jpg',
-            'background-credit' => 'nika-benedictova/unsplash',
+            'background-image' => '/images/subjects/games-cidadania_minh-pham-unsplash.jpg',
+            'background-credit' => 'minh-pham/unsplash',
         ],
         self::GOVERNANCA_DIGITAL => [
             'subject_id' => 8,
             'videoId' => 'wRSy08pNOSk',
             'description' => 'O estudo da Governança digital deve ser compreendido como um amplo ecossistema de interações entre cidadãos, redes de informações e Estado. Esse modelo aponta para um debate que envolve o tema do e-gov, mas vai além. Discute-se, também, as novas formas de governança digital levadas à cabo pelas Civc Techs e pelas GovTechs, o ciclo de políticas públicas e sua interação com a tecnologia, os desafios da contratação e inovação no poder público e o ecossistema de inovação surgido na sociedade civil para aprimorar a governança digital.',
             'researchers' => [User::ERICK_ROZA, User::MICHELLE_DIAS],
-            'background-image' => '/images/subjects/governanca-digital_aditya-joshi-unsplash',
-            'background-credit' => 'aditya-joshi/unsplash',
+            'background-image' => '/images/subjects/governanca-digital_gustavo-leighton-unsplash.jpg',
+            'background-credit' => 'gustavo-leighton/unsplash',
         ],
         self::GREEN_DATA => [
             'subject_id' => 10,
             'videoId' => 'DUFjMrIC1Is',
             'description' => 'Aqui, conceitos relacionados ao estudo dos processos de comunicação e de conexão na biosfera, tais como a Teoria de Gaia, servem ao estudo de exemplos de diferentes ecossistemas nos quais componentes ambientais (tais como a biodiversidade, a atmosfera e o clima) interagem com dispositivos tecnológicos (como sensores, dados, algoritmos etc.), transformando a comunicação, as relações e, por fim, as próprias estruturas das redes ecológicas formadas. Nossa espécie é apenas um dos elementos dessa ecologia, tanto quanto o são os dispositivos e os demais integrantes dessa rede ecossistêmica com os quais ela interage, compondo um novo modelo de cidadania.',
             'researchers' => [User::ALINE_PASCOALINO, User::JULLIANA_CUTOLO_TORRES, User::RITA_MACHADO_NARDY],
-            'background-image' => '/images/subjects/greendataEcologiaMudancasAmbientais.jpg',
-            'background-credit' => '',
+            'background-image' => '/images/subjects/green-data_jacob-buchhave-unsplash.jpg',
+            'background-credit' => 'jacob-buchhave/unsplash',
         ],
         self::JORNALISMOS_POSSIVEIS => [
             'subject_id' => 20,
@@ -203,15 +235,14 @@ class Subject extends Model
             'researchers' => [User::MARINA_MAGALHAES, User::MATHEUS_SOARES_CRUZ],
             'background-image' => '/images/subjects/net-ativismo-cultura-hacker_tarik-haiga-unsplash.jpg',
             'background-credit' => 'tarik-haiga/unsplash',
-            'series' => [self::DIALOGOS_ATOPICOS],
         ],
         self::TEORIAS_NOVAS_FORMAS_CIDADANIA => [
             'subject_id' => 15,
             'videoId' => 'aWbK1vRVQrQ',
             'description' => 'As transformações que interessam ao terceiro milênio não têm a ver apenas com as mudanças da nossa maneira de pensar e dos nossos hábitos. Muito mais interessa a alteração de nossa condição habitativa. As últimas gerações de tecnologias digitais, as mudanças climáticas e a pandemia contribuíram para a definitiva alteração da morfologia de nossa comunidade, mostrando a presença de novos atores no nosso convívio. O clima, as emissões, os vírus, mas também os algoritmos, os softwares, os dados, tornaram-se membros atuantes do nosso social, estendendo as fronteiras do mesmo para além dos muros da polis. Diante dessas mudanças, a ideia ocidental de sociedade baseada no contrato entre cidadãos e limitada ao convívio e à ação dos sujeitos humanos, assim como aquela de uma cidadania baseada apenas nos direitos fundamentais das pessoas, tornam-se inadequadas. A cidadania digital é hoje um âmbito de pesquisa transdisciplinar que se concentra sobre a superação do projeto político ocidental e o início de uma nova cultura da governança em redes complexas, caraterizadas por interações em arquiteturas não mais compostas de sujeito e de objeto. Objetivo deste verbetes é apresentar o debate, surgidos em diversos âmbitos disciplinares e as contribuições de diversos autores sobre os significados das transformações da ideia de cidadania.',
             'researchers' => [User::MASSIMO_DI_FELICE, User::MARCELLA_SCHNEIDER_FARIA_SANTOS],
-            'background-image' => '/images/subjects/significadoseTeoriasCidadania.jpg',
-            'background-credit' => '',
+            'background-image' => '/images/subjects/teorias-cidadania_josh-riemer-unsplash.jpg',
+            'background-credit' => 'josh-riemer/unsplash',
         ],
         self::ONTOLOGIAS_CONTEMPORANEAS => [
             'subject_id' => 19,
@@ -234,7 +265,7 @@ class Subject extends Model
             'videoId' => null,
             'description' => 'Com a seção dedicada à Saúde Digital, queremos refletir sobre as transformações que estão ocorrendo no contexto da saúde à luz dos processos de informação desencadeados pelas tecnologias digitais. Hoje, os processos de digitalização estão desafiando os rituais tradicionais de tratamento e diagnóstico por meio de ecossistemas terapêuticos informativos e transorgânicos gerados por dados, algoritmos e lógicas em rede. As mudanças em curso no mundo da saúde serão lidas no contexto de uma transformação cultural ditada pela transição da "medicina mecânica" para a "medicina informativa".',
             'researchers' => [User::SILVIA_SURRENTI],
-            'background-image' => '',
+            'background-image' => '/images/subjects/Big-Data-Precision-Medicine.jpg',
             'background-credit' => '',
         ],
         self::TRANSLITERACIA_CIDADANIA_DIGITAL => [
@@ -242,8 +273,8 @@ class Subject extends Model
             'videoId' => 'vks7jfUt2ic',
             'description' => 'Com o avanço cronológico da modernidade e pós-modernidade, o viés antropocêntrico da tecnologia foi colocado em xeque, congregando ao caráter social a ação de outros actantes não-humanos. Nesse contexto, a própria prática e pensamento sobre a comunicação se altera, já que partia do princípio e dos mecanismos transmissores de mensagens de humano para humano e passa a agregar outros focos de rede que fogem ao olhar humanista. Esta tendência acompanha o campo da educação, movimento que culminou na utilização de um outro termo para designação das habilidades do Século XXI: a palavra “literacia”. Algumas disparidades estão presentes na esfera do termo, que são frutos, também, da emergência do contemporâneo conectado em países com diferentes realidades linguísticas, econômicas, políticas e culturais. A discussão acerca do termo (entre alfabetização, letramento e literacia) é importante, para que sua articulação não seja inapropriada ou mesmo dicotômica, levando em consideração que o estudo do conceito tem como principal objetivo a capacidade de transmissão dos seus princípios e seu potencial de cidadania. A variedade de dimensões e leituras sobre essa perspectiva, contribuíram para a UNESCO expandir o termo de literacia de mídia e informação para o conceito de transliteracy (que pode ser traduzido como Transliteracia). A reboque da tecnologia emergente, a Internet se constitui nesse cenário como uma aparente extensão do mundo real e por isso as literacias digitais se associam com às transliteracias nesse cenário.',
             'researchers' => [User::BEATRICE_BONAMI_ROSA],
-            'background-image' => '/images/subjects/transliteraciasCidadania.jpg',
-            'background-credit' => '',
+            'background-image' => '/images/subjects/transliteracia_kevin-ku-unsplash.jpg',
+            'background-credit' => 'kevin-ku/unsplash',
         ],
     ];
 
@@ -278,6 +309,7 @@ class Subject extends Model
             'thumbnail' => '/images/series/cidadaniaTerceiroMilenio.jpg',
             'background-image' => '/images/series/cidadania-terceiro-milenio_robynne-hu-unsplash.jpg',
             'background-credit' => 'robynne-hu/unsplash',
+            'subjects' => self::SERIES_SUBJECT_MAP[self::CIDADANIA_TERCEIRO_MILENIO],
         ],
         self::CODICE => [
             'title' => 'Codice: a vida é digital',
@@ -313,6 +345,7 @@ class Subject extends Model
             'thumbnail' => '/images/series/codice.jpg',
             'background-image' => '/images/series/codice_homem-vitruviano.jpg',
             'background-credit' => '',
+            'subjects' => self::SERIES_SUBJECT_MAP[self::CODICE],
         ],
         self::BLOCKCHAIN_CIDADANIA_SERIE => [
             'title' => 'Blockchain para a Cidadania',
@@ -332,6 +365,7 @@ class Subject extends Model
             'thumbnail' => '/images/series/blockchain.jpg',
             'background-image' => '/images/series/blockchain-cidadania_blockchain.jpg',
             'background-credit' => '',
+            'subjects' => self::SERIES_SUBJECT_MAP[self::BLOCKCHAIN_CIDADANIA_SERIE],
         ],
         self::DIREITO_SAUDE_DIGITAL => [
             'title' => 'Direito a saúde digital',
@@ -355,6 +389,7 @@ class Subject extends Model
             'thumbnail' => '/images/series/direitoSaudeDigital.jpg',
             'background-image' => '/images/series/direito-saude-digital_national-cancer-institute-unsplash.jpg',
             'background-credit' => 'national-cancer-institute/unsplash',
+            'subjects' => self::SERIES_SUBJECT_MAP[self::DIREITO_SAUDE_DIGITAL],
         ],
         self::DATA_ECOLOGIA_CLIMA => [
             'title' => 'Green Data, Info-ecologias e Mudanças Climáticas ',
@@ -402,6 +437,7 @@ class Subject extends Model
             'thumbnail' => '/images/series/dataEcologiaMudancaClimatica.jpg',
             'background-image' => '/images/series/data-ecologia-clima_agatha-valenca-unsplash.jpg',
             'background-credit' => 'agatha-valenca/unsplash',
+            'subjects' => self::SERIES_SUBJECT_MAP[self::DATA_ECOLOGIA_CLIMA],
         ],
         self::DIALOGOS_ATOPICOS => [
             'title' => 'Diálogos Atópicos',
@@ -448,6 +484,7 @@ class Subject extends Model
             'thumbnail' => '/images/series/dialogos-atopicos.jpg',
             'background-image' => '/images/series/dialogos-atopicos_alina-grubnyak-unsplash.jpg',
             'background-credit' => 'alina-grubnyak/unsplash',
+            'subjects' => self::SERIES_SUBJECT_MAP[self::DIALOGOS_ATOPICOS],
         ],
     ];
 
@@ -503,5 +540,22 @@ class Subject extends Model
         }
 
         return false;
+    }
+
+    /**
+     * @param string $subject
+     * @return array
+     */
+    public static function getSeriesIdsFromSubjectId(string $subject): array {
+        $seriesIds = [];
+        foreach (self::SERIES_SUBJECT_MAP as $seriesName => $subjects) {
+            foreach ($subjects as $subjectMap) {
+                if ($subjectMap === $subject) {
+                    $seriesIds[] = $seriesName;
+                }
+            }
+        }
+
+        return $seriesIds;
     }
 }

@@ -113,6 +113,11 @@ class HomeController extends Controller
                 'title' => 'Desenvolvedor Full-stack',
                 'people' => User::getDevelopers(),
             ];
-        return view('pages.team', compact('coordinators', 'researchers', 'designers', 'developers'));
+        $invitedResearchers = [
+            'title' => 'Atopos Internacional',
+            'people' => User::getInvitedResearchers(),
+        ];
+
+        return view('pages.team', compact('coordinators', 'researchers', 'designers', 'developers', 'invitedResearchers'));
     }
 }

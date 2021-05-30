@@ -47,6 +47,26 @@
                         </div>
                     @endif
 
+                    @if ($invitedResearchers)
+                        <h5><strong> {{ $invitedResearchers['title'] }} </strong></h5>
+                        <div class="row">
+                            @foreach($invitedResearchers['people'] as $invitedResearcher)
+                                <div class="col-md-6 media mb-5">
+                                    <a class="mr-2 team-person-link team-person-picture-link rounded-circle" data-toggle="modal" data-target="#{{ $invitedResearcher['id'] }}" data-dismiss="modal">
+                                        <img src="{{ $invitedResearcher['picture_url'] }}" alt="{{ $invitedResearcher['name'] }}" class="team-person-picture rounded-circle mr-2">
+                                    </a>
+                                    <div class="media-body">
+                                        <a class="team-person-link" data-toggle="modal" data-target="#{{ $invitedResearcher['id'] }}" data-dismiss="modal">
+                                            <h5 class="mt-4">{{ $invitedResearcher['name'] }}</h5>
+                                            <h6 class="mt-0 font-italic">{{ $invitedResearcher['university'] }}</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                {{ view('pages.team-modal', ['person' => $invitedResearcher]) }}
+                            @endforeach
+                        </div>
+                    @endif
+
                     @if ($designers)
                         <h5><strong> {{ $designers['title'] }} </strong></h5>
                         <div class="row">
