@@ -2,8 +2,7 @@
 
 @section('content')
     <div class="bg-image content-bg-image" style="
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(255, 255, 255, 1) 400px), url({{ empty($subjectData['background-image']) ? '/images/team/background.jpg' : $subjectData['background-image'] }});
-        background-size: cover;"
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(255, 255, 255, 1) 400px), url({{ empty($subjectData['background-image']) ? '/images/team/background.jpg' : $subjectData['background-image'] }});"
     >
         <p class="float-right" style="text-align: right; margin-right: 5px; margin-top: 300px; font-size: 0.5rem;">{{ empty($subjectData['background-credit']) ? 'DIVULGAÇÃO' : strtoupper( $subjectData['background-credit'] ) }}</p>
         <div class="container pt-5 pb-5">
