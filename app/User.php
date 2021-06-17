@@ -349,7 +349,7 @@ class User extends Authenticatable
 
     const COSIMO_ACCOTO = [
         'name' => 'Cosimo Accoto',
-        'university' => 'Massachusetts Institute of Technology (MIT)',
+        'university' => 'MIT Fellow',
         'picture_url' => '/images/team/c_accoto_foto.jpg',
         'lattes_url' => null,
         'orcid_url' => null,
