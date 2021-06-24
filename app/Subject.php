@@ -341,7 +341,7 @@ class Subject extends Model
                 ],
             ],
             'description' => 'A série Codice foi criada pela jornalista italiana Barbara Carfagna e reúne um conjunto de entrevistas a alguns dos mais importantes protagonistas da transformação digital da nossa época como Audrey Tang, Ministro de Assuntos Digitais de Taiwan, Jacqueline Poh, presidente da GovTech de Singapura, Hiroshi Ishiguro, professor da Univsidade de Osaka e pesquisador do campo da Inteligência Artificial, Roger Ver, CEO da Bitcoin.com, Sangeet Paul Choudary, autor do livro “Platform Revolution” e Martin Sorrell, megaempresário da comunicação.',
-            'researchers' => [User::MASSIMO_DI_FELICE],
+            'researchers' => [User::BARBARA_CARFAGNA],
             'thumbnail' => '/images/series/codice.jpg',
             'background-image' => '/images/series/codice_homem-vitruviano.jpg',
             'background-credit' => '',
