@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::get('/', 'HomeController@index')->name('index');
+Route::get('/', 'HomeController@landingPage')->name('lp');
+Route::get('/inicio', 'HomeController@index')->name('index');
 Route::resource('resources', ResourceController::class);
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/team', 'HomeController@team')->name('team');

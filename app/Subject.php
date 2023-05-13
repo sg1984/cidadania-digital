@@ -32,6 +32,7 @@ class Subject extends Model
     const POS_CIDADES_REDES_DE_CIDADANIA = 'pos-cidades';
     const TEORIAS_NOVAS_FORMAS_CIDADANIA = 'teorias-novas-formas-cidadania';
     const TRANSLITERACIA_CIDADANIA_DIGITAL = 'transliteracia-cidadania-digital';
+    const UNICO = 'unico';
 
     const DEFAULT_BACKGROUND_IMAGE = '/images/team/background.jpg';
 
@@ -485,6 +486,64 @@ class Subject extends Model
             'background-image' => '/images/series/dialogos-atopicos_alina-grubnyak-unsplash.jpg',
             'background-credit' => 'alina-grubnyak/unsplash',
             'subjects' => self::SERIES_SUBJECT_MAP[self::DIALOGOS_ATOPICOS],
+        ],
+        self::UNICO => [
+            'title' => 'Masterclasses Identidade e Cidadania Digital - Unico & Atopos/USP',
+            'tags_ids' => [1, 2, 24, 124],
+            'videos' => [
+                [
+                    'id' => 'ZeSqVsT2hmA',
+                    'title' => 'Introdução ao curso “Identidade e Cidadania Digital',
+                    'text' =>
+                        '<b>Professor Massimo di Felice</b> - Coordenador do Centro Internacional de Pesquisa Atopos e Professor da USP. <br>
+                        <b>Pedro Henrique Oliveira (Peagá Oliveira)</b> - Diretor de Comunicação da Unico. ',
+                ],
+                [
+                    'id' => 'xPSBviVQ0d8',
+                    'title' => 'Aula 1 - Identidades digitais não humanas',
+                    'text' => '<b>Massimo di Felice</b> - Coordenador do Centro Internacional de Pesquisa Atopos e Professor da USP<br><br>
+As últimas gerações de redes conectam pessoas, dispositivos, coisas, dados, elementos da natureza e tudo mais que nos cerca. Esse é um novo tipo de ambiente não mais habitado apenas por humanos. Hoje, cada pessoa física e biológica corresponde a uma outra digital, semelhante e feita de dados. Sim, você é um infovíduo! Nesta aula, são desvendadas as características e a complexidade dessa nova condição.
+',
+                ],
+                [
+                    'id' => 'nLEF7PrvqLc',
+                    'title' => 'Aula 2 - Digital twin: a identidade na época do onlif',
+                    'text' => '<b>Derrick de Kerckhove</b> - Autor de The Skin of Culture and Connected Intelligence e professor na Universidade de Toronto - Canadá. Foi Diretor do Programa McLuhan em Cultura e Tecnologia de 1983 a 2008.<b><br>
+A evolução da internet superou as barreiras iniciais que separavam o mundo real do virtual. A conexão e os dispositivos móveis, num primeiro momento, e as plataformas digitais e o metaverso, atualmente, permitem a experiência de uma condição "onlife" - uma mescla de corpos, dados, arquiteturas físicas e informativas. O conteúdo traz essa transformação digital e o surgimento do conceito de digital twin ou gêmeo digital.
+',
+                ],
+                [
+                    'id' => 'J1blB3gLFbc',
+                    'title' => 'Aula 3 - Privacidade e Open Data',
+                    'text' => '<b>Yasodara Cordova</b> – Ativista de privacidade na Internet há mais de 15 anos e pesquisadora-chefe de Privacidade da Unico.<br><br>
+O Open Data, ou dados abertos, significa que dados podem ser acessados por pessoas, empresas, instituições, times de pesquisa de forma livre, fácil e ágil. O que parece tentador para a prestação de serviços e até mesmo inovação guarda uma outra face: a ameaça à privacidade. Nesta masterclass, todo esse movimento reforça a necessidade de garantirmos segurança e proteção de dados pessoais, que são fundamentais inclusive para estabelecer relações de confiança e limites na sociedade.
+',
+                ],
+                [
+                    'id' => '9vAX6CrA8m4',
+                    'title' => 'Aula 4 – Liderança Indígena: conexão entre povos e diversidade na era digital',
+                    'text' => '<b>Sonia Guajajara</b> – Atual ministra do Ministério dos povos Indígenas. Foi a primeira Deputada Federal Indígena em São Paulo, eleita em 2022. No mesmo ano, foi incluída na lista das 100 pessoas mais influentes da revista Time, publicada nos EUA.<br><br>
+A internet foi um grande ponto de virada para o movimento indígena. Nos últimos anos, indígenas, principalmente mulheres, têm assumido cada vez mais protagonismo nas redes sociais e na sociedade, em prol da conexão com demais povos e do respeito à diversidade. Este conteúdo vai apresentar exemplos desse movimento por meio da voz de uma das principais lideranças indígenas da atualidade.
+',
+                ],
+                [
+                    'id' => 'wPcGA_PWGig',
+                    'title' => 'Aula 5 - As identidades indígenas nas redes digitais',
+                    'text' => '<b>Eliete Pereira</b> - Doutora em Ciências da Comunicação pela Escola de Comunicações e Artes da USP e pesquisadora do Centro de Pesquisa ATOPOS (ECA/USP)<br><br>
+Nos últimos anos, a presença das culturas indígenas nas redes cresceu de forma relevante. Esta masterclass vai apresentar como a digitalização dos povos ameríndios significou a criação de um novo tipo de protagonismo baseado na defesa de seus territórios e na digitalização de idiomas, mitos e visões de mundo.
+',
+                ],
+            ],
+            'description' => 'Com a velocidade e complexidade das inovações tecnológicas, pode ser desafiador se manter atualizado nos temas da Era Digital e compreender as implicações atuais e futuras em nossas vidas, na carreira e na própria sociedade. Pensando nisso, a Unico, empresa brasileira especializada em identidade digital, fez uma parceria com o Centro Internacional de Pesquisa Atopos da Escola de Comunicações e Artes da Universidade de São Paulo (ECA/USP). Dessa colaboração inédita, surgiram as Masterclasses Identidade e Cidadania Digital - Unico & Atopos/USP, que são gratuitas e já estão disponíveis online.
+<br><br>
+O objetivo deste projeto é proporcionar um maior acesso a conceitos e aplicações sobre identidade e cidadania digital para que cada pessoa se torne cada vez mais consciente de sua atuação, suas oportunidades e seus direitos diante das rápidas transformações tecnológicas. A identidade é o ponto de partida para a definição e valorização de cada indivíduo em sua singularidade, bem como de uma comunidade. Já a identidade digital traz elementos adicionais como controle de dados, segurança e privacidade e é o elemento fundamental para o exercício da cidadania digital.
+<br><br>
+Ao todo, são cinco aulas ministradas por professores e profissionais de mercado que são referências em seus temas. Abertas ao público em geral, incluindo as redes de universidades públicas e privadas do Brasil, esta é mais uma oportunidade de contribuir não apenas na formação universitária, mas na empregabilidade e troca de experiências. A seguir, conheça os conteúdos de cada masterclass.
+            ',
+            'researchers' => [User::MASSIMO_DI_FELICE, User::ELIETE_PEREIRA, User::DERRICK_DE_KERCKHOVE],
+            'thumbnail' => '',
+            'background-image' => '/images/series/dialogos-atopicos_alina-grubnyak-unsplash.jpg',
+            'background-credit' => 'alina-grubnyak/unsplash',
         ],
     ];
 

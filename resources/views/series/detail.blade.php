@@ -11,7 +11,7 @@
                     <div class="row">
                         <div class="col-7">
                             <h1>{{ $seriesData['title'] }}</h1>
-                            <p>{{ $seriesData['description'] }}</p>
+                            <p>{!! $seriesData['description']  !!} </p>
                         </div>
                         <div class="col-5">
                             <div class="row">

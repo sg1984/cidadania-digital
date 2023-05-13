@@ -120,4 +120,9 @@ class HomeController extends Controller
 
         return view('pages.team', compact('coordinators', 'researchers', 'designers', 'developers', 'invitedResearchers'));
     }
+
+    public function landingPage()
+    {
+        return view('lp');
+    }
 }
