@@ -11,6 +11,7 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
         <style>
             html, body {
@@ -154,7 +155,7 @@
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="{{ route('showSpecialPage', 'unico') }}">
+                                    <a class="modal-home-video" href="#" data-video-title="Introdução ao curso “Identidade e Cidadania Digital"" data-video-url="https://www.youtube.com/embed/ZeSqVsT2hmA">
                                         <img src="{{ url('/images/video-lp.png') }}" alt="Video aula">
                                     </a>
                                 </div>
@@ -185,6 +186,7 @@
                     </div>
                 </div>
             </div>
+            {{ view('video-target') }}
         </main>
     <script type="application/javascript" src="js/app.js"></script>
     </body>
