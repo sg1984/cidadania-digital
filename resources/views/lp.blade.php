@@ -14,7 +14,7 @@
 
         <style>
             html, body {
-                color: white;
+                background-image: linear-gradient(to right, #725e9c, #90569d, #af4b94, #cb3b82, #e02e67);
                 font-family: 'Nunito', sans-serif;
                 height: 100vh;
                 margin: 0;
@@ -86,8 +86,6 @@
 
             main {
                 background-image: linear-gradient(to right, #725e9c, #90569d, #af4b94, #cb3b82, #e02e67);
-                height: 100%;
-                width: 100%;
                 top: 0;
                 bottom: 0;
                 left: 0;
@@ -133,10 +131,11 @@
                                 <div class="col-sm-6">
                                     <ul>
                                         @foreach([
-                                                ['nome' => 'Processo de Formação da Identidade Digital', 'professores' => 'prof. Massimo Di Felice'],
-                                                ['nome' => 'Gêmeos Digitais', 'professores' => 'prof. Derrick De Kerckhove'],
-                                                ['nome' => 'Privacidade e Segurança', 'professores' => 'profa. Yasodara Córdova'],
-                                                ['nome' => 'Identidade Digital Indígena', 'professores' => 'Sônia Guajajara e profa. Eliete Pereira'],
+                                                ['nome' => 'Identidades digitais não humanas', 'professores' => 'prof. Massimo Di Felice'],
+                                                ['nome' => 'Digital twin: a identidade na época do onlife', 'professores' => 'prof. Derrick De Kerckhove'],
+                                                ['nome' => 'Privacidade e Open Data', 'professores' => 'profa. Yasodara Córdova'],
+                                                ['nome' => 'Liderança Indígena: conexão entre povos e diversidade na era digital', 'professores' => 'Sônia Guajajara'],
+                                                ['nome' => 'As identidades indígenas nas redes digitais', 'professores' => 'profa. Eliete Pereira'],
                                             ]
                                         as $aula)
                                             <li>
@@ -164,7 +163,7 @@
                         <div class="col-12">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <img src="{{ url('/images/logos/logos.png') }}" alt="Atopos Logo">
+                                    <img src="{{ url('/images/logos/logos-with-unico.png') }}" alt="Atopos Logo">
                                 </div>
                                 <div class="col-sm-6">
                                     <a class="btn btn-primary btn-access"

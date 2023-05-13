@@ -493,7 +493,7 @@ class Subject extends Model
             'videos' => [
                 [
                     'id' => 'ZeSqVsT2hmA',
-                    'title' => 'Introdução ao curso “Identidade e Cidadania Digital',
+                    'title' => 'Introdução ao curso “Identidade e Cidadania Digital"',
                     'text' =>
                         '<b>Professor Massimo di Felice</b> - Coordenador do Centro Internacional de Pesquisa Atopos e Professor da USP. <br>
                         <b>Pedro Henrique Oliveira (Peagá Oliveira)</b> - Diretor de Comunicação da Unico. ',
@@ -507,8 +507,8 @@ As últimas gerações de redes conectam pessoas, dispositivos, coisas, dados, e
                 ],
                 [
                     'id' => 'nLEF7PrvqLc',
-                    'title' => 'Aula 2 - Digital twin: a identidade na época do onlif',
-                    'text' => '<b>Derrick de Kerckhove</b> - Autor de The Skin of Culture and Connected Intelligence e professor na Universidade de Toronto - Canadá. Foi Diretor do Programa McLuhan em Cultura e Tecnologia de 1983 a 2008.<b><br>
+                    'title' => 'Aula 2 - Digital twin: a identidade na época do onlife',
+                    'text' => '<b>Derrick de Kerckhove</b> - Autor de The Skin of Culture and Connected Intelligence e professor na Universidade de Toronto - Canadá. Foi Diretor do Programa McLuhan em Cultura e Tecnologia de 1983 a 2008.<br><br>
 A evolução da internet superou as barreiras iniciais que separavam o mundo real do virtual. A conexão e os dispositivos móveis, num primeiro momento, e as plataformas digitais e o metaverso, atualmente, permitem a experiência de uma condição "onlife" - uma mescla de corpos, dados, arquiteturas físicas e informativas. O conteúdo traz essa transformação digital e o surgimento do conceito de digital twin ou gêmeo digital.
 ',
                 ],
