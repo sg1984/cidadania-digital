@@ -9,7 +9,7 @@
         <div class="col-8">
             <h5 class="card-title pt-3">{{ $videoData['title'] }}</h5>
             @if ($videoData['text'] ?? false)
-                <p>{{ $videoData['text'] }}</p>
+                <p>{!! $videoData['text']  !!} </p>
             @endif
         </div>
     </div>
