@@ -15,6 +15,7 @@
         <style>
             html, body {
                 background-image: linear-gradient(to right, #725e9c, #90569d, #af4b94, #cb3b82, #e02e67);
+                color: white;
                 font-family: 'Nunito', sans-serif;
                 height: 100vh;
                 margin: 0;
