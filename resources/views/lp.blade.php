@@ -155,7 +155,7 @@
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a class="modal-home-video" href="#" data-video-title="Introdução ao curso “Identidade e Cidadania Digital"" data-video-url="https://www.youtube.com/embed/ZeSqVsT2hmA">
+                                    <a class="modal-home-video" href="#" data-video-title='Introdução ao curso “Identidade e Cidadania Digital"' data-video-url="https://www.youtube.com/embed/ZeSqVsT2hmA">
                                         <img src="{{ url('/images/video-lp.png') }}" alt="Video aula">
                                     </a>
                                 </div>
