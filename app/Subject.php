@@ -489,7 +489,7 @@ class Subject extends Model
         ],
         self::UNICO => [
             'title' => 'Masterclasses Identidade e Cidadania Digital - Unico & Atopos/USP',
-            'tags_ids' => [1, 2, 24, 124],
+            'tags_ids' => [],
             'videos' => [
                 [
                     'id' => 'ZeSqVsT2hmA',
@@ -520,17 +520,17 @@ O Open Data, ou dados abertos, significa que dados podem ser acessados por pesso
 ',
                 ],
                 [
-                    'id' => '9vAX6CrA8m4',
-                    'title' => 'Aula 4 – Liderança Indígena: conexão entre povos e diversidade na era digital',
-                    'text' => '<b>Sonia Guajajara</b> – Atual ministra do Ministério dos povos Indígenas. Foi a primeira Deputada Federal Indígena em São Paulo, eleita em 2022. No mesmo ano, foi incluída na lista das 100 pessoas mais influentes da revista Time, publicada nos EUA.<br><br>
-A internet foi um grande ponto de virada para o movimento indígena. Nos últimos anos, indígenas, principalmente mulheres, têm assumido cada vez mais protagonismo nas redes sociais e na sociedade, em prol da conexão com demais povos e do respeito à diversidade. Este conteúdo vai apresentar exemplos desse movimento por meio da voz de uma das principais lideranças indígenas da atualidade.
+                    'id' => 'wPcGA_PWGig',
+                    'title' => 'Aula 4 - As identidades indígenas nas redes digitais',
+                    'text' => '<b>Eliete Pereira</b> - Doutora em Ciências da Comunicação pela Escola de Comunicações e Artes da USP e pesquisadora do Centro de Pesquisa ATOPOS (ECA/USP)<br><br>
+Nos últimos anos, a presença das culturas indígenas nas redes cresceu de forma relevante. Esta masterclass vai apresentar como a digitalização dos povos ameríndios significou a criação de um novo tipo de protagonismo baseado na defesa de seus territórios e na digitalização de idiomas, mitos e visões de mundo.
 ',
                 ],
                 [
-                    'id' => 'wPcGA_PWGig',
-                    'title' => 'Aula 5 - As identidades indígenas nas redes digitais',
-                    'text' => '<b>Eliete Pereira</b> - Doutora em Ciências da Comunicação pela Escola de Comunicações e Artes da USP e pesquisadora do Centro de Pesquisa ATOPOS (ECA/USP)<br><br>
-Nos últimos anos, a presença das culturas indígenas nas redes cresceu de forma relevante. Esta masterclass vai apresentar como a digitalização dos povos ameríndios significou a criação de um novo tipo de protagonismo baseado na defesa de seus territórios e na digitalização de idiomas, mitos e visões de mundo.
+                    'id' => '9vAX6CrA8m4',
+                    'title' => 'Aula 5 – Liderança Indígena: conexão entre povos e diversidade na era digital',
+                    'text' => '<b>Sonia Guajajara</b> – Atual ministra do Ministério dos povos Indígenas. Foi a primeira Deputada Federal Indígena em São Paulo, eleita em 2022. No mesmo ano, foi incluída na lista das 100 pessoas mais influentes da revista Time, publicada nos EUA.<br><br>
+A internet foi um grande ponto de virada para o movimento indígena. Nos últimos anos, indígenas, principalmente mulheres, têm assumido cada vez mais protagonismo nas redes sociais e na sociedade, em prol da conexão com demais povos e do respeito à diversidade. Este conteúdo vai apresentar exemplos desse movimento por meio da voz de uma das principais lideranças indígenas da atualidade.
 ',
                 ],
             ],
@@ -540,7 +540,6 @@ O objetivo deste projeto é proporcionar um maior acesso a conceitos e aplicaç�
 <br><br>
 Ao todo, são cinco aulas ministradas por professores e profissionais de mercado que são referências em seus temas. Abertas ao público em geral, incluindo as redes de universidades públicas e privadas do Brasil, esta é mais uma oportunidade de contribuir não apenas na formação universitária, mas na empregabilidade e troca de experiências. A seguir, conheça os conteúdos de cada masterclass.
             ',
-            'researchers' => [User::MASSIMO_DI_FELICE, User::ELIETE_PEREIRA, User::DERRICK_DE_KERCKHOVE],
             'thumbnail' => '',
             'background-image' => '/images/series/dialogos-atopicos_alina-grubnyak-unsplash.jpg',
             'background-credit' => 'alina-grubnyak/unsplash',

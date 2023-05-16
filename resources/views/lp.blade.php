@@ -136,8 +136,8 @@
                                                 ['nome' => 'Identidades digitais não humanas', 'professores' => 'prof. Massimo Di Felice'],
                                                 ['nome' => 'Digital twin: a identidade na época do onlife', 'professores' => 'prof. Derrick De Kerckhove'],
                                                 ['nome' => 'Privacidade e Open Data', 'professores' => 'profa. Yasodara Córdova'],
-                                                ['nome' => 'Liderança Indígena: conexão entre povos e diversidade na era digital', 'professores' => 'Sônia Guajajara'],
                                                 ['nome' => 'As identidades indígenas nas redes digitais', 'professores' => 'profa. Eliete Pereira'],
+                                                ['nome' => 'Liderança Indígena: conexão entre povos e diversidade na era digital', 'professores' => 'Sônia Guajajara'],
                                             ]
                                         as $aula)
                                             <li>

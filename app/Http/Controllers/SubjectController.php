@@ -207,14 +207,19 @@ class SubjectController extends Controller
 
         if (array_key_exists($subjectSlug, Subject::SERIES_PAGES)) {
             $seriesData = Subject::SERIES_PAGES[$subjectSlug];
-            $tags = Tag::byIds($seriesData['tags_ids'])
-                ->active()
-                ->get();
-            $resources = Resource::getByTagIds($seriesData['tags_ids'])
-                ->with('tags')
-                ->published()
-                ->orderBy('created_at', 'desc')
-                ->paginate(20);
+            $tags = $resources = [];
+
+            if(isset($seriesData['tags_ids'])) {
+                $tags = Tag::byIds($seriesData['tags_ids'])
+                    ->active()
+                    ->get();
+
+                $resources = Resource::getByTagIds($seriesData['tags_ids'])
+                    ->with('tags')
+                    ->published()
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(20);
+            }
 
             return view('series.detail', compact('resources', 'tags', 'seriesData'));
         }
