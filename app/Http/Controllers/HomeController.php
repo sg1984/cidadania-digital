@@ -23,6 +23,9 @@ class HomeController extends Controller
     {
         $series = [];
         foreach (Subject::SERIES_PAGES as $seriesId => $seriesData){
+            if ($seriesId === Subject::UNICO) {
+                continue;
+            }
             $series[] = [
                 'id' => $seriesId,
                 'description' => $seriesData['description'],
