@@ -24,6 +24,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/bootstrap-select.min.js') }}" defer></script>
     <script src="{{ asset('js/select2/select2.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}" defer></script>
 </head>
 <body>
     <div id="app">
