@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -65810,10 +65810,10 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
+/***/ "./resources/js/app-2023.js":
+/*!**********************************!*\
+  !*** ./resources/js/app-2023.js ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -65921,6 +65921,11 @@ $(function () {
     collapsible: true
   });
 });
+$(document).ready(function () {
+  $('.slider-verbete').slick({
+    slidesToShow: 3
+  });
+});
 
 /***/ }),
 
@@ -66009,38 +66014,14 @@ if (document.getElementById('example')) {
 
 /***/ }),
 
-/***/ "./resources/sass/app-2023.scss":
-/*!**************************************!*\
-  !*** ./resources/sass/app-2023.scss ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!********************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/app-2023.scss ***!
-  \********************************************************************************************/
+/***/ 1:
+/*!****************************************!*\
+  !*** multi ./resources/js/app-2023.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/sandrogallina/projects/cidadania-digital/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/sandrogallina/projects/cidadania-digital/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /Users/sandrogallina/projects/cidadania-digital/resources/sass/app-2023.scss */"./resources/sass/app-2023.scss");
+module.exports = __webpack_require__(/*! /Users/sandrogallina/projects/cidadania-digital/resources/js/app-2023.js */"./resources/js/app-2023.js");
 
 
 /***/ })

@@ -1,0 +1,558 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Inter);@import url(https://fonts.googleapis.com/css?family=Libre+Franklin);body#app-2023 {
+  background-color: #131A31;
+}
+
+body#app-2023 hr {
+  background: radial-gradient(48.6% 799.61% at 50% 50%, #087D8D 0%, rgba(3, 85, 97, 0) 100%);
+  height: 2px;
+}
+
+body#app-2023 .menu-navbar {
+  background-color: unset;
+}
+
+body#app-2023 .menu-navbar .navbar-toggler-icon {
+  color: white;
+}
+
+body#app-2023 .collapse.navbar-collapse {
+  display: flex !important;
+  flex-basis: auto;
+  flex-direction: column;
+}
+
+@media (max-width: 500px) {
+  body#app-2023 .collapse.navbar-collapse {
+    display: none !important;
+  }
+}
+
+body#app-2023 .collapse.navbar-collapse ul li a {
+  font-family: "Inter", serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: capitalize;
+  color: #94A3B8;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  padding: 0 50px;
+}
+
+body#app-2023 .collapse.navbar-collapse ul li a:hover,
+body#app-2023 .collapse.navbar-collapse ul li a.active {
+  font-weight: 700;
+  color: #FFFFFF;
+  background-color: unset;
+}
+
+body#app-2023 .pull-right {
+  float: right;
+}
+
+body#app-2023 .flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body#app-2023 .home-title {
+  width: 100%;
+  text-align: center;
+}
+
+body#app-2023 .content-home {
+  background-color: transparent;
+}
+
+body#app-2023 .content-home h2 {
+  font-family: Libre Franklin, serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 48px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 100px;
+}
+
+body#app-2023 .content-home .home-title-sections {
+  margin-bottom: 30px;
+  font-family: "Libre Franklin", serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 110%;
+  color: #FFFFFF;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  text-align: left;
+}
+
+body#app-2023 .content-home .slick-next:before {
+  content: url("/images/svg/next-slide.svg");
+}
+
+body#app-2023 .content-home .slick-prev {
+  transform: scaleX(-1);
+}
+
+body#app-2023 .content-home .slick-prev:before {
+  content: url("/images/svg/next-slide.svg");
+}
+
+@media (max-width: 500px) {
+  body#app-2023 .content-home .slick-next:before {
+    content: "";
+  }
+
+  body#app-2023 .content-home .slick-prev:before {
+    content: "";
+  }
+}
+
+body#app-2023 .content-home #masterclass {
+  color: white;
+}
+
+body#app-2023 .content-home #masterclass hr {
+  margin: -20px 200px 50px 200px;
+}
+
+body#app-2023 .content-home #masterclass i {
+  color: #035561;
+}
+
+@media (max-width: 500px) {
+  body#app-2023 .content-home #masterclass .col-7 {
+    flex: unset;
+    max-width: 100%;
+    background-image: linear-gradient(90deg, #131A31 50%, rgba(8, 125, 141, 0.3) 100%), url("/images/home-master-class.png");
+  }
+}
+
+body#app-2023 .content-home #masterclass .img-container {
+  background-image: linear-gradient(90deg, #131A31 0%, rgba(8, 125, 141, 0.3) 100%), url("/images/home-master-class.png");
+}
+
+@media (max-width: 500px) {
+  body#app-2023 .content-home #masterclass .img-container {
+    display: none;
+  }
+}
+
+body#app-2023 .content-home #masterclass .flex {
+  align-items: flex-start;
+}
+
+body#app-2023 .content-home #masterclass .label {
+  font-family: "Inter", serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 140%;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  color: #F1F5F9;
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: center;
+  padding: 6px 17px;
+  gap: 10px;
+  position: absolute;
+  background: linear-gradient(90deg, rgba(3, 85, 97, 0.3) 0%, rgba(8, 125, 141, 0.3) 100%);
+  border-radius: 200px;
+}
+
+body#app-2023 .content-home #masterclass h1 {
+  font-family: "Libre Franklin", serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 117.5%;
+  align-items: center;
+  color: #FFFFFF;
+}
+
+body#app-2023 .content-home #masterclass p {
+  color: #94A3B8;
+}
+
+body#app-2023 .content-home #masterclass .join-cta {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 14px 24px;
+  gap: 10px;
+  width: 200px;
+  height: 50px;
+  background: linear-gradient(90deg, #035561 0%, #087D8D 100%);
+  box-shadow: 4px 6px 61px rgba(3, 85, 97, 0.25);
+  border-radius: 8px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin-right: 20px;
+  justify-content: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: 0.017em;
+  color: #F1F5F9;
+}
+
+body#app-2023 .content-home #webseries {
+  margin: 100px 0;
+  height: 300px;
+}
+
+body#app-2023 .content-home #webseries .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body#app-2023 .content-home #webseries .flex .card-container {
+  height: 266px;
+}
+
+body#app-2023 .content-home #webseries .flex .card-container .card {
+  box-sizing: border-box;
+  position: absolute;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 9px 10px 25px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  padding: 11px !important;
+  height: 100%;
+}
+
+@media (max-width: 500px) {
+  body#app-2023 .content-home #webseries .flex .card-container .card {
+    width: 150px;
+    height: 285px;
+  }
+}
+
+body#app-2023 .content-home #webseries .flex .card-container .card a {
+  text-align: center !important;
+  color: #fff;
+}
+
+body#app-2023 .content-home #webseries .flex .card-container .card a p {
+  padding: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body#app-2023 .content-home #verbetes {
+  margin: 100px 0;
+  height: 515px;
+}
+
+@media (max-width: 500px) {
+  body#app-2023 .content-home #verbetes {
+    height: 350px;
+  }
+}
+
+body#app-2023 .content-home #verbetes .home-title {
+  margin-bottom: 30px;
+}
+
+body#app-2023 .content-home #verbetes h2 {
+  font-family: "Libre Franklin", serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 110%;
+  color: #FFFFFF;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  text-align: left;
+}
+
+body#app-2023 .content-home #verbetes .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body#app-2023 .content-home #verbetes .flex .card-container {
+  height: 450px;
+}
+
+body#app-2023 .content-home #verbetes .flex .card-container .card {
+  box-sizing: border-box;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 9px 10px 25px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  width: 280px;
+  height: 420px;
+}
+
+@media (max-width: 500px) {
+  body#app-2023 .content-home #verbetes .flex .card-container .card {
+    width: 150px;
+    height: 285px;
+  }
+}
+
+body#app-2023 .content-home #verbetes .flex .card-container .card a {
+  text-align: center !important;
+  color: #fff;
+}
+
+body#app-2023 .content-home #verbetes .flex .card-container .card a p {
+  padding: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body#app-2023 .content-home #verbetes .flex .card-container .card img {
+  width: 250px;
+  display: inline;
+  padding-top: 15px;
+}
+
+body#app-2023 .content-home #sobre-nos {
+  font-family: Inter, serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  color: #94A3B8;
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+body#app-2023 .content-home #sobre-nos .img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body#app-2023 .content-home #sobre-nos .img-container img {
+  width: 100%;
+}
+
+body#app-2023 .content-home #sobre-nos h3 {
+  font-family: Libre Franklin, serif;
+  font-size: 28px;
+  font-weight: 900;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+body#app-2023 .content-home #sobre-nos .buttons {
+  justify-content: flex-start;
+}
+
+body#app-2023 .content-home #sobre-nos .buttons .about-us-link {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 14px 24px;
+  gap: 10px;
+  width: 134px;
+  height: 50px;
+  background: linear-gradient(90deg, #035561 0%, #087D8D 100%);
+  box-shadow: 4px 6px 61px rgba(3, 85, 97, 0.25);
+  border-radius: 8px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin-right: 20px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: 0.017em;
+  color: #F1F5F9;
+}
+
+body#app-2023 .content-home #sobre-nos .buttons .leia-manifesto-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 11px;
+  gap: 10px;
+  width: 248px;
+  height: 50px;
+  box-shadow: 4px 6px 61px rgba(3, 85, 97, 0.25);
+  border-radius: 8px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: 0.017em;
+  color: #FFFFFF;
+  background: linear-gradient(90deg, #035561 100%, #087D8D 100%);
+  position: relative;
+  border: 3px solid transparent;
+}
+
+body#app-2023 .content-home #sobre-nos .buttons .leia-manifesto-link::after {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  background: linear-gradient(90deg, #087D8D 0%, #087D8D 100%);
+  content: "";
+  z-index: -1;
+  border-radius: 8px;
+}
+
+@media (max-width: 500px) {
+  body#app-2023 .content-home #sobre-nos .img-container,
+  body#app-2023 .content-home #sobre-nos .text-container {
+    width: 100%;
+    display: contents;
+  }
+
+  body#app-2023 .content-home #sobre-nos .img-container div,
+  body#app-2023 .content-home #sobre-nos .text-container div {
+    padding: 0 20px;
+  }
+
+  body#app-2023 .content-home #sobre-nos .img-container div .buttons,
+  body#app-2023 .content-home #sobre-nos .text-container div .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  body#app-2023 .content-home #sobre-nos .img-container div .buttons a,
+  body#app-2023 .content-home #sobre-nos .text-container div .buttons a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  body#app-2023 .content-home #sobre-nos .img-container div .buttons a.leia-manifesto-link,
+  body#app-2023 .content-home #sobre-nos .text-container div .buttons a.leia-manifesto-link {
+    margin-top: 20px;
+  }
+}
+
+body#app-2023 .content-home #home-realizacao {
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+body#app-2023 .content-home #home-realizacao .logo-realizacao {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 500px) {
+  body#app-2023 .content-home #home-realizacao {
+    margin-top: 50px;
+  }
+
+  body#app-2023 .content-home #home-realizacao .logo-realizacao img {
+    max-width: 450px;
+    padding: 0 20px;
+  }
+}
+
+body#app-2023 .content-home #home-parceiros {
+  align-items: center;
+  margin-bottom: 140px;
+}
+
+body#app-2023 .content-home #home-parceiros img {
+  width: 172px;
+}
+
+body#app-2023 .content-home #home-parceiros img:hover {
+  transform: none;
+  transition: none;
+}
+
+@media (max-width: 500px) {
+  body#app-2023 .content-home #home-parceiros {
+    margin-bottom: 0;
+  }
+
+  body#app-2023 .content-home #home-parceiros .img-container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  body#app-2023 .content-home #home-parceiros .img-container img {
+    width: 140px;
+  }
+}
+
+@media (max-width: 500px) {
+  body#app-2023 .container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  body#app-2023 .container h2 {
+    margin-bottom: 44px;
+  }
+}
+
+body#app-2023 .footer {
+  background-color: #131A31;
+}
+
+body#app-2023 .footer .logo-text {
+  margin-top: 76px;
+}
+
+body#app-2023 .footer .text {
+  font-family: Inter, serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0.017em;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+@media (max-width: 500px) {
+  body#app-2023 .footer .logo-text {
+    margin-top: 45px;
+  }
+
+  body#app-2023 .footer .flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  body#app-2023 .footer .flex .text {
+    margin: 20px 0;
+    font-size: 12px;
+    line-height: 140%;
+    display: flex;
+    letter-spacing: 0.017em;
+  }
+}
+

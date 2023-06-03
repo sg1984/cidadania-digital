@@ -52,6 +52,40 @@ class HomeController extends Controller
         return view('home', compact('subjects', 'series', 'partners'));
     }
 
+    public function index2023()
+    {
+        $series = [];
+        foreach (Subject::SERIES_PAGES as $seriesId => $seriesData){
+            if ($seriesId === Subject::UNICO) {
+                continue;
+            }
+            $series[] = [
+                'id' => $seriesId,
+                'title' => $seriesData['title'],
+                'description' => $seriesData['description'],
+                'tags' => Tag::byIds($seriesData['tags_ids'])->get(),
+                'thumbnail' => url($seriesData['thumbnail']),
+                'url' => route('showSpecialPage', $seriesId),
+            ];
+        }
+
+        $subjects = array_filter(
+            Subject::SUBJECT_NAMES_IMAGES,
+            function ($subject) {
+                return strpos($subject['image'], 'subjects') > 0;
+            }
+        );
+
+        $partners = [
+            url('/images/logos/fapcom-logo-gray.png'),
+            url('/images/logos/jornalismos-logo-gray.png'),
+            url('/images/logos/fake-news-logo-gray.png'),
+            url('/images/logos/gpe-du-logo-gray.png'),
+        ];
+
+        return view('home-2023', compact('subjects', 'series', 'partners'));
+    }
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */

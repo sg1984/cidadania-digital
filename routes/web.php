@@ -55,3 +55,7 @@ Route::group(['middleware' => ['auth', 'active_user']], function() {
     Route::get('tickets/{ticket}/owner', 'TicketController@editOwner')->name('tickets.editOwner');
     Route::get('tickets/{ticket}/responsible', 'TicketController@editResponsible')->name('tickets.editResponsible');
 });
+
+Route::prefix('/v2')->group(function() {
+    Route::get('/', 'HomeController@index2023')->name('index2023');
+});
