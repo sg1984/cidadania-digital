@@ -11,8 +11,13 @@ body#app-2023 {
 
     background-color: $bg-color;
 
+    background-image: url('/images/about-us-home.png');
+    background-repeat: no-repeat;
+    background-size: 690px 540px;
+    background-position: right top;
+
     hr {
-        background: radial-gradient(48.6% 799.61% at 50% 50%, #087D8D 0%, rgba(3, 85, 97, 0) 100%);
+        background: radial-gradient(closest-side, rgba(254, 107, 0, 1) 0%, rgba(150, 0, 0, 0) 100%);
         height: 2px;
     }
 
@@ -21,6 +26,25 @@ body#app-2023 {
 
         .navbar-toggler-icon {
             color: white;
+        }
+    }
+
+    .tags-list {
+        margin-bottom: 10px;
+
+        a {
+            padding: 5px 10px;
+            margin-right: 10px;
+            color: #94a3b8;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer !important;
+
+            &:hover {
+                background: linear-gradient(90deg, rgba(255, 77, 0, 1) 0%, rgba(240, 73, 73, 1) 100%);
+                color: #fff;
+            }
         }
     }
 
@@ -77,9 +101,7 @@ body#app-2023 {
         background-color: transparent;
 
         h2 {
-            font-family: Libre Franklin, serif;
-            font-size: 48px;
-            font-weight: 600;
+            font: 600 48px/100% "Libre Franklin", sans-serif;
             line-height: 48px;
             letter-spacing: 0em;
             text-align: center;
@@ -132,6 +154,10 @@ body#app-2023 {
 
             i {
                 color: #035561;
+            }
+
+            .masterclass-image.card {
+                background-color: transparent;
             }
 
             @media (max-width: $min-window) {
@@ -221,7 +247,15 @@ body#app-2023 {
 
         #webseries {
             margin: 100px 0;
-            height: 300px;
+
+            .card-container .card hr {
+                margin-top: -10px;
+                padding: 1px;
+            }
+
+            .card-container .card hr.hr-bottom {
+                margin-top: -23px;
+            }
 
             .flex {
                 display: flex;
@@ -266,6 +300,17 @@ body#app-2023 {
         #verbetes {
             margin: 100px 0;
             height: 515px;
+
+            .card-container .card hr {
+                margin-top: -3px;
+                margin-bottom: 0;
+                padding: 1px;
+            }
+
+            .card-container .card hr.hr-bottom {
+                padding: 0;
+                margin-top: -10px;
+            }
 
             @media (max-width: $min-window) {
                 height: 350px;
@@ -341,6 +386,17 @@ body#app-2023 {
             margin-bottom: 100px;
             margin-top: 100px;
 
+            p {
+                color: #94a3b8;
+                text-align: left;
+                font: 400 18px/171.5% "Inter", sans-serif;
+                position: relative;
+                align-self: stretch;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            }
+
             .img-container {
                 display: flex;
                 justify-content: center;
@@ -352,75 +408,59 @@ body#app-2023 {
             }
 
             h3 {
-                font-family: Libre Franklin, serif;
-                font-size: 28px;
-                font-weight: 900;
+                color: #ffffff;
                 text-align: left;
-                color: #FFFFFF;
+                font: 600 36px/128.5% "Libre Franklin", sans-serif;
+                position: relative;
+                align-self: stretch;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
             }
 
             .buttons {
                 justify-content: flex-start;
 
                 .about-us-link {
+                    background: linear-gradient(90deg, rgba(255, 77, 0, 1) 0%, rgba(240, 73, 73, 1) 100%);
+                    border-radius: 8px;
+                    padding: 14px 24px 14px 24px;
                     display: flex;
                     flex-direction: row;
-                    align-items: flex-start;
-                    padding: 14px 24px;
                     gap: 10px;
-                    width: 134px;
-                    height: 50px;
-                    background: linear-gradient(90deg, #035561 0%, #087D8D 100%);
-                    box-shadow: 4px 6px 61px rgba(3, 85, 97, 0.25);
-                    border-radius: 8px;
-                    flex: none;
-                    order: 0;
-                    flex-grow: 0;
-                    margin-right: 20px;
-
-                    font-style: normal;
-                    font-weight: 500;
-                    font-size: 16px;
-                    line-height: 140%;
-                    letter-spacing: 0.017em;
-                    color: #F1F5F9;
+                    justify-content: flex-start;
+                    flex-shrink: 0;
+                    position: relative;
+                    box-shadow: var(--button-box-shadow, 4px 6px 61px 0px rgba(3, 85, 97, 0.25));
+                    color: var(--slate-100, #f1f5f9);
+                    text-align: left;
+                    font: 500 16px/140% "Inter", sans-serif;
+                    margin-right: 15px;
                 }
 
                 .leia-manifesto-link {
+                    background: linear-gradient(
+                            90deg,
+                            rgba(255, 77, 0, 0.3) 0%,
+                            rgba(240, 73, 73, 0.3) 100%
+                    );
+                    border-radius: 8px;
+                    border-width: 1px;
+                    border-style: none;
+                    border-image: none;
+                    padding: 14px 24px 14px 24px;
                     display: flex;
                     flex-direction: row;
-                    justify-content: center;
-                    padding: 11px;
                     gap: 10px;
-                    width: 248px;
-                    height: 50px;
-                    box-shadow: 4px 6px 61px rgba(3, 85, 97, 0.25);
-                    border-radius: 8px;
-                    flex: none;
-                    order: 1;
-                    flex-grow: 0;
-
-                    font-style: normal;
-                    font-weight: 500;
-                    font-size: 16px;
-                    line-height: 140%;
-                    letter-spacing: 0.017em;
-                    color: #FFFFFF;
-
-                    background: linear-gradient(90deg, #035561 100%, #087D8D 100%);
-
+                    flex-shrink: 0;
                     position: relative;
-                    border: 3px solid transparent;
 
-                    &::after {
-                        position: absolute;
-                        top: -4px; bottom: -4px;
-                        left: -4px; right: -4px;
-                        background: linear-gradient(90deg, #087D8D 0%, #087D8D 100%);
-                        content: '';
-                        z-index: -1;
-                        border-radius: 8px;
-                    }
+                    color: #ffffff;
+                    text-align: left;
+                    font: 500 16px/140% "Inter", sans-serif;
+                    position: relative;
+                    align-items: center;
+                    justify-content: center;
                 }
             }
 
@@ -465,11 +505,11 @@ body#app-2023 {
                 justify-content: center;
             }
 
-            @media (max-width: $min-window) {
+            @media (max-width: 875px) {
                 margin-top: 50px;
 
                 .logo-realizacao img {
-                    max-width: 450px;
+                    width: 100%;
                     padding: 0 20px;
                 }
             }
@@ -478,6 +518,7 @@ body#app-2023 {
         #home-parceiros {
             align-items: center;
             margin-bottom: 140px;
+            margin-top: 100px;
 
             img {
                 width: 172px;
@@ -515,44 +556,6 @@ body#app-2023 {
 
             h2 {
                 margin-bottom: 44px;
-            }
-        }
-    }
-
-    .footer {
-        background-color: $bg-color;
-
-        .logo-text {
-            margin-top: 76px;
-        }
-
-        .text {
-            font-family: Inter, serif;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 22px;
-            letter-spacing: 0.017em;
-            text-align: right;
-            color: rgba(255, 255, 255, 0.64);
-        }
-
-        @media (max-width: $min-window) {
-            .logo-text {
-                margin-top: 45px;
-            }
-
-            .flex {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-
-                .text {
-                    margin: 20px 0;
-                    font-size: 12px;
-                    line-height: 140%;
-                    display: flex;
-                    letter-spacing: 0.017em;
-                }
             }
         }
     }

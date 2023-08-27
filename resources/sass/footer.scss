@@ -1,0 +1,79 @@
+footer,
+footer * {
+    box-sizing: border-box;
+    color: #ffffff;
+
+    .footer {
+        padding: 76px 0px 24px 0px;
+        display: flex;
+        flex-direction: row;
+        gap: 0px;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        position: relative;
+        margin-top: 10em;
+
+        &.container {
+            background: inherit;
+        }
+
+        .compromisso {
+            text-align: left;
+            font: 300 18px/30px "Inter", sans-serif;
+
+            img {
+                height: 2em;
+                margin-bottom: 10px;
+            }
+        }
+
+        .copyright {
+            color: #94a3b8;
+            text-align: center;
+            font: 500 18px/34px "Inter", sans-serif;
+        }
+
+        h4 {
+            font: 600 24px/24px "Inter", sans-serif;
+        }
+
+        #contato-footer {
+            text-align: left;
+            align-items: center;
+
+            i {
+                width: 30px;
+            }
+
+            a:hover {
+                text-decoration: none;
+            }
+
+            .texto-contato {
+                font: 500 14px/30px "Inter", sans-serif;
+                margin-left: 5px;
+            }
+
+            .flex {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+            }
+        }
+
+        .icons {
+            a {
+                margin-right: 10px;
+                &:hover {
+                    text-decoration: none;
+                    opacity: 0.7;
+                }
+            }
+        }
+
+        svg {
+            padding: 0;
+        }
+    }
+}

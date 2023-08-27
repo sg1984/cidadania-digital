@@ -16,6 +16,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app-2023.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fa/css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/select2/select2.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/select2/select2.min.css') }}" rel="stylesheet" />
@@ -35,13 +36,15 @@
     <script src="{{ asset('js/select2/select2.min.js') }}" defer></script>
     <script src="{{ asset('js/jquery-ui.min.js') }}" defer></script>
     <script src="{{ asset('js/slick/slick.min.js') }}" defer></script>
+
+    @stack('css')
 </head>
 <body id="app-2023">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light menu-navbar shadow-sm p-0">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ url('/images/cidig_logo-2023.png') }}" height="32px" alt="Logo Plataforma Cidadania Digital">
+                    <img src="{{ url('/images/logos/logo-2023.png') }}" height="32px" alt="Logo Plataforma Cidadania Digital">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"> <i class="fa-solid fa-bars"></i></span>
@@ -59,10 +62,10 @@
                             <a class="nav-link active" href="{{ route('index2023') }}">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('about') }}">{{ __('Webseries') }}</a>
+                            <a class="nav-link" href="{{ route('about') }}">{{ __('Sobre nós') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('team') }}">{{ __('Verbetes') }}</a>
+                            <a class="nav-link" href="{{ route('team') }}">{{ __('Equipe') }}</a>
                         </li>
                         <li class="nav-item mr-4">
                             <a class="nav-link" href="http://www.atopos.com.br/" target="_blank">{{ __('Atopos') }}</a>
@@ -144,16 +147,8 @@
         </main>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <hr>
-            <div class="logo-text flex">
-                <img src="{{ url('/images/logo_cidig_new.png') }}" height="51px" alt="Logo Plataforma Cidadania Digital">
-                <div class="text pull-right">
-                    © Cidadania Digital. Todos os direitos reservados.
-                </div>
-            </div>
-        </div>
+    <footer>
+        {{ view('v2023.footer') }}
     </footer>
 
     @auth

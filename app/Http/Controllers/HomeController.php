@@ -55,15 +55,20 @@ class HomeController extends Controller
     public function index2023()
     {
         $series = [];
+        $tagsToShow = [];
         foreach (Subject::SERIES_PAGES as $seriesId => $seriesData){
             if ($seriesId === Subject::UNICO) {
                 continue;
             }
+
+            $tags = Tag::byIds($seriesData['tags_ids'])->get();
+            $tagsToShow += $tags->toArray();
+
             $series[] = [
                 'id' => $seriesId,
                 'title' => $seriesData['title'],
                 'description' => $seriesData['description'],
-                'tags' => Tag::byIds($seriesData['tags_ids'])->get(),
+                'tags' => $tags,
                 'thumbnail' => url($seriesData['thumbnail']),
                 'url' => route('showSpecialPage', $seriesId),
             ];
@@ -83,7 +88,9 @@ class HomeController extends Controller
             url('/images/logos/gpe-du-logo-gray.png'),
         ];
 
-        return view('home-2023', compact('subjects', 'series', 'partners'));
+        return view('v2023/home',
+            compact('subjects', 'series', 'partners', 'tagsToShow')
+        );
     }
 
     /**
