@@ -69,7 +69,7 @@ class HomeController extends Controller
                 'title' => $seriesData['title'],
                 'description' => $seriesData['description'],
                 'tags' => $tags,
-                'thumbnail' => url($seriesData['thumbnail']),
+                'thumbnail' => url($seriesData['thumbnail-novo'] ?? $seriesData['thumbnail']),
                 'url' => route('showSpecialPage', $seriesId),
             ];
         }

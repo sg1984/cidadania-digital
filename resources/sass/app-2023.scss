@@ -6,15 +6,19 @@
 // New Layout
 body#app-2023 {
     // Variables
-    $bg-color: #131A31;
+    $bg-color: #090E1F;
     $min-window: 500px;
 
     background-color: $bg-color;
 
-    background-image: url('/images/about-us-home.png');
-    background-repeat: no-repeat;
-    background-size: 690px 540px;
-    background-position: right top;
+    video {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 15%;
+        object-fit: cover;
+    }
 
     hr {
         background: radial-gradient(closest-side, rgba(254, 107, 0, 1) 0%, rgba(150, 0, 0, 0) 100%);
@@ -22,7 +26,8 @@ body#app-2023 {
     }
 
     .menu-navbar {
-        background-color: unset;
+        background: linear-gradient(90deg, transparent, #090E1F);
+        height: 60px;
 
         .navbar-toggler-icon {
             color: white;
@@ -95,6 +100,115 @@ body#app-2023 {
     .home-title {
         width: 100%;
         text-align: center;
+    }
+
+    #sobre-nos {
+        font-family: Inter, serif;
+        font-size: 14px;
+        font-weight: 400;
+        text-align: left;
+        color: #94A3B8;
+        margin-bottom: 100px;
+        margin-top: 100px;
+
+        p {
+            color: #94a3b8;
+            text-align: left;
+            font: 400 18px/171.5% "Inter", sans-serif;
+            position: relative;
+            align-self: stretch;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        h3 {
+            color: #ffffff;
+            text-align: left;
+            font: 600 36px/128.5% "Libre Franklin", sans-serif;
+            position: relative;
+            align-self: stretch;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .buttons {
+            justify-content: flex-start;
+
+            .about-us-link {
+                background: linear-gradient(90deg, rgba(255, 77, 0, 1) 0%, rgba(240, 73, 73, 1) 100%);
+                border-radius: 8px;
+                padding: 14px 24px 14px 24px;
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                justify-content: flex-start;
+                flex-shrink: 0;
+                position: relative;
+                box-shadow: var(--button-box-shadow, 4px 6px 61px 0px rgba(3, 85, 97, 0.25));
+                color: var(--slate-100, #f1f5f9);
+                text-align: left;
+                font: 500 16px/140% "Inter", sans-serif;
+                margin-right: 15px;
+            }
+
+            .leia-manifesto-link {
+                background: linear-gradient(
+                        90deg,
+                        rgba(255, 77, 0, 0.3) 0%,
+                        rgba(240, 73, 73, 0.3) 100%
+                );
+                border-radius: 8px;
+                border-width: 1px;
+                border-style: none;
+                border-image: none;
+                padding: 14px 24px 14px 24px;
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                flex-shrink: 0;
+                position: relative;
+
+                color: #ffffff;
+                text-align: left;
+                font: 500 16px/140% "Inter", sans-serif;
+                position: relative;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: $min-window) {
+            .img-container,
+            .text-container {
+                width: 100%;
+                display: contents;
+
+                div {
+                    padding: 0 20px;
+
+                    .buttons {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        padding: 0;
+
+                        a {
+                            width: 100%;
+                            justify-content: center;
+
+
+                            &.leia-manifesto-link {
+                                margin-top: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .content-home {
@@ -264,7 +378,7 @@ body#app-2023 {
 
 
                 .card-container {
-                    height: 266px;
+                    height: 240px;
 
                     .card {
                         box-sizing: border-box;
@@ -377,125 +491,6 @@ body#app-2023 {
             }
         }
 
-        #sobre-nos {
-            font-family: Inter, serif;
-            font-size: 14px;
-            font-weight: 400;
-            text-align: left;
-            color: #94A3B8;
-            margin-bottom: 100px;
-            margin-top: 100px;
-
-            p {
-                color: #94a3b8;
-                text-align: left;
-                font: 400 18px/171.5% "Inter", sans-serif;
-                position: relative;
-                align-self: stretch;
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-            }
-
-            .img-container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                img {
-                    width: 100%;
-                }
-            }
-
-            h3 {
-                color: #ffffff;
-                text-align: left;
-                font: 600 36px/128.5% "Libre Franklin", sans-serif;
-                position: relative;
-                align-self: stretch;
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-            }
-
-            .buttons {
-                justify-content: flex-start;
-
-                .about-us-link {
-                    background: linear-gradient(90deg, rgba(255, 77, 0, 1) 0%, rgba(240, 73, 73, 1) 100%);
-                    border-radius: 8px;
-                    padding: 14px 24px 14px 24px;
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    justify-content: flex-start;
-                    flex-shrink: 0;
-                    position: relative;
-                    box-shadow: var(--button-box-shadow, 4px 6px 61px 0px rgba(3, 85, 97, 0.25));
-                    color: var(--slate-100, #f1f5f9);
-                    text-align: left;
-                    font: 500 16px/140% "Inter", sans-serif;
-                    margin-right: 15px;
-                }
-
-                .leia-manifesto-link {
-                    background: linear-gradient(
-                            90deg,
-                            rgba(255, 77, 0, 0.3) 0%,
-                            rgba(240, 73, 73, 0.3) 100%
-                    );
-                    border-radius: 8px;
-                    border-width: 1px;
-                    border-style: none;
-                    border-image: none;
-                    padding: 14px 24px 14px 24px;
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    flex-shrink: 0;
-                    position: relative;
-
-                    color: #ffffff;
-                    text-align: left;
-                    font: 500 16px/140% "Inter", sans-serif;
-                    position: relative;
-                    align-items: center;
-                    justify-content: center;
-                }
-            }
-
-            @media (max-width: $min-window) {
-                .img-container,
-                .text-container {
-                    width: 100%;
-                    display: contents;
-
-                    div {
-                        padding: 0 20px;
-
-                        .buttons {
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            flex-direction: row;
-                            flex-wrap: wrap;
-                            padding: 0;
-
-                            a {
-                                width: 100%;
-                                justify-content: center;
-
-
-                                &.leia-manifesto-link {
-                                    margin-top: 20px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
         #home-realizacao {
             margin-bottom: 100px;
             margin-top: 100px;
@@ -558,5 +553,9 @@ body#app-2023 {
                 margin-bottom: 44px;
             }
         }
+    }
+
+    .container {
+        max-width: 1200px;
     }
 }
