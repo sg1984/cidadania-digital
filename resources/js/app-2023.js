@@ -112,4 +112,7 @@ $(document).ready(function(){
     $('.slider-verbete').slick({
         slidesToShow: 3
     });
+    $('.slider-masterclass').slick({
+        slidesToShow: 1
+    });
 });

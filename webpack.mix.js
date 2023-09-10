@@ -16,4 +16,5 @@ mix.react('resources/js/app.js', 'public/js')
     .react('resources/js/app-2023.js', 'public/js')
     .sass('resources/sass/app-2023.scss', 'public/css')
     .sass('resources/sass/footer.scss', 'public/css')
+    .version()
 ;

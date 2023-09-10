@@ -189,7 +189,7 @@ class SubjectController extends Controller
         return redirect()->route('subjects.index')->with('success', 'Status do verbete atualizado com sucesso!');
     }
 
-    public function showSpecialPage(string $subjectSlug) {
+    public function showSpecialPage(string $subjectSlug, $newVersion = false) {
         if (array_key_exists($subjectSlug, Subject::SUBJECT_PAGES_CONTENT)) {
             $subjectData = Subject::SUBJECT_PAGES_CONTENT[$subjectSlug];
             $subjectData['slug'] = $subjectSlug;
@@ -201,7 +201,9 @@ class SubjectController extends Controller
                     ->orderBy('created_at', 'desc')
                     ->paginate(20);
 
-                return view('subjects.detail', compact('resources', 'subject', 'subjectData'));
+                $viewName = $newVersion ? 'v2.subjects.detail' : 'subjects.detail';
+
+                return view($viewName, compact('resources', 'subject', 'subjectData'));
             }
         }
 
@@ -221,9 +223,17 @@ class SubjectController extends Controller
                     ->paginate(20);
             }
 
-            return view('series.detail', compact('resources', 'tags', 'seriesData'));
+            $viewName = $newVersion ? 'v2.series.detail' : 'series.detail';
+
+            return view($viewName, compact('resources', 'tags', 'seriesData'));
         }
 
-        return redirect()->route('showAll');
+        return $newVersion
+            ? redirect()->route('v2.showAll')
+            : redirect()->route('showAll');
+    }
+
+    public function showSpecialPageV2(string $subjectSlug) {
+        return $this->showSpecialPage($subjectSlug, true);
     }
 }

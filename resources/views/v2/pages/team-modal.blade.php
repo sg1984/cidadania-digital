@@ -1,5 +1,5 @@
 <div class="modal fade"
-     id="{{ $person['slug'] }}"
+     id="{{ $person['id'] }}"
      data-backdrop="static"
      data-keyboard="false"
      tabindex="-1"

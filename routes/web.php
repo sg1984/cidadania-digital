@@ -57,5 +57,31 @@ Route::group(['middleware' => ['auth', 'active_user']], function() {
 });
 
 Route::prefix('/v2')->group(function() {
-    Route::get('/', 'HomeController@index2023')->name('index2023');
+    Route::get('/', 'HomeController@indexV2')
+        ->name('v2.index');
+    Route::get('/about', 'HomeController@aboutV2')
+        ->name('v2.about');
+    Route::get('/team', 'HomeController@teamV2')
+        ->name('v2.team');
+
+    Route::get('/special/{subjectSlug}', 'SubjectController@showSpecialPageV2')
+        ->name('v2.showSpecialPage');
+
+    Route::get('/researcher/{slug}', 'ResourceController@showByUserV2')
+        ->name('v2.authorPage');
+
+    Route::prefix('/search')->group(function(){
+        Route::get('/', 'ResourceController@showAllV2')
+            ->name('v2.showAll');
+
+        Route::get('/tags/{tagId}', 'ResourceController@searchByTagV2')
+            ->name('v2.searchByTag');
+
+        Route::get('/type/{typeId}', 'ResourceController@searchByFormat')
+            ->name('v2.searchByFormat');
+
+        Route::get('/subject/{subjectId}', 'ResourceController@searchBySubjectV2')
+            ->name('v2.searchBySubject');
+
+    });
 });

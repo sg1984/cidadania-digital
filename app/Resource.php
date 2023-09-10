@@ -100,10 +100,15 @@ class Resource extends Model
     }
 
     /**
+     * @param bool $newVersion
      * @return string
      */
-    public function getFormatIcon(): string
+    public function getFormatIcon(bool $newVersion = false): string
     {
+        if ($newVersion && $this->format_id === self::FORMAT_TEXT) {
+            return 'fa fa-link';
+        }
+
         return self::FORMAT_ICONS[$this->format_id];
     }
 

@@ -52,7 +52,7 @@ class HomeController extends Controller
         return view('home', compact('subjects', 'series', 'partners'));
     }
 
-    public function index2023()
+    public function indexV2()
     {
         $series = [];
         $tagsToShow = [];
@@ -70,7 +70,7 @@ class HomeController extends Controller
                 'description' => $seriesData['description'],
                 'tags' => $tags,
                 'thumbnail' => url($seriesData['thumbnail-novo'] ?? $seriesData['thumbnail']),
-                'url' => route('showSpecialPage', $seriesId),
+                'url' => route('v2.showSpecialPage', $seriesId),
             ];
         }
 
@@ -88,8 +88,27 @@ class HomeController extends Controller
             url('/images/logos/gpe-du-logo-gray.png'),
         ];
 
-        return view('v2023/home',
-            compact('subjects', 'series', 'partners', 'tagsToShow')
+        $masterclasses = [
+            [
+                'title' => 'Masterclass Unico',
+                'url' => route('v2.showSpecialPage', 'unico'),
+                'thumbnail' => '/images/masterclass-carroussel.png',
+            ],
+            [
+                'title' => 'Masterclass Unico',
+                'url' => route('v2.showSpecialPage', 'unico'),
+                'thumbnail' => '/images/masterclass-carroussel.png',
+            ],
+        ];
+
+        return view('v2/home',
+            compact(
+                'subjects',
+                'series',
+                'partners',
+                'tagsToShow',
+                'masterclasses'
+            )
         );
     }
 
@@ -138,7 +157,12 @@ class HomeController extends Controller
         return view('pages.about');
     }
 
-    public function team()
+    public function aboutV2()
+    {
+        return view('v2.pages.about');
+    }
+
+    public function team(bool $newVersion = false)
     {
         $coordinators = [
             'title' => 'Coordenador Científico',
@@ -162,8 +186,23 @@ class HomeController extends Controller
             'people' => User::getInvitedResearchers(),
         ];
 
+        if ($newVersion) {
+            $researchers = [
+                'title' => 'Professores e Pesquisadores',
+                'people' => array_merge($researchers['people'], $invitedResearchers['people']),
+            ];
+
+            return view('v2.pages.team', compact('researchers', 'coordinators'));
+        }
+
         return view('pages.team', compact('coordinators', 'researchers', 'designers', 'developers', 'invitedResearchers'));
     }
+
+    public function teamV2()
+    {
+        return $this->team(true);
+    }
+
 
     public function landingPage()
     {

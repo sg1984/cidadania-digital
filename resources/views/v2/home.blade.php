@@ -1,4 +1,4 @@
-@extends('layouts.app-2023')
+@extends('layouts.v2.home')
 
 @section('content')
     <div class="content-home">
@@ -25,18 +25,18 @@
 
             <div id="masterclass">
                 <hr>
-                <div class="row">
-                    <h2 class="home-title">Masterclasses</h2>
+                <h2 class="home-title">Masterclasses</h2>
 
-                    <div class="row flex">
+                <div class="row flex slider slider-masterclass">
+                    @foreach($masterclasses as $masterclass)
                         <div class="col-12 mb-3 card-container">
                             <div class="card card-body p-0 masterclass-image">
-                                <a class="access-link" href="/special/unico">
-                                    <img src="{{ url('/images/masterclass-carroussel.png') }}" alt="Masterclass Unico" width="100%">
+                                <a class="access-link" href="{{ $masterclass['url'] }}">
+                                    <img src="{{ url($masterclass['thumbnail']) }}" alt="{{ $masterclass['title'] }}" height="683px" width="100%">
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
 
@@ -76,7 +76,7 @@
                             <div class="col-md-3 mb-3 card-container">
                                 <div class="card card-body p-0">
                                     <hr>
-                                    <a href="{{ route('showSpecialPage', $key) }}">
+                                    <a href="{{ route('v2.showSpecialPage', $key) }}">
                                         <img class="img-fluid" src="{{ $subject['image'] }}" alt="Video thumbnail">
                                         <p>{{ $subject['name'] }}</p>
                                     </a>

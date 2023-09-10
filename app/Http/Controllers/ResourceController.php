@@ -24,7 +24,7 @@ class ResourceController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return RedirectResponse
      */
     public function index()
     {
@@ -263,7 +263,7 @@ class ResourceController extends Controller
      * @param int $tagId
      * @return Factory|View
      */
-    public function searchByTag(int $tagId)
+    public function searchByTag(int $tagId, bool $newVersion = false)
     {
         $tag = Tag::find($tagId);
         $searchBy = $tag->name;
@@ -273,14 +273,21 @@ class ResourceController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(20);
 
-        return view('resources.contents', compact('resources', 'searchBy'));
+        $viewName = $newVersion ? 'v2.resources.contents' : 'resources.contents';
+
+        return view($viewName, compact('resources', 'searchBy'));
+    }
+
+    public function searchByTagV2(int $tagId)
+    {
+        return $this->searchByTag($tagId, true);
     }
 
     /**
      * @param int $subjectId
      * @return Factory|View
      */
-    public function searchBySubject(int $subjectId)
+    public function searchBySubject(int $subjectId, bool $newVersion = false)
     {
         $subject = Subject::find($subjectId);
         $searchBy = $subject->name;
@@ -289,7 +296,14 @@ class ResourceController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(20);
 
-        return view('resources.contents', compact('resources', 'searchBy'));
+        $viewName = $newVersion ? 'v2.resources.contents' : 'resources.contents';
+
+        return view($viewName, compact('resources', 'searchBy'));
+    }
+
+    public function searchBySubjectV2(int $subjectId)
+    {
+        return $this->searchBySubject($subjectId, true);
     }
 
     /**
@@ -311,7 +325,7 @@ class ResourceController extends Controller
      * @param Request $request
      * @return Application|Factory|View
      */
-    public function showAll(Request $request)
+    public function showAll(Request $request, bool $newVersion = false)
     {
         $searchRequest = $request->get('search', null);
         $resources = Resource::query();
@@ -337,7 +351,14 @@ class ResourceController extends Controller
             ->paginate(20);
         $resources->appends(['search' => $searchRequest]);
 
-        return view('resources.contents', compact('resources', 'searchBy'));
+        $viewName = $newVersion ? 'v2.resources.contents' : 'resources.contents';
+
+        return view($viewName, compact('resources', 'searchBy'));
+    }
+
+    public function showAllV2(Request $request)
+    {
+        return $this->showAll($request, true);
     }
 
     /**
@@ -354,5 +375,33 @@ class ResourceController extends Controller
             ->paginate(20);
 
         return view('resources.index', compact('resources', 'user'));
+    }
+
+    public function showByUserV2(string $userSlug)
+    {
+        $userId = null;
+        $userData = null;
+        foreach (User::MAP_ID_USER as $id => $user) {
+            if ($userSlug === User::getSlugFrom($user['name'])) {
+                $userId = $id;
+                $userData = $user;
+                break;
+            }
+        }
+
+        $user = User::find($userId);
+        $resources = collect([]);
+        if ($user) {
+            $resources = $user
+                ->resources()
+                ->published()
+                ->orderBy('created_at', 'desc')
+                ->paginate(20);
+        }
+
+        $searchBy = $user ? $user->name : $userSlug;
+
+        return view('v2.resources.contents',
+            compact('resources', 'searchBy', 'userData'));
     }
 }
