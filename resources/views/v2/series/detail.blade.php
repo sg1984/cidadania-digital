@@ -36,7 +36,7 @@
                                     <div class="row">
                                         <div class="col-7 media mt-2 mb-3">
                                             <div class="row">
-                                                <div class="col-2">
+                                                <div class="{{ !isset($seriesData['sponsors']) ? 'col-2' : 'col-3' }}">
                                                     @php($researcher = \App\User::getPersonMergedData($person))
                                                     <a  href="{{ route('v2.authorPage', $researcher['slug']) }}"
                                                         class="mr-2 team-person-link team-person-picture-link rounded-circle"
@@ -51,7 +51,7 @@
                                                     </a>
                                                 </div>
 
-                                                <div class="col-10 person-data">
+                                                <div class="{{ !isset($seriesData['sponsors']) ? 'col-10' : 'col-9' }} person-data">
                                                     <h4>{{ $researcher['title'] ?? $researcher['name'] }}</h4>
                                                     <p>{{ $researcher['university'] }}</p>
                                                 </div>
