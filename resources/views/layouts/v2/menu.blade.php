@@ -30,34 +30,10 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdownLogin" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a class="nav-link login-button" href="{{ route('login') }}">
                             {{ __('Login') }}
                         </a>
 
-                        <div id="navbarDropdownLoginForm" class="dropdown-menu dropdown-menu-right p-2" aria-labelledby="navbarDropdownLogin">
-                            <form method="POST" action="{{ route('login') }}">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="email" class="col-form-label text-md-right">{{ __('E-Mail') }}</label>
-                                    <input id="email" type="email" class="form-control" name="email" required autocomplete="email" autofocus>
-                                    <label for="password" class="col-form-label text-md-right">{{ __('Senha') }}</label>
-                                    <input id="password" type="password" class="form-control" name="password" required autocomplete="current-password">
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember">
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Lembrar de mim') }}
-                                    </label>
-                                </div>
-                                <div class="form-group mt-1">
-                                    <button type="submit" class="btn btn-outline-info">
-                                        {{ __('Entrar') }}
-                                    </button>
-                                </div>
-                            </form>
-                            <a href="{{ route('password.request') }}">{{ __('Esqueci minha senha') }}</a>
-                        </div>
                     </li>
                 @else
                     <li class="nav-item dropdown">

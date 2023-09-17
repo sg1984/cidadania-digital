@@ -38,6 +38,23 @@ body#app-2023 {
         .navbar-toggler-icon {
             color: white;
         }
+
+        .login-button {
+            border-radius: 8px;
+            background: var(--15, linear-gradient(90deg, #FF4D00 0%, #F04949 100%));
+            box-shadow: 4px 6px 61px 0px rgba(3, 85, 97, 0.25);
+            display: flex;
+            padding: 8px 24px;
+            align-items: flex-start;
+            gap: 10px;
+
+            color: #F1F5F9;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 140%; /* 19.6px */
+            letter-spacing: 0.238px;
+        }
     }
 
     .tags-list {

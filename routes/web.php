@@ -15,20 +15,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::get('/', 'HomeController@landingPage')->name('lp');
-Route::get('/inicio', 'HomeController@index')->name('index');
-Route::resource('resources', ResourceController::class);
-Route::get('/about', 'HomeController@about')->name('about');
-Route::get('/team', 'HomeController@team')->name('team');
+Route::prefix('/v0')->group(function() {
+    Route::get('/', 'HomeController@landingPage')->name('lp');
+    Route::get('/inicio', 'HomeController@index')->name('index');
+    Route::resource('resources', ResourceController::class);
+    Route::get('/about', 'HomeController@about')->name('about');
+    Route::get('/team', 'HomeController@team')->name('team');
 
 
-Route::get('/search/tags/{tagId}', 'ResourceController@searchByTag')->name('searchByTag');
-Route::get('/search/subject/{subjectId}', 'ResourceController@searchBySubject')->name('searchBySubject');
-Route::get('/search/type/{typeId}', 'ResourceController@searchByFormat')->name('searchByFormat');
-Route::get('/search/', 'ResourceController@showAll')->name('showAll');
-Route::get('/search/user/{userId}', 'ResourceController@showByUser')->name('showByUser');
+    Route::get('/search/tags/{tagId}', 'ResourceController@searchByTag')->name('searchByTag');
+    Route::get('/search/subject/{subjectId}', 'ResourceController@searchBySubject')->name('searchBySubject');
+    Route::get('/search/type/{typeId}', 'ResourceController@searchByFormat')->name('searchByFormat');
+    Route::get('/search/', 'ResourceController@showAll')->name('showAll');
+    Route::get('/search/user/{userId}', 'ResourceController@showByUser')->name('showByUser');
 
-Route::get('/special/{subjectSlug}', 'SubjectController@showSpecialPage')->name('showSpecialPage');
+    Route::get('/special/{subjectSlug}', 'SubjectController@showSpecialPage')->name('showSpecialPage');
+});
 
 Route::group(['middleware' => ['auth', 'active_user']], function() {
     Route::get('/home', 'HomeController@home')->name('home');
@@ -56,32 +58,30 @@ Route::group(['middleware' => ['auth', 'active_user']], function() {
     Route::get('tickets/{ticket}/responsible', 'TicketController@editResponsible')->name('tickets.editResponsible');
 });
 
-Route::prefix('/v2')->group(function() {
-    Route::get('/', 'HomeController@indexV2')
-        ->name('v2.index');
-    Route::get('/about', 'HomeController@aboutV2')
-        ->name('v2.about');
-    Route::get('/team', 'HomeController@teamV2')
-        ->name('v2.team');
+Route::get('/', 'HomeController@indexV2')
+    ->name('v2.index');
+Route::get('/about', 'HomeController@aboutV2')
+    ->name('v2.about');
+Route::get('/team', 'HomeController@teamV2')
+    ->name('v2.team');
 
-    Route::get('/special/{subjectSlug}', 'SubjectController@showSpecialPageV2')
-        ->name('v2.showSpecialPage');
+Route::get('/special/{subjectSlug}', 'SubjectController@showSpecialPageV2')
+    ->name('v2.showSpecialPage');
 
-    Route::get('/researcher/{slug}', 'ResourceController@showByUserV2')
-        ->name('v2.authorPage');
+Route::get('/researcher/{slug}', 'ResourceController@showByUserV2')
+    ->name('v2.authorPage');
 
-    Route::prefix('/search')->group(function(){
-        Route::get('/', 'ResourceController@showAllV2')
-            ->name('v2.showAll');
+Route::prefix('/search')->group(function(){
+    Route::get('/', 'ResourceController@showAllV2')
+        ->name('v2.showAll');
 
-        Route::get('/tags/{tagId}', 'ResourceController@searchByTagV2')
-            ->name('v2.searchByTag');
+    Route::get('/tags/{tagId}', 'ResourceController@searchByTagV2')
+        ->name('v2.searchByTag');
 
-        Route::get('/type/{typeId}', 'ResourceController@searchByFormat')
-            ->name('v2.searchByFormat');
+    Route::get('/type/{typeId}', 'ResourceController@searchByFormat')
+        ->name('v2.searchByFormat');
 
-        Route::get('/subject/{subjectId}', 'ResourceController@searchBySubjectV2')
-            ->name('v2.searchBySubject');
+    Route::get('/subject/{subjectId}', 'ResourceController@searchBySubjectV2')
+        ->name('v2.searchBySubject');
 
-    });
 });

@@ -43,7 +43,7 @@
                     <dd class="col-sm-9">
                         @if(count($subject->tags))
                             @foreach($subject->tags as $tag)
-                                <a href="{{ route('searchByTag', $tag->id) }}" class="badge badge-light">
+                                <a href="{{ route('v2.searchByTag', $tag->id) }}" class="badge badge-light">
                                     <span>{{$tag->name}}</span>
                                 </a>
                             @endforeach

@@ -19,7 +19,7 @@
                             <div class="row tags-list">
                                 <div class="col-12">
                                     @foreach($tags as $tag)
-                                        <a href="{{ route('searchByTag', $tag->id) }}" class="label">
+                                        <a href="{{ route('v2.searchByTag', $tag->id) }}" class="label">
                                             <span>{{$tag->name}}</span>
                                         </a>
                                     @endforeach

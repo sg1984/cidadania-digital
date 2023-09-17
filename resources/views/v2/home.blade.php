@@ -64,7 +64,7 @@
 
                 <div class="tags-list">
                     @foreach((array_slice($tagsToShow, 0, 10) ?? []) as $tag)
-                        <a href="{{ route('searchByTag', $tag['id']) }}" class="label">
+                        <a href="{{ route('v2.searchByTag', $tag['id']) }}" class="label">
                             {{ $tag['name'] }}
                         </a>
                     @endforeach

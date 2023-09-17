@@ -94,7 +94,7 @@
                         </div>
 
                         @foreach($resource->tags as $tag)
-                            <a href="{{ route('searchByTag', $tag->id) }}">
+                            <a href="{{ route('v2.searchByTag', $tag->id) }}">
                                 <span class="label">{{$tag->name}}</span>
                             </a>
                         @endforeach
