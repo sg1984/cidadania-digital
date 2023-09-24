@@ -385,6 +385,7 @@ class ResourceController extends Controller
             if ($userSlug === User::getSlugFrom($user['name'])) {
                 $userId = $id;
                 $userData = $user;
+                $userData['slug'] = $userSlug;
                 break;
             }
         }

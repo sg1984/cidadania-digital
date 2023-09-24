@@ -55,10 +55,10 @@
                                             </div>
 
                                             <div class="text-center text">
-                                                <h5 class="mt-4">{{ $researcher['name'] }}</h5>
-                                                <h6 class="mt-0">
+                                                <h5 class="mt-4 person-name">{{ $researcher['name'] }}</h5>
+                                                <div class="mt-0 minibio">
                                                     {{ $researcher['minibio'] ?? '-' }}
-                                                </h6>
+                                                </div>
                                             </div>
 
                                             <a target="{{ isset($researcher['website']) ? '_blank' : '' }}"
