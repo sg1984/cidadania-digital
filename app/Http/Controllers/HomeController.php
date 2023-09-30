@@ -159,7 +159,27 @@ class HomeController extends Controller
 
     public function aboutV2()
     {
-        return view('v2.pages.about');
+        $coordinators = [
+            'title' => 'Coordenador Científico',
+            'people' => User::getCoordinators()
+        ];
+
+        $researchers = [
+            'title' => 'Professores e Pesquisadores',
+            'people' => User::getResearchers(),
+        ];
+
+        $invitedResearchers = [
+            'title' => 'Atopos Internacional',
+            'people' => User::getInvitedResearchers(),
+        ];
+
+        $researchers = [
+            'title' => 'Demais integrantes',
+            'people' => array_merge($researchers['people'], $invitedResearchers['people']),
+        ];
+
+        return view('v2.pages.about', compact('researchers', 'coordinators'));
     }
 
     public function team(bool $newVersion = false)

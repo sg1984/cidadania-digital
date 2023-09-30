@@ -101,18 +101,29 @@ $(function () {
         $('#modal-video-title').append(videoTitle);
         $('#modal-video iframe').attr('src', videoUrl);
         $('#modal-video').modal('show');
-    })
+    });
+
+    $('#ecossistema-diretorio-conteudos a').on('click', (event) => {
+        $('#ecossistema-diretorio-conteudos p').toggleClass('show-all-content');
+        $('#ecossistema-diretorio-conteudos a.ecossistema-veja-mais').toggleClass('hidden');
+        $('#ecossistema-diretorio-conteudos a.ecossistema-veja-menos').toggleClass('hidden');
+    });
 })
 
 $(function() {
-    $( ".accordion-content" ).accordion({collapsible: true});
+    if ($( ".accordion-content" ).length && $( ".accordion-content" ).accordion instanceof Function) {
+        $( ".accordion-content" ).accordion({collapsible: true});
+    }
 });
 
 $(document).ready(function(){
-    $('.slider-verbete').slick({
-        slidesToShow: 3
-    });
-    $('.slider-masterclass').slick({
-        slidesToShow: 1
-    });
+    if ($('.slider-verbete').length && $('.slider-verbete').slick instanceof Function) {
+        $('.slider-verbete').slick({
+            slidesToShow: 3
+        });
+
+        $('.slider-masterclass').slick({
+            slidesToShow: 1
+        });
+    }
 });

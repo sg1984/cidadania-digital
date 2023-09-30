@@ -1008,6 +1008,120 @@ body#app-2023 {
         }
     }
 
+    #about-atopos {
+        width: 100%;
+        background-color: #161C32;
+        height: 800px;
+        margin: 100px 0;
+        padding: 50px 0;
+
+        p {
+            color: #FFF;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 178%; /* 32.04px */
+            letter-spacing: 0.5px;
+        }
+    }
+
+    #ver-equipe {
+        margin: auto;
+    }
+
+    #about-atopos,
+    #ver-equipe,
+    #about-masterclass {
+        .content {
+            margin-top: 25px;
+            color: #94A3B8;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 160%;
+        }
+
+        i.fa-people-group {
+            color: #FF4D00;
+            padding-right: 5px;
+            padding-top: 5px;
+        }
+
+        .professores {
+            color: #FFF;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 157.5%;
+
+            p.flex {
+                align-items: flex-start;
+            }
+
+            p.flex.realizacao {
+                align-items: center;
+
+                img {
+                    max-width: 100px;
+                }
+            }
+        }
+
+        .about-us-link {
+            background: linear-gradient(90deg, rgba(255, 77, 0, 1) 0%, rgba(240, 73, 73, 1) 100%);
+            border-radius: 8px;
+            padding: 14px 24px 14px 24px;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            box-shadow: var(--button-box-shadow, 4px 6px 61px 0px rgba(3, 85, 97, 0.25));
+            color: var(--slate-100, #f1f5f9);
+            font: 500 16px/140% "Inter", sans-serif;
+            margin-right: 15px;
+            width: 200px;
+        }
+    }
+
+    #ecossistema {
+        h3 a {
+            text-decoration: none;
+            color: #FFF;
+            font-weight: 200;
+
+            &:hover {
+                font-weight: 700;
+            }
+        }
+
+        .ecossistema-item p {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 12;
+            line-clamp: 12;
+            -webkit-box-orient: vertical;
+
+            &.show-all-content {
+                -webkit-line-clamp: 99;
+                line-clamp: 99;
+            }
+        }
+
+        a.ecossistema-veja-mais,
+        a.ecossistema-veja-menos {
+            text-decoration: none;
+            color: #FFF;
+            font-weight: 200;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
     #search-page {
         form {
             input,
@@ -1059,6 +1173,7 @@ body#app-2023 {
         }
     }
 
+    #about-equipe,
     #team {
         color: #FFF;
 
