@@ -117,9 +117,11 @@ $(function() {
 });
 
 $(document).ready(function(){
+    w = window.innerWidth;
+
     if ($('.slider-verbete').length && $('.slider-verbete').slick instanceof Function) {
         $('.slider-verbete').slick({
-            slidesToShow: 3
+            slidesToShow: w >= 500 ? 3 : 2
         });
 
         $('.slider-masterclass').slick({

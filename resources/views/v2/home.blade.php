@@ -24,7 +24,6 @@
             <hr>
 
             <div id="masterclass">
-                <hr>
                 <h2 class="home-title">Masterclasses</h2>
 
                 <div class="row flex slider slider-masterclass">

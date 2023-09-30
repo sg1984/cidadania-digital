@@ -1,6 +1,6 @@
 <hr>
 <div class="footer container">
-    <div class="row">
+    <div class="row footer-content">
         <div class="compromisso col-xs-12 col-md-4 mb-3">
             <img src="{{ url('/images/cidig_logo-2023.png') }}" alt="Logo Plataforma Cidadania Digital">
 
@@ -64,6 +64,10 @@
                 {{ now()->format('Y') }} | Todos os direitos reservados @cidig
             </p>
         </div>
+    </div>
 
+    <div class="row footer-mobile">
+        <img src="{{ url('/images/cidig_logo_white.png') }}" alt="Logo Plataforma Cidadania Digital">
+        Cidadania Digital. Todos os direitos reservados
     </div>
 </div>

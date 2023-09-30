@@ -60,6 +60,10 @@ body#app-2023 {
     .tags-list {
         margin-bottom: 20px;
 
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
         a {
             padding: 5px 10px;
             margin-right: 10px;
@@ -68,6 +72,7 @@ body#app-2023 {
             border-radius: 4px;
             text-decoration: none;
             cursor: pointer !important;
+            margin-bottom: 10px;
 
             &:hover {
                 background: linear-gradient(90deg, rgba(255, 77, 0, 1) 0%, rgba(240, 73, 73, 1) 100%);
@@ -134,6 +139,10 @@ body#app-2023 {
         margin-bottom: 100px;
         margin-top: 100px;
 
+        @media screen and (max-width: $min-window) {
+            margin-bottom: 40px;
+        }
+
         p {
             color: #94a3b8;
             text-align: left;
@@ -143,6 +152,11 @@ body#app-2023 {
             display: flex;
             align-items: center;
             justify-content: flex-start;
+
+            @media screen and (max-width: $min-window) {
+                font-size: 14px;
+                margin: 40px 0;
+            }
         }
 
         h3 {
@@ -154,6 +168,10 @@ body#app-2023 {
             display: flex;
             align-items: center;
             justify-content: flex-start;
+
+            @media screen and (max-width: $min-window) {
+                font-size: 24px;
+            }
         }
 
         .buttons {
@@ -262,6 +280,10 @@ body#app-2023 {
             order: 0;
             flex-grow: 0;
             text-align: left;
+
+            @media screen and (max-width: $min-window) {
+                font-size: 24px;
+            }
         }
 
         .slick-next:before {
@@ -289,9 +311,7 @@ body#app-2023 {
         #masterclass {
             color: white;
 
-            hr {
-                margin: -20px 200px 50px 200px;
-            }
+            margin-top: 50px;
 
             i {
                 color: #035561;
@@ -308,6 +328,14 @@ body#app-2023 {
                     background-image:
                         linear-gradient(90deg, $bg-color 50%, rgba(8, 125, 141, 0.3) 100%),
                         url('/images/home-master-class.png');
+                }
+
+                .slider-masterclass {
+                    height: 200px;
+
+                    img {
+                        height: 100%;
+                    }
                 }
             }
 
@@ -389,6 +417,18 @@ body#app-2023 {
         #webseries {
             margin: 100px 0;
 
+            @media (max-width: $min-window) {
+                height: 200px;
+
+                .slider-verbete {
+                    height: 100%;
+                }
+
+                .access-link img {
+                    height: auto;
+                }
+            }
+
             .card-container .card hr {
                 margin-top: -10px;
                 padding: 1px;
@@ -403,9 +443,12 @@ body#app-2023 {
                 align-items: center;
                 justify-content: space-between;
 
-
                 .card-container {
                     height: 240px;
+
+                    @media (max-width: $min-window) {
+                        height: 110px;
+                    }
 
                     .card {
                         box-sizing: border-box;
@@ -419,7 +462,7 @@ body#app-2023 {
 
                         @media (max-width: $min-window) {
                             width: 150px;
-                            height: 285px;
+                            height: auto;
                         }
 
                         a {
@@ -457,10 +500,6 @@ body#app-2023 {
                 margin-top: -10px;
             }
 
-            @media (max-width: $min-window) {
-                height: 350px;
-            }
-
             .home-title {
                 margin-bottom: 30px;
             }
@@ -476,6 +515,10 @@ body#app-2023 {
                 order: 0;
                 flex-grow: 0;
                 text-align: left;
+
+                @media screen and (max-width: $min-window) {
+                    font-size: 24px;
+                }
             }
 
             .flex {
@@ -582,6 +625,7 @@ body#app-2023 {
 
             h2 {
                 margin-bottom: 44px;
+                font-size: 27px;
             }
         }
     }
@@ -1319,6 +1363,28 @@ body#app-2023 {
                     text-decoration: none;
                 }
             }
+        }
+    }
+
+
+    .footer-content {
+        @media (max-width: $min-window) {
+            display: none;
+        }
+    }
+
+    .footer-mobile {
+        display: flex;
+        justify-content: center;
+
+        @media (min-width: $min-window) {
+            display: none;
+        }
+    }
+
+    .footer.container {
+        @media (max-width: $min-window) {
+            margin-top: 0;
         }
     }
 }
