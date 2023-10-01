@@ -3,7 +3,14 @@
         <a class="navbar-brand" href="{{ route('v2.index') }}">
             <img src="{{ url('/images/logos/logo-2023.png') }}" height="32px" alt="Logo Plataforma Cidadania Digital">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+
+        <button class="navbar-toggler"
+                role="button"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="{{ __('Toggle navigation') }}"
+        >
             <span class="navbar-toggler-icon"> <i class="fa-solid fa-bars"></i></span>
         </button>
 

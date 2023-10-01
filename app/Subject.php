@@ -571,9 +571,9 @@ Ao todo, são cinco aulas ministradas por professores e profissionais de mercado
             'background-img' => '/images/masterclasses-background.png',
             'logo-title' => '/images/logos/masterclasses.png',
             'sponsors' => [
-                '/images/logos/unico.png',
                 '/images/logos/atopos.png',
                 '/images/logos/cidig.png',
+                '/images/logos/unico.png',
             ],
         ],
     ];

@@ -9,21 +9,19 @@
                         <label>Verbete</label>
                         <h1>{{ $subject->name }}</h1>
 
-                        <div class="row tags-list">
-                            <div class="col-12">
-                                @foreach($subject->tags as $tag)
-                                    <a href="{{ route('v2.searchByTag', $tag->id) }}" class="label">
-                                        <span>{{$tag->name}}</span>
-                                    </a>
-                                @endforeach
-                            </div>
+                        <div class="tags-list">
+                            @foreach($subject->tags as $tag)
+                                <a href="{{ route('v2.searchByTag', $tag->id) }}" class="label">
+                                    <span>{{$tag->name}}</span>
+                                </a>
+                            @endforeach
                         </div>
 
                         <p class="description">{{ $subjectData['description'] }}</p>
                     </div>
 
                     @if ($subjectData['videoId'])
-                        <div class="col-12">
+                        <div class="col-12" id="video-presentation">
                             <h2 class="mb-0">Apresentação do Verbete</h2>
                             <div class="row m-3 align-content-center" style="justify-content: center;">
                                 <iframe width="80%" height="600" src="https://www.youtube.com/embed/{{ $subjectData['videoId'] }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="{{ isset($seriesData['researchers']) && !isset($seriesData['sponsors']) ? 'col-7' : 'col-12' }} header">
                         @isset($seriesData['logo-title'])
-                            <img src="{{ url($seriesData['logo-title']) }}" alt="{{ $seriesData['title'] }}">
+                            <img src="{{ url($seriesData['logo-title']) }}" alt="{{ $seriesData['title'] }}" width="80%">
                         @else
                             <label>Webseries</label>
                             <h1>{{ $seriesData['title'] }}</h1>
@@ -16,14 +16,12 @@
                         <p class="description">{!! $seriesData['description']  !!} </p>
 
                         @isset($tags)
-                            <div class="row tags-list">
-                                <div class="col-12">
-                                    @foreach($tags as $tag)
-                                        <a href="{{ route('v2.searchByTag', $tag->id) }}" class="label">
-                                            <span>{{$tag->name}}</span>
-                                        </a>
-                                    @endforeach
-                                </div>
+                            <div class="tags-list">
+                                @foreach($tags as $tag)
+                                    <a href="{{ route('v2.searchByTag', $tag->id) }}" class="label">
+                                        <span>{{$tag->name}}</span>
+                                    </a>
+                                @endforeach
                             </div>
                         @endisset
                     </div>
@@ -68,22 +66,24 @@
             @isset($seriesData['sponsors'])
                 <div class="col-12 col-sm-5 sponsors">
                     <h3>Realização:</h3>
-                    @foreach($seriesData['sponsors'] as $sponsorLogo)
-                        <div class="sponsor-container">
-                            <hr>
-                            <div class="sponsor-logo">
-                                <img src="{{ url($sponsorLogo) }}" alt="{{ $sponsorLogo }}">
+                    <div class="sponsors-containers">
+                        @foreach($seriesData['sponsors'] as $sponsorLogo)
+                            <div class="sponsor-container">
+                                <hr>
+                                <div class="sponsor-logo">
+                                    <img src="{{ url($sponsorLogo) }}" alt="{{ $sponsorLogo }}">
+                                </div>
+                                <hr>
                             </div>
-                            <hr>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
             @endisset
         </div>
 
         <div class="row">
             <div class="col-12">
-                <div class="mt-4">
+                <div class="mt-4" id="video-list">
                     {{ view('v2.series.videos', ['videosData' => $seriesData['videos']]) }}
                 </div>
 

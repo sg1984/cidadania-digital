@@ -7,7 +7,7 @@
     <div id="app">
         <main>
             <div
-                id="background-img"
+                class="background-img"
                 style="background-image:
                             linear-gradient(270deg,
                               rgba(245,70,66,0),
@@ -27,7 +27,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-10 col-md-9 text-container">
                             <div>
-                                <h1>Sobre a Plataforma de Cidadania Digital</h1>
+                                <h1 style="z-index: 99;position: relative;">Sobre a Plataforma de Cidadania Digital</h1>
 
                                 <p>
                                     O advento das redes digitais de última geração ampliou as práticas e as formas de participação, oferecendo aos cidadãos comuns não somente as condições técnicas para o acesso imediato às informações públicas, mas também à palavra pública, isto é, a possibilidade de se expressar publicamente e com uma grande visibilidade, poder esse até então restrito aos líderes de opinião e aos grandes canais midiáticos.
@@ -43,7 +43,8 @@
 
             <div class="container mt-4">
                 <div
-                    id="background-img"
+                    id="about-part-2-img"
+                    class="background-img"
                     style="background-image:
                             linear-gradient(90deg,
                               rgba(245,70,66,0),
@@ -56,7 +57,7 @@
                 </div>
 
                 <div id="sobre-nos" style="margin-top: 0;">
-                    <div class="row pt-4">
+                    <div class="pt-4">
                         <div class="offset-sm-2 offset-md-4 col-xs-12 col-sm-10 col-md-9 text-container">
                             <p>
                                 Passamos a interagir em rede com algoritmos, bancos de dados autopoiéticos e inteligências relacionais não humanas. Ao lado das enormes possibilidades de participação direta por parte da população, facilitadas pela construção de plataformas e arquiteturas de interação, surgem problemáticas inéditas e complexas em suas características. De um lado, a progressiva diminuição da distinção entre esfera pública e esfera privada, dilema esse que, pela facilidade de acesso aos dados, torna possível o monitoramento e o acesso às informações pessoais dos usuários por parte de grupos privados e agências de informações. Dessa maneira, as formas de conectividade continuada tornam rastreáveis os próprios cidadãos, deixando-os vulneráveis a campanhas publicitárias invasivas e à divulgação de seus interesses e comportamentos particulares.
@@ -70,7 +71,8 @@
             </div>
 
             <div
-                id="background-img"
+                id="about-part-3-img"
+                class="background-img"
                 style="background-image:
                             linear-gradient(270deg,
                               rgba(245,70,66,0),
@@ -84,7 +86,7 @@
 
             <div class="container mt-5">
                 <div id="sobre-nos" style="margin-top: 200px !important;">
-                    <div class="row pt-5">
+                    <div class="pt-5">
                         <div class="col-sm-10 col-md-9 text-container">
                             <p>
                                 A Plataforma de Cidadania Digital será fundada em um ambiente virtual com Recursos Educacionais Abertos e contará com um banco de dados de cursos, palestras, textos, blog interativo, podcasts, entrevistas, exemplos internacionais de práticas de cidadania digital. Ao longo de sua implementação, serão sediadas iniciativas físicas de impacto social com foco na população jovem e sua produção em rede. Para isso contará com cursos de ativação de estudantes, professores e outros profissionais interessados em promover uma iniciativa de cidadania digital. A plataforma contará com uma área de ativação cidadã onde será possível proporcionar atividades para que jovens identifiquem problemas em seus contextos que queiram resolver. Essas iniciativas podem ser compartilhadas tanto na plataforma, porém serão encorajados a publicar em outras redes para conectar outras ativações.
@@ -120,48 +122,51 @@
 
             <div id="about" class="content-team">
                 <div class="container pt-5 pb-5">
-                    <div class="row justify-content-center">
+                    <div class="justify-content-center">
                         <div class="col-12">
                             <div id="ecossistema" class="row pt-5 pb-5">
                                 <h2>Ecossistema da Plataforma</h2>
-                                <div id="ecossistema-diretorio-conteudos" class="ecossistema-item col-xs-12 col-sm-6 mb-4">
-                                    <h3>
-                                        <a href="{{ route('v2.showAll') }}">{{ __('Diretório de Conteúdos') }}</a>
-                                    </h3>
-                                    <p>
-                                        O Diretório de Conteúdos (DC), em fase inicial de desenvolvimento, funciona como o core da plataforma de Cidadania Digital. Neste espaço estão sendo disponibilizados artigos, arquivos de áudio e vídeo (filmes, docs, entrevistas, podcasts, etc) e imagens relacionadas à temática da cidadania digital. Este banco de dados é alimentado manualmente por professores e pesquisadores que são responsáveis por preencher um conjunto de metadados relacionados a cada informação (artigo, vídeo, áudio ou imagem) que é indexada no DC. Inicialmente, a plataforma não irá armazenar nenhum conteúdo em servidores próprios e todas as informações já estão disponibilizadas online em outros repositórios. Seu funcionamento será como um hub de conteúdos pertinentes cabendo aos professores e pesquisadores a curadoria e alimentação da plataforma com os metadados necessários para o redirecionamento dos conteúdos.
-                                        <br>
-                                        Por Cidadania Digital ser um conceito guarda-chuva que envolve uma vasta gama de outros conceitos e áreas do conhecimento, todo conteúdo agregado à plataforma é categorizado em tags temáticas (verbetes) de responsabilidade dos professores e pesquisadores envolvidos com aquele específico campo do conhecimento. Apesar de partirmos de um número pré-definido de tags (condicionado pelos colaboradores que encabeçam essa iniciativa), outras serão criadas e as existentes ampliadas de acordo com as demandas de expansão da rede. Algumas das tags já trabalhadas envolvem governança digital, net-ativismo, mídias nativas, design, blockchain, algoritmos, green data e mudanças climáticas, regulação e acesso a dados, entre outros
-                                        <br>
-                                        Os metadados, por sua vez, se referem às informações específicas que estão sendo anexadas a cada uma das tags: tipo, sub-tema, título, autor, palavras chaves, descrição, canal de publicação, etc. Inicialmente estamos trabalhando com um grupo básico de metadados, mas à medida que os conteúdos forem se complexificando, pretendemos também expandir as informações referentes a cada um deles.
-                                    </p>
+                                <div class="row">
+                                    <div id="ecossistema-diretorio-conteudos" class="ecossistema-item col-xs-12 col-sm-6 mb-4">
+                                        <h3>
+                                            <a href="{{ route('v2.showAll') }}">{{ __('Diretório de Conteúdos') }}</a>
+                                        </h3>
+                                        <p>
+                                            O Diretório de Conteúdos (DC), em fase inicial de desenvolvimento, funciona como o core da plataforma de Cidadania Digital. Neste espaço estão sendo disponibilizados artigos, arquivos de áudio e vídeo (filmes, docs, entrevistas, podcasts, etc) e imagens relacionadas à temática da cidadania digital. Este banco de dados é alimentado manualmente por professores e pesquisadores que são responsáveis por preencher um conjunto de metadados relacionados a cada informação (artigo, vídeo, áudio ou imagem) que é indexada no DC. Inicialmente, a plataforma não irá armazenar nenhum conteúdo em servidores próprios e todas as informações já estão disponibilizadas online em outros repositórios. Seu funcionamento será como um hub de conteúdos pertinentes cabendo aos professores e pesquisadores a curadoria e alimentação da plataforma com os metadados necessários para o redirecionamento dos conteúdos.
+                                            <br>
+                                            Por Cidadania Digital ser um conceito guarda-chuva que envolve uma vasta gama de outros conceitos e áreas do conhecimento, todo conteúdo agregado à plataforma é categorizado em tags temáticas (verbetes) de responsabilidade dos professores e pesquisadores envolvidos com aquele específico campo do conhecimento. Apesar de partirmos de um número pré-definido de tags (condicionado pelos colaboradores que encabeçam essa iniciativa), outras serão criadas e as existentes ampliadas de acordo com as demandas de expansão da rede. Algumas das tags já trabalhadas envolvem governança digital, net-ativismo, mídias nativas, design, blockchain, algoritmos, green data e mudanças climáticas, regulação e acesso a dados, entre outros
+                                            <br>
+                                            Os metadados, por sua vez, se referem às informações específicas que estão sendo anexadas a cada uma das tags: tipo, sub-tema, título, autor, palavras chaves, descrição, canal de publicação, etc. Inicialmente estamos trabalhando com um grupo básico de metadados, mas à medida que os conteúdos forem se complexificando, pretendemos também expandir as informações referentes a cada um deles.
+                                        </p>
 
-                                    <a class="ecossistema-veja-mais">{{ __('Veja mais') }}</a>
-                                    <a class="ecossistema-veja-menos hidden">{{ __('Veja menos') }}</a>
-                                </div>
+                                        <a class="ecossistema-veja-mais">{{ __('Veja mais') }}</a>
+                                        <a class="ecossistema-veja-menos hidden">{{ __('Veja menos') }}</a>
+                                    </div>
 
-                                <div class="col-xs-12 col-sm-6 mb-4">
-                                    <h3>
-                                        <a href="http://wiki.plataformacidadaniadigital.com.br/" target="_blank">{{ __('WikiCidadania') }}</a>
-                                    </h3>
-                                    <p>
-                                        A plataforma WikiCidadania funciona como um glossário colaborativo no qual todos os verbetes e conceitos (muitos oriundos das tags) abordados na plataforma Cidadania Digital serão explicados em toda sua profundidade e extensão, bem como interrelacionados entre si e outros conteúdos. A proposta é que a WikiCidadania seja construída de maneira colaborativa mesclando contribuições de pesquisadores, professores e usuários e, por isso, é compreendida como uma plataforma distinta, com um conjunto de funcionalidades específico, mas que poderá facilmente se integrar ao complexo da Plataforma de Cidadania Digital.
-                                    </p>
+                                    <div class="col-xs-12 col-sm-6 mb-4">
+                                        <h3>
+                                            <a href="http://wiki.plataformacidadaniadigital.com.br/" target="_blank">{{ __('WikiCidadania') }}</a>
+                                        </h3>
+                                        <p>
+                                            A plataforma WikiCidadania funciona como um glossário colaborativo no qual todos os verbetes e conceitos (muitos oriundos das tags) abordados na plataforma Cidadania Digital serão explicados em toda sua profundidade e extensão, bem como interrelacionados entre si e outros conteúdos. A proposta é que a WikiCidadania seja construída de maneira colaborativa mesclando contribuições de pesquisadores, professores e usuários e, por isso, é compreendida como uma plataforma distinta, com um conjunto de funcionalidades específico, mas que poderá facilmente se integrar ao complexo da Plataforma de Cidadania Digital.
+                                        </p>
 
-                                </div>
+                                    </div>
 
-                                <div class="col-xs-12 col-sm-6 mb-4 hidden">
-                                    <h3>Escola de Cidadania Digital</h3>
-                                    <p>
-                                        A Escola de Cidadania Digital é uma segunda ramificação voltada para cursos e capacitação, absorvendo todo o material do diretório de conteúdos e da WikiCidadania para aplicação em cursos online, aulas à distância, workshops presenciais, seminários, palestras, consultorias de projetos, etc. configurando um espaço de aprendizado coletivo com todo o ferramental necessário e disponível pelo sistema Moodle. Assim como em toda a plataforma de Cidadania Digital, os cursos serão categorizados por tags indicando os assuntos abordados e o modelo de curso (se workshop, seminários, consultorias ou outros).
-                                    </p>
-                                </div>
+                                    <div class="col-xs-12 col-sm-6 mb-4 hidden">
+                                        <h3>Escola de Cidadania Digital</h3>
+                                        <p>
+                                            A Escola de Cidadania Digital é uma segunda ramificação voltada para cursos e capacitação, absorvendo todo o material do diretório de conteúdos e da WikiCidadania para aplicação em cursos online, aulas à distância, workshops presenciais, seminários, palestras, consultorias de projetos, etc. configurando um espaço de aprendizado coletivo com todo o ferramental necessário e disponível pelo sistema Moodle. Assim como em toda a plataforma de Cidadania Digital, os cursos serão categorizados por tags indicando os assuntos abordados e o modelo de curso (se workshop, seminários, consultorias ou outros).
+                                        </p>
+                                    </div>
 
-                                <div class="col-xs-12 col-sm-6 mb-4 hidden">
-                                    <h3>Prêmio Cidadania Digital</h3>
-                                    <p>
-                                        Por ser uma plataforma dedicada à promoção da Cidadania Digital, acreditamos ser fundamental o reconhecimento de iniciativas que possam servir de modelo e inspiração para outras. Portanto, a terceira área a ser desenvolvida é um espaço de divulgação e premiação das melhores experiências em cidadania digital coordenadas por usuários, empresas, organizações e municipalidades em todo o território nacional e internacional. Pretendemos também que o Prêmio de Cidadania Digital se converta em um evento sazonal para dar ainda mais visibilidade a todas essas iniciativas.
-                                    </p>
+                                    <div class="col-xs-12 col-sm-6 mb-4 hidden">
+                                        <h3>Prêmio Cidadania Digital</h3>
+                                        <p>
+                                            Por ser uma plataforma dedicada à promoção da Cidadania Digital, acreditamos ser fundamental o reconhecimento de iniciativas que possam servir de modelo e inspiração para outras. Portanto, a terceira área a ser desenvolvida é um espaço de divulgação e premiação das melhores experiências em cidadania digital coordenadas por usuários, empresas, organizações e municipalidades em todo o território nacional e internacional. Pretendemos também que o Prêmio de Cidadania Digital se converta em um evento sazonal para dar ainda mais visibilidade a todas essas iniciativas.
+                                        </p>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -247,30 +252,32 @@
                             <div class="col-md-12">
                                 <h1 class="mb-4">Conheça a Equipe</h1>
 
-                                <div class="col-12 mb-5">
-                                    @isset($coordinators)
-                                        <div id="coordinator-container" class="row mt-2">
-                                            @foreach($coordinators['people'] as $coordinator)
-                                                <div class="col-xs-12 col-sm-6">
-                                                    <img src="{{ url('/images/team/massimo-team.png') }}" alt="{{ $coordinator['name'] }}" class="mr-2">
-                                                </div>
-                                                <div class="col-xs-12 col-sm-6">
-                                                    <div class="media-body">
-                                                        <h5>{{ $coordinators['title'] }} </h5>
-                                                        <a href="{{ route('v2.authorPage', $coordinator['slug']) }}">
-                                                            <h3 class="mt-4">{{ $coordinator['name'] }}</h3>
-                                                            <p class="mt-0 description">{{ $coordinator['minibio'] }}</p>
-                                                        </a>
+                                <div class="row">
+                                    <div class="col-12 mb-5">
+                                        @isset($coordinators)
+                                            <div id="coordinator-container" class="row mt-2">
+                                                @foreach($coordinators['people'] as $coordinator)
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <img src="{{ url('/images/team/massimo-team.png') }}" alt="{{ $coordinator['name'] }}" class="mr-2">
                                                     </div>
-                                                    <p>
-                                                        <a href="{{ route('v2.authorPage', $coordinator['slug']) }}">
-                                                            Ver mais...
-                                                        </a>
-                                                    </p>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    @endisset
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <div class="media-body">
+                                                            <h5>{{ $coordinators['title'] }} </h5>
+                                                            <a href="{{ route('v2.authorPage', $coordinator['slug']) }}">
+                                                                <h3 class="mt-4">{{ $coordinator['name'] }}</h3>
+                                                                <p class="mt-0 description">{{ $coordinator['minibio'] }}</p>
+                                                            </a>
+                                                        </div>
+                                                        <p>
+                                                            <a href="{{ route('v2.authorPage', $coordinator['slug']) }}">
+                                                                Ver mais...
+                                                            </a>
+                                                        </p>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @endisset
+                                    </div>
                                 </div>
 
                                 <div class="row content-home">

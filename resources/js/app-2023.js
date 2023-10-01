@@ -117,15 +117,32 @@ $(function() {
 });
 
 $(document).ready(function(){
-    w = window.innerWidth;
+    const w = window.innerWidth;
 
     if ($('.slider-verbete').length && $('.slider-verbete').slick instanceof Function) {
         $('.slider-verbete').slick({
-            slidesToShow: w >= 500 ? 3 : 2
+            slidesToShow: w > 500 ? 3 : 2
         });
 
         $('.slider-masterclass').slick({
             slidesToShow: 1
         });
+    }
+
+    $('nav button.navbar-toggler').click(function() {
+        $("#navbarSupportedContent").toggleClass('show');
+    });
+
+    if ($('#series-page').length) {
+        if (w <= 500) {
+            if ($('#verbetes').length) {
+                $('#verbetes > .row.flex').addClass('slider').addClass(' slider-verbete');
+                $('#verbetes > .row.flex').slick({slidesToShow: 2});
+            }
+
+            if ($('#video-presentation iframe').length) {
+                $('#video-presentation iframe').attr('width', '100%');
+            }
+        }
     }
 });
