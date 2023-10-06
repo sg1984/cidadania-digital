@@ -41,6 +41,11 @@ body#app-2023 {
             color: white;
         }
 
+        .nav-link:hover {
+            background: none;
+            text-decoration: underline;
+        }
+
         .login-button {
             border-radius: 8px;
             background: var(--15, linear-gradient(90deg, #FF4D00 0%, #F04949 100%));
