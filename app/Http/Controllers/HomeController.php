@@ -90,14 +90,46 @@ class HomeController extends Controller
 
         $masterclasses = [
             [
-                'title' => 'Masterclass Unico',
+                'title' => 'Masterclass Unico - Curso',
                 'url' => route('v2.showSpecialPage', 'unico'),
-                'thumbnail' => '/images/masterclass-carroussel.png',
+                'thumbnail' => '/images/masterclasses/banner-1-web.png',
+                'thumbnail-tablet' => '/images/masterclasses/banner-1-tablet.png',
+                'thumbnail-mobile' => '/images/masterclasses/banner-1-mobile.png',
             ],
             [
-                'title' => 'Masterclass Unico',
-                'url' => route('v2.showSpecialPage', 'unico'),
-                'thumbnail' => '/images/masterclass-carroussel.png',
+                'title' => 'Masterclass 1 - Identidades digitais não-humanas',
+                'url' => route('v2.showSpecialPage', 'unico') . '#xPSBviVQ0d8',
+                'thumbnail' => '/images/masterclasses/banner-2-web.png',
+                'thumbnail-tablet' => '/images/masterclasses/banner-2-tablet.png',
+                'thumbnail-mobile' => '/images/masterclasses/banner-2-mobile.png',
+            ],
+            [
+                'title' => 'Masterclass 2 - Digital Twins: A Identidade na Época do Onlife',
+                'url' => route('v2.showSpecialPage', 'unico') . '#nLEF7PrvqLc',
+                'thumbnail' => '/images/masterclasses/banner-3-web.png',
+                'thumbnail-tablet' => '/images/masterclasses/banner-3-tablet.png',
+                'thumbnail-mobile' => '/images/masterclasses/banner-3-mobile.png',
+            ],
+            [
+                'title' => 'Masterclass 3 - Privacidade e Open Data',
+                'url' => route('v2.showSpecialPage', 'unico') . '#J1blB3gLFbc',
+                'thumbnail' => '/images/masterclasses/banner-4-web.png',
+                'thumbnail-tablet' => '/images/masterclasses/banner-4-tablet.png',
+                'thumbnail-mobile' => '/images/masterclasses/banner-4-mobile.png',
+            ],
+            [
+                'title' => 'Masterclass 4 - As Identidades Indígenas nas Redes Digitais',
+                'url' => route('v2.showSpecialPage', 'unico') . '#wPcGA_PWGig',
+                'thumbnail' => '/images/masterclasses/banner-5-web.png',
+                'thumbnail-tablet' => '/images/masterclasses/banner-5-tablet.png',
+                'thumbnail-mobile' => '/images/masterclasses/banner-5-mobile.png',
+            ],
+            [
+                'title' => 'Masterclass 5 - Liderança Indígena: Conexão entre Povos e Eiversidade na Era Digital',
+                'url' => route('v2.showSpecialPage', 'unico') . '#9vAX6CrA8m4',
+                'thumbnail' => '/images/masterclasses/banner-6-web.png',
+                'thumbnail-tablet' => '/images/masterclasses/banner-6-tablet.png',
+                'thumbnail-mobile' => '/images/masterclasses/banner-6-mobile.png',
             ],
         ];
 

@@ -31,7 +31,9 @@
                         <div class="col-12 mb-3 card-container">
                             <div class="card card-body p-0 masterclass-image">
                                 <a class="access-link" href="{{ $masterclass['url'] }}">
-                                    <img src="{{ url($masterclass['thumbnail']) }}" alt="{{ $masterclass['title'] }}" height="683px" width="100%">
+                                    <img class="img-web" src="{{ url($masterclass['thumbnail']) }}" alt="{{ $masterclass['title'] }}" height="610px" width="100%">
+                                    <img class="img-tablet" src="{{ url($masterclass['thumbnail-tablet']) }}" alt="{{ $masterclass['title'] }}" height="450px" width="100%">
+                                    <img class="img-mobile" src="{{ url($masterclass['thumbnail-mobile']) }}" alt="{{ $masterclass['title'] }}" height="600px" width="100%">
                                 </a>
                             </div>
                         </div>
@@ -93,7 +95,7 @@
                 <h2 class="home-title">Parceiros</h2>
                 <div class="row">
                     @foreach($partners as $key => $partner)
-                        <div class="col-sm-3 img-container">
+                        <div class="col-sm-6 col-lg-3 img-container">
                             <img src="{{ $partner }}" alt="Logo Parceiro">
                         </div>
                     @endforeach

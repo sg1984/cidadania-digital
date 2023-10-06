@@ -127,7 +127,7 @@
                             <div id="ecossistema" class="row pt-5 pb-5">
                                 <h2>Ecossistema da Plataforma</h2>
                                 <div class="row">
-                                    <div id="ecossistema-diretorio-conteudos" class="ecossistema-item col-xs-12 col-sm-6 mb-4">
+                                    <div id="ecossistema-diretorio-conteudos" class="ecossistema-item col-xs-12 col-lg-6 mb-4">
                                         <h3>
                                             <a href="{{ route('v2.showAll') }}">{{ __('Diretório de Conteúdos') }}</a>
                                         </h3>
@@ -143,7 +143,7 @@
                                         <a class="ecossistema-veja-menos hidden">{{ __('Veja menos') }}</a>
                                     </div>
 
-                                    <div class="col-xs-12 col-sm-6 mb-4">
+                                    <div class="col-xs-12 col-lg-6 mb-4">
                                         <h3>
                                             <a href="http://wiki.plataformacidadaniadigital.com.br/" target="_blank">{{ __('WikiCidadania') }}</a>
                                         </h3>
@@ -153,14 +153,14 @@
 
                                     </div>
 
-                                    <div class="col-xs-12 col-sm-6 mb-4 hidden">
+                                    <div class="col-xs-12 col-lg-6 mb-4 hidden">
                                         <h3>Escola de Cidadania Digital</h3>
                                         <p>
                                             A Escola de Cidadania Digital é uma segunda ramificação voltada para cursos e capacitação, absorvendo todo o material do diretório de conteúdos e da WikiCidadania para aplicação em cursos online, aulas à distância, workshops presenciais, seminários, palestras, consultorias de projetos, etc. configurando um espaço de aprendizado coletivo com todo o ferramental necessário e disponível pelo sistema Moodle. Assim como em toda a plataforma de Cidadania Digital, os cursos serão categorizados por tags indicando os assuntos abordados e o modelo de curso (se workshop, seminários, consultorias ou outros).
                                         </p>
                                     </div>
 
-                                    <div class="col-xs-12 col-sm-6 mb-4 hidden">
+                                    <div class="col-xs-12 col-lg-6 mb-4 hidden">
                                         <h3>Prêmio Cidadania Digital</h3>
                                         <p>
                                             Por ser uma plataforma dedicada à promoção da Cidadania Digital, acreditamos ser fundamental o reconhecimento de iniciativas que possam servir de modelo e inspiração para outras. Portanto, a terceira área a ser desenvolvida é um espaço de divulgação e premiação das melhores experiências em cidadania digital coordenadas por usuários, empresas, organizações e municipalidades em todo o território nacional e internacional. Pretendemos também que o Prêmio de Cidadania Digital se converta em um evento sazonal para dar ainda mais visibilidade a todas essas iniciativas.
@@ -214,7 +214,7 @@
                 <div class="row">
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm-12 col-md-7">
+                            <div class="col-sm-12 col-lg-7">
                                 <img src="{{ url('/images/logos/atopos-white.png') }}">
 
                                 <p>
@@ -233,7 +233,7 @@
 
                             </div>
 
-                            <div class="col-sm-12 col-md-5">
+                            <div class="col-sm-8 col-lg-5">
                                 <img src="{{ url('/images/logos/atopos-graph.png') }}"
                                      alt="Atopos logo"
                                      width="120%"

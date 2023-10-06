@@ -41,7 +41,7 @@
 
                             <div class="col-12 researchers-list">
                                 @foreach($researchers['people'] as $researcher)
-                                    <div class="person-container col-xs-12 col-sm-6 col-md-3 media mb-5">
+                                    <div class="person-container col-xs-12 col-sm-6 col-lg-3 media mb-5">
                                         <div class="person-content">
                                             <hr>
                                             <div class="">

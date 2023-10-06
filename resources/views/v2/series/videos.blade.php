@@ -4,7 +4,7 @@
     @if ($pos !== 0)
         <hr class="mt-5" />
     @endif
-    <div class="row series p-0 mt-3" onclick="handleClick('video-id-{{ $videoData['id'] }}')" data-video-title="{{ $videoData['title'] }}" data-video-url="https://www.youtube.com/embed/{{ $videoData['id'] }}">
+    <div id="{{ $videoData['id'] }}" class="row series p-0 mt-3" onclick="handleClick('video-id-{{ $videoData['id'] }}')" data-video-title="{{ $videoData['title'] }}" data-video-url="https://www.youtube.com/embed/{{ $videoData['id'] }}">
         <div class="col-4 no-padding">
             <img class="img-fluid" src="https://img.youtube.com/vi/{{ $videoData['id'] }}/hqdefault.jpg" alt="Video thumbnail">
         </div>
@@ -22,7 +22,7 @@
             <div class="media mt-2 mb-2">
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-sm-3 col-md-1">
+                        <div class="col-sm-3 col-md-2 col-lg-1">
                             @php($researcher = \App\User::getPersonMergedData($author))
                             <a class="mr-2 team-person-link team-person-picture-link rounded-circle" data-toggle="modal" data-target="#{{ $researcher['id'] }}" data-dismiss="modal" style="height: 7em;width: 7em;display: block;">
                                 <img src="{{ $researcher['picture_url'] }}"
@@ -34,12 +34,12 @@
                             </a>
                         </div>
 
-                        <div class="col-sm-9 person-data">
+                        <div class="col-sm-7 col-lg-9 person-data">
                             <h4>{{ $researcher['title'] }}</h4>
                             <p>{{ $researcher['description'] }}</p>
                         </div>
 
-                        <div class="col-sm-12 col-md-2 person-data">
+                        <div class="col-sm-12 col-md-3 col-lg-2 person-data">
                             <a class="author-link-btn" href="{{ route('v2.authorPage', \App\User::getSlugFrom($researcher['name'])) }}">
                                 Página do autor
                             </a>

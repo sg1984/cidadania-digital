@@ -33,7 +33,7 @@
                         </small>
                     </div>
 
-                    <div class="col-xs-12 col-sm-7 flex">
+                    <div class="col-xs-12 col-sm-9 col-lg-7 flex">
                         @foreach($resource->tags as $tag)
                             <a href="{{ route('v2.searchByTag', $tag->id) }}" class="mb-2 mr-2">
                                 <span class="label">{{$tag->name}}</span>
@@ -41,7 +41,7 @@
                         @endforeach
                     </div>
 
-                    <div class="col-xs-12 col-sm-2">
+                    <div class="col-xs-12 col-lg-2">
                         <button type="button" class="btn-detail btn btn-outline-info btn-sm" data-toggle="modal" data-target="#resource-{{$resource->id}}">
                             Ver detalhes
                         </button>

@@ -8,6 +8,7 @@ body#app-2023 {
     // Variables
     $bg-color: #090E1F;
     $min-window: 501px;
+    $tablet-size: 769px;
 
     background-color: $bg-color;
 
@@ -325,6 +326,11 @@ body#app-2023 {
                 background-color: transparent;
             }
 
+            .img-mobile,
+            .img-tablet {
+                display: none;
+            }
+
             @media (max-width: $min-window) {
                 .col-7 {
                     flex: unset;
@@ -340,6 +346,26 @@ body#app-2023 {
                     img {
                         height: 100%;
                     }
+                }
+
+                .img-mobile {
+                    display: inherit;
+                }
+
+                .img-web,
+                .img-tablet {
+                    display: none;
+                }
+            }
+
+            @media (min-width: $min-window) and (max-width: $tablet-size) {
+                .img-tablet {
+                    display: inherit;
+                }
+
+                .img-web,
+                .img-mobile {
+                    display: none;
                 }
             }
 
@@ -421,7 +447,7 @@ body#app-2023 {
         #webseries {
             margin: 100px 0;
 
-            @media (max-width: $min-window) {
+            @media (max-width: $tablet-size) {
                 height: 200px;
 
                 .slider-verbete {
@@ -454,6 +480,10 @@ body#app-2023 {
                         height: 110px;
                     }
 
+                    @media (max-width: $tablet-size) and (min-width: $min-window) {
+                        height: 150px;
+                    }
+
                     .card {
                         box-sizing: border-box;
                         position: absolute;
@@ -466,6 +496,11 @@ body#app-2023 {
 
                         @media (max-width: $min-window) {
                             width: 150px;
+                            height: auto;
+                        }
+
+                        @media (max-width: $tablet-size) and (min-width: $min-window) {
+                            width: 180px;
                             height: auto;
                         }
 
@@ -546,6 +581,11 @@ body#app-2023 {
                     @media (max-width: $min-window) {
                         width: 150px;
                         height: 285px;
+                    }
+
+                    @media (max-width: $tablet-size) and (min-width: $min-window) {
+                        width: 180px;
+                        height: auto;
                     }
 
                     a {
@@ -632,10 +672,6 @@ body#app-2023 {
                 font-size: 27px;
             }
         }
-    }
-
-    .container {
-        max-width: 1200px;
     }
 
     #search-page,
@@ -882,7 +918,7 @@ body#app-2023 {
                 box-shadow: var(--button-box-shadow, 4px 6px 61px 0px rgba(3, 85, 97, 0.25));
                 color: var(--slate-100, #f1f5f9);
                 text-align: left;
-                font: 500 16px/140% "Inter", sans-serif;
+                font: 500 13px/140% "Inter", sans-serif;
                 margin-right: 15px;
             }
 
@@ -954,7 +990,7 @@ body#app-2023 {
     }
 
     #conteudos-relacionados {
-        @media (min-width: 576px) {
+        @media (min-width: $min-window) {
             .modal-dialog {
                 max-width: 70%;
                 margin: 1.75rem auto;
@@ -1026,7 +1062,7 @@ body#app-2023 {
             .btn-detail {
                 color: #FFF;
                 text-align: center;
-                font-size: 14px;
+                font-size: 12px;
                 font-style: normal;
                 font-weight: 500;
                 line-height: 140%;
@@ -1181,7 +1217,7 @@ body#app-2023 {
         margin: 100px 0;
         padding: 50px 0;
 
-        @media (max-width: $min-window) {
+        @media (max-width: $tablet-size) {
             padding: 20px;
             height: auto;
 
@@ -1312,6 +1348,8 @@ body#app-2023 {
     }
 
     #search-page {
+        padding: 0 20px !important;
+
         form {
             input,
             .input-group {
@@ -1518,6 +1556,7 @@ body#app-2023 {
     }
 
     .footer-content {
+        padding: 0 10px;
         @media (max-width: $min-window) {
             display: none;
         }

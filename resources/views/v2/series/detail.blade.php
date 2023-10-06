@@ -32,7 +32,7 @@
                                 <h3>{{ count($seriesData['researchers']) > 1 ? 'Responsáveis' : 'Responsável'}}</h3>
                                 @foreach($seriesData['researchers'] as $person)
                                     <div class="">
-                                        <div class="col-7 media mt-2 mb-3">
+                                        <div class="col-12 media mt-2 mb-3">
                                             <div class="row">
                                                 <div class="{{ !isset($seriesData['sponsors']) ? 'col-2' : 'col-3' }}">
                                                     @php($researcher = \App\User::getPersonMergedData($person))

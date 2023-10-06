@@ -38,10 +38,10 @@
                         <div class="row">
                             @foreach($subjectData['researchers'] as $person)
                                 @php($researcher = \App\User::getPersonMergedData($person))
-                                <div class="col-xs-12 col-sm-6">
+                                <div class="col-xs-12 col-sm-7 col-md-5">
                                     <div class="col-12 media mt-2 mb-3">
                                         <div class="row">
-                                            <div class="col-2">
+                                            <div class="col-4 col-lg-3">
                                                 @php($researcher = \App\User::getPersonMergedData($person))
                                                 <a  href="{{ route('v2.authorPage', $researcher['slug']) }}"
                                                     class="mr-2 team-person-link team-person-picture-link rounded-circle"
@@ -56,7 +56,7 @@
                                                 </a>
                                             </div>
 
-                                            <div class="col-10 person-data">
+                                            <div class="col-8 person-data">
                                                 <h4>{{ $researcher['title'] ?? $researcher['name'] }}</h4>
                                                 <p>{{ $researcher['university'] }}</p>
                                             </div>

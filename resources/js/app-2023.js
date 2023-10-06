@@ -119,6 +119,12 @@ $(function() {
 $(document).ready(function(){
     const w = window.innerWidth;
 
+    const url = window.location.href;
+    const urlSplited = url.split('#');
+    if (urlSplited.length > 1) {
+        handleClick('video-id-' + urlSplited[1]);
+    }
+
     if ($('.slider-verbete').length && $('.slider-verbete').slick instanceof Function) {
         $('.slider-verbete').slick({
             slidesToShow: w > 500 ? 3 : 2
