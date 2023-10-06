@@ -16,6 +16,34 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    const MAP_ID_USER = [
+        24 => self::MASSIMO_DI_FELICE,
+        14 => self::ALINE_PASCOALINO,
+        8 => self::ANDRE_DALA_POSSA,
+        3 => self::BEATRICE_BONAMI_ROSA,
+        2 => self::BRUNO_MADUREIRA_FERREIRA,
+        9 => self::CLAUDIA_LEONOR_GUEDES,
+        5 => self::ELI_BORGES_JR,
+        21 => self::ELIANE_SCHLEMMER,
+        19 => self::ELIETE_PEREIRA,
+        12 => self::ERICK_ROZA,
+        31 => self::EVANDRO_MEDEIROS_LAIA,
+        29 => self::GENIVALDO_PAULINO_MONTEIRO,
+        18 => self::IAN_DAWSEY,
+        7 => self::ISABELLA_MOURA,
+        23 => self::JANAINA_MENEZES,
+        15 => self::JULLIANA_CUTOLO_TORRES,
+        30 => self::LARA_LINHALIS_GUIMARAES,
+        13 => self::LEANDRO_KEY_HIGUCHI_YANAZA,
+        25 => self::MARCELLA_SCHNEIDER_FARIA_SANTOS,
+        16 => self::MARINA_MAGALHAES,
+        17 => self::MATHEUS_SOARES_CRUZ,
+        4 => self::RITA_MACHADO_NARDY,
+        6 => self::TATIANA_REVOREDO,
+        11 => self::TERESA_NEVES,
+        20 => self::THIAGO_CARDOSO_FRANCO,
+    ];
+
     const MASSIMO_DI_FELICE = [
         'name' => 'Massimo Di Felice',
         'university' => 'Universidade de São Paulo (USP)',
@@ -25,8 +53,9 @@ class User extends Authenticatable
         'linkedin_url' => null,
         'subject' => Subject::SUBJECT_NAMES_IMAGES[Subject::TEORIAS_NOVAS_FORMAS_CIDADANIA],
         'minibio' => 'Sociólogo pela Universidade La Sapienza de Roma e doutor em Ciências da Comunicação, é professor livre docente da Escola de Comunicações e Artes da Universidade de São Paulo (ECA/USP). Fundou e coordena o Centro de Pesquisa Internacional ATOPOS (ECA/USP) sobre redes digitais. É fundador do Centro de Pesquisa Internacional di Teoria Sociale per la Sostenibilitá - Sostenibilia da Universidade La Sapienza, e diretor científico do Istituto di Alti Studi Toposofia de Roma. Possui pós-doutorado pela Universidade Paris V Sorbonne, sendo professor visitante da Universidade Paul Valery de Montpellier e Universidade Lusófona do Porto. Autor de livros, ensaios e artigos editados na França, Itália, Portugal, Argentina e México, e em diversas revistas acadêmicas.',
+        'description' => 'Coordenador do Centro Internacional de Pesquisa Atopos e Professor da USP.',
+        'title' => 'Professor Massimo di Felice',
     ];
-
     const ALINE_PASCOALINO = [
         'name' => 'Aline Pascoalino',
         'university' => 'Universidade Estadual de Campinas (Unicamp)',
@@ -37,7 +66,6 @@ class User extends Authenticatable
         'subject' => Subject::SUBJECT_NAMES_IMAGES[Subject::GREEN_DATA],
         'minibio' => 'Graduada (2005), Mestra (2009) e Doutora (2013) em Geografia pela Universidade Estadual Paulista “Júlio de Mesquita Filho” (UNESP), com período sanduíche na Universidade do Porto (2012-2013). Atou como docente substituto ministrando disciplinas na área de Geografia Física, para os cursos de Geografia, Engenharia Ambiental e Ecologia da UNESP Rio Claro (2015-2016) e também como docente e pesquisadora do Instituto de Geociências e Ciências Exatas da Universidade do Estado de Minas Gerais (UEMG), ministrando disciplinas na área de Geografia Física para o curso de Licenciatura em Geografia (2017-2019). Atualmente, é professora e pesquisadora do Departamento de Geografia do Instituto de Geociências da Universidade Estadual de Campinas (UNICAMP), onde ministra as disciplinas de Climatologia, Climatologia Geográfica e Geografia da Saúde para os cursos de Geografia e Geologia; e Coordenadora do Laboratório de Estudos Climáticos (LECLIG). Atua em pesquisas na área de Análise Ambiental, Climatologia regional, Climatologia geográfica, Bioclimatologia Humana e Clima urbano e saúde.',
     ];
-
     const ANDRE_DALA_POSSA = [
         'name' => 'André Dala Possa',
         'university' => 'Instituto Federal de Santa Catarina (IFSC)',
@@ -113,6 +141,8 @@ class User extends Authenticatable
         'linkedin_url' => null,
         'subject' => Subject::SUBJECT_NAMES_IMAGES[Subject::NET_ATIVISMO_INDIGENA],
         'minibio' => 'Historiadora e mestre em Ciências Sociais (Universidade de Brasília), é doutora em Ciências da Comunicação (Universidade de São Paulo) com realização de estágio sanduíche no exterior com Bolsa Capes na Universidade IULM de Milão (2012). Desenvolveu pesquisa de pós-doutorado no Programa de Pós-Graduação Interunidades em Museologia (PPGMus), MAE/USP, com bolsa PNPD/Capes (2017) Desde 2005, é pesquisadora do Centro de Pesquisa ATOPOS da ECA-USP, onde coordena a linha de pesquisa - Tekó: a digitalização dos saberes locais. É pesquisadora do InterMuseologias - Laboratório Interfaces entre Museologias - Comunicação, Mediação, Públicos e Recepção, MAE-USP. Colaboradora como pesquisadora do \'Sostenibilia - Osservatorio Internazionale di teoria sociale sulle nuove tecnologie e la sostenibilità\' da Universidade La Sapienza de Roma.',
+        'description' => 'Doutora em Ciências da Comunicação pela Escola de Comunicações e Artes da USP e pesquisadora do Centro de Pesquisa ATOPOS (ECA/USP)..',
+        'title' => 'Eliete Pereira',
     ];
 
     const ERICK_ROZA = [
@@ -411,6 +441,8 @@ class User extends Authenticatable
         'linkedin_url' => null,
         'subject' => null,
         'minibio' => 'Derrick de Kerckhove é professor emérito do departamento de francês da Universidade de Toronto e leciona na Universidade Federico II, em Nápoles, na Itália. Ao longo de mais de 20 anos, foi diretor do Programa McLuhan em Cultura e Tecnologia, um dos maiores centros de pesquisa e estudo sobre tecnologia no mundo. Durante a década de 1970, inclusive, foi assistente e coautor do próprio Marshall McLuhan. Além disso, Kerckhove é professor convidado na Universidade Aberta da Catalunha em Barcelona (Espanha) e é autor de livros publicados em vários países, incluindo "A pele da Cultura" e "Connected Intelligences".',
+        'description' => 'Autor de The Skin of Culture and Connected Intelligence e professor na Universidade de Toronto - Canadá. Foi Diretor do Programa McLuhan em Cultura e Tecnologia de 1983 a 2008.',
+        'title' => 'Derrick de Kerckhove',
     ];
 
     const JOSE_ALBERTO_SANCHEZ_MARTINEZ = [
@@ -422,6 +454,45 @@ class User extends Authenticatable
         'linkedin_url' => null,
         'subject' => null,
         'minibio' => 'José Alberto Sánchez Martínez é doutor em ciências sociais com ênfase em comunicação e política pela UAM-Xochimilco, México. Mestre em comunicação com especialidade em novas tecnologias (UNAM). Professor do Departamento de Relações Sociais da Divisão de Ciências e Humanidades da UAM-Xochimilco. Membro do Sistema Nacional de Pesquisadores (SNI), nível II, do Conselho Nacional de Ciência e Tecnologia (Conacyt) do México. Publicou diversos ensaios relacionados a questões como cultura digital, virtualidade e processos visuais. Atualmente trabalha a temática da cultura digital com enfoque no campo da arte e na sociologia da arte. Entre suas atividades, desenvolveu a poesia como campo de criação e pesquisa.',
+    ];
+
+    const PEDRO_HENRIQUE_OLIVEIRA = [
+        'name' => 'Pedro Henrique Oliveira (Peagá Oliveira)',
+        'university' => 'Unico',
+        'picture_url' => '/images/team/c_pedro_henrique_foto.png',
+        'lattes_url' => null,
+        'orcid_url' => null,
+        'linkedin_url' => null,
+        'subject' => null,
+        'minibio' => 'Diretor de Comunicação da Unico.',
+        'description' => 'Diretor de Comunicação da Unico.',
+        'title' => 'Pedro Henrique Oliveira (Peagá Oliveira)',
+    ];
+
+    const YASODARA_CORDOVA = [
+        'name' => 'Yasodara Cordova',
+        'university' => 'Unico',
+        'picture_url' => '/images/team/c_yasodara_foto.png',
+        'lattes_url' => null,
+        'orcid_url' => null,
+        'linkedin_url' => null,
+        'subject' => null,
+        'minibio' => 'Ativista de privacidade na Internet há mais de 15 anos e pesquisadora-chefe de Privacidade da Unico.',
+        'description' => 'Ativista de privacidade na Internet há mais de 15 anos e pesquisadora-chefe de Privacidade da Unico.',
+        'title' => 'Yasodara Cordova',
+    ];
+
+    const SONIA_GUAJAJARA = [
+        'name' => 'Sonia Guajajara',
+        'university' => '',
+        'picture_url' => '/images/team/c_sonia_foto.png',
+        'lattes_url' => null,
+        'orcid_url' => null,
+        'linkedin_url' => null,
+        'subject' => null,
+        'minibio' => 'Atual ministra do Ministério dos povos Indígenas. Foi a primeira Deputada Federal Indígena em São Paulo, eleita em 2022. No mesmo ano, foi incluída na lista das 100 pessoas mais influentes da revista Time, publicada nos EUA.',
+        'description' => 'Atual ministra do Ministério dos povos Indígenas. Foi a primeira Deputada Federal Indígena em São Paulo, eleita em 2022. No mesmo ano, foi incluída na lista das 100 pessoas mais influentes da revista Time, publicada nos EUA.',
+        'title' => 'Sonia Guajajara',
     ];
 
     /**
@@ -560,22 +631,24 @@ class User extends Authenticatable
 
     public static function getDesigners(): array {
         return [
-            [
+            self::getPersonMergedData([
                 'name' => self::BRUNO_MADUREIRA_FERREIRA['name'],
                 'picture_url' => url(self::BRUNO_MADUREIRA_FERREIRA['picture_url']),
                 'linkedin_url' => self::BRUNO_MADUREIRA_FERREIRA['linkedin_url'],
-            ],
+                'minibio' => 'Designer gráfico, bacharel em Comunicação Social pela Faculdade Esamc de Uberlândia (2015). Mestre em Ciências da Comunicação pela Universidade de São Paulo (USP), pesquisando design digital, plataformas digitais e participação política intermediada por plataformas digitais. É membro do Centro Internacional de Pesquisa Atopos (ECA/USP) sob coordenação do Prof. Dr. Massimo Di Felice, onde desenvolve trabalhos ligados a cidadania digital e design.',
+            ]),
         ];
     }
 
     public static function getDevelopers(): array {
         return [
-            [
+            self::getPersonMergedData([
                 'name' => 'Sandro Gallina',
                 'picture_url' => url('/images/team/sandro_foto.jpg'),
                 'linkedin_url' => 'https://www.linkedin.com/in/sandro-gallina/',
                 'website' => 'https://sandrogallina.com/',
-            ],
+                'minibio' => 'Desenvolvedor Full-stack',
+            ]),
         ];
     }
 
@@ -583,6 +656,7 @@ class User extends Authenticatable
         return array_merge(
             [
                 'id' => self::getSlugFrom($person['name']),
+                'slug' => self::getSlugFrom($person['name']),
                 'picture_url' => url($person['picture_url']),
             ],
             $person
@@ -608,5 +682,14 @@ class User extends Authenticatable
 
     public static function getSlugFrom(string $name): string {
         return Str::slug($name, '-');
+    }
+
+    public function getPictureLink(): string
+    {
+        if (!isset(self::MAP_ID_USER[$this->id])){
+            return '';
+        }
+
+        return url(self::MAP_ID_USER[$this->id]['picture_url']);
     }
 }

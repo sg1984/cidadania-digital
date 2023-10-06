@@ -105,5 +105,13 @@ $(function () {
 })
 
 $(function() {
-    $( ".accordion-content" ).accordion({collapsible: true});
+    if ($(".accordion-content").length) {
+        $(".accordion-content").accordion({collapsible: true});
+    }
+});
+
+$(function() {
+    handleClick = (videoId) => {
+        $('#' + videoId).toggleClass('hidden');
+    }
 });

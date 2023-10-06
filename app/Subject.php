@@ -308,7 +308,9 @@ class Subject extends Model
             'description' => 'As inovações tecnológicas, as mudanças climáticas e a pandemia mudaram para sempre a nossa ideia de sociedade. Não habitamos mais a polis e nosso convívio não acontece mais apenas entre sujeitos políticos e seus conflitos de opiniões. Clima, vírus, algoritmos,  dados,  objetos conectados são os novos atores que passaram a fazer parte do nosso comum. Como será a cidadania do terceiro milênio estendida aos não humanos? A Cidadania do Terceiro Milênio mostra, através diversas abordagem disciplinares, como as partículas subatômicas, as tecnologias para a exploração das galáxias, as biodiversidades e as tecnologias de redes de ultima geração serão as novas arquiteturas do nosso comum a partir das quais construiremos outros tipos de cidadania.',
             'researchers' => [User::MASSIMO_DI_FELICE],
             'thumbnail' => '/images/series/cidadaniaTerceiroMilenio.jpg',
+            'thumbnail-novo' => '/images/webseries/cidadania_terceiro_milenio.png',
             'background-image' => '/images/series/cidadania-terceiro-milenio_robynne-hu-unsplash.jpg',
+            'background-img' => '/images/series/cidadania-terceiro-milenio_robynne-hu-unsplash.jpg',
             'background-credit' => 'robynne-hu/unsplash',
             'subjects' => self::SERIES_SUBJECT_MAP[self::CIDADANIA_TERCEIRO_MILENIO],
         ],
@@ -344,7 +346,9 @@ class Subject extends Model
             'description' => 'A série Codice foi criada pela jornalista italiana Barbara Carfagna e reúne um conjunto de entrevistas a alguns dos mais importantes protagonistas da transformação digital da nossa época como Audrey Tang, Ministro de Assuntos Digitais de Taiwan, Jacqueline Poh, presidente da GovTech de Singapura, Hiroshi Ishiguro, professor da Univsidade de Osaka e pesquisador do campo da Inteligência Artificial, Roger Ver, CEO da Bitcoin.com, Sangeet Paul Choudary, autor do livro “Platform Revolution” e Martin Sorrell, megaempresário da comunicação.',
             'researchers' => [User::BARBARA_CARFAGNA],
             'thumbnail' => '/images/series/codice.jpg',
+            'thumbnail-novo' => '/images/webseries/codice.png',
             'background-image' => '/images/series/codice_homem-vitruviano.jpg',
+            'background-img' => '/images/series/codice_homem-vitruviano.jpg',
             'background-credit' => '',
             'subjects' => self::SERIES_SUBJECT_MAP[self::CODICE],
         ],
@@ -365,6 +369,8 @@ class Subject extends Model
             'researchers' => [User::TATIANA_REVOREDO, User::ISABELLA_MOURA],
             'thumbnail' => '/images/series/blockchain.jpg',
             'background-image' => '/images/series/blockchain-cidadania_blockchain.jpg',
+            'background-img' => '/images/series/blockchain-cidadania_blockchain.jpg',
+            'thumbnail-novo' => '/images/webseries/blockchain_cidadania.png',
             'background-credit' => '',
             'subjects' => self::SERIES_SUBJECT_MAP[self::BLOCKCHAIN_CIDADANIA_SERIE],
         ],
@@ -388,7 +394,9 @@ class Subject extends Model
             'description' => 'A série Direito a Saúde Digital apresenta o impacto das tecnologias digitais, dos Big Data e das formas automatizadas de inteligências no âmbito da saúde. Seja na gestão dos dados do paciente, seja no processo de construção do diagnóstico, na gestão da terapia e da relação medico-paciente o processo de dataficação está redesenhando o cenário da medicina atribuindo à cura, cada vez mais, um sentido informativo e cognitivo. Abre-se assim uma nova fronteira baseada nas possibilidades de gerir a saúde através dos dados e do acesso a formas de monitoramento e a predições algorítmicas. A digitalização da saúde além de melhorar o atendimento e a cura, por meio de técnicas mais rápidas e exatas, permite a redução radical dos custos e a extensão dos benefícios da prevenção e da terapia a um numero maior de pacientes. ',
             'researchers' => [User::SILVIA_SURRENTI],
             'thumbnail' => '/images/series/direitoSaudeDigital.jpg',
+            'thumbnail-novo' => '/images/webseries/direito_saude_digital.png',
             'background-image' => '/images/series/direito-saude-digital_national-cancer-institute-unsplash.jpg',
+            'background-img' => '/images/series/direito-saude-digital_national-cancer-institute-unsplash.jpg',
             'background-credit' => 'national-cancer-institute/unsplash',
             'subjects' => self::SERIES_SUBJECT_MAP[self::DIREITO_SAUDE_DIGITAL],
         ],
@@ -436,7 +444,9 @@ class Subject extends Model
             'description' => 'As últimas gerações de redes, depois das relações sociais (web 2.0), passaram a conectar as coisas (Internet of Things), os dados (Big Data) e, através de sensores, o território e a biodiversidades, gerando uma rede de redes denominada The Internet of Everything. Mais que mídia, as últimas gerações de redes apresentam-se como habitat e ecossistemas relacionais no interior dos quais entidades diversas (humanos, biodiversidades, clima), enquanto transformadas em dados, passam a interagir de outra maneira. Nasce, assim, uma nova relação entre humanos e meio-ambiente não mais baseada na concepção sujeitocêntrica, mas nas interdependências de relações entre entidades-dados. Superando a dimensão sistêmica da sustentabilidade os green data e as info-ecologias permitem o monitoramento continuado das complexidades relacionais de um território assim como a criação de um novo tipo de contratualidade não mais centrada e limitadas aos humanos.',
             'researchers' => [User::ALINE_PASCOALINO, User::RITA_MACHADO_NARDY, User::JULLIANA_CUTOLO_TORRES],
             'thumbnail' => '/images/series/dataEcologiaMudancaClimatica.jpg',
+            'thumbnail-novo' => '/images/webseries/greendata.png',
             'background-image' => '/images/series/data-ecologia-clima_agatha-valenca-unsplash.jpg',
+            'background-img' => '/images/series/data-ecologia-clima_agatha-valenca-unsplash.jpg',
             'background-credit' => 'agatha-valenca/unsplash',
             'subjects' => self::SERIES_SUBJECT_MAP[self::DATA_ECOLOGIA_CLIMA],
         ],
@@ -483,13 +493,16 @@ class Subject extends Model
             'description' => 'A série Diálogos Atópicos aborda, a partir de uma perspectiva interdisciplinar, as diversas consequências originadas pela pandemia de Covid-19. Desde as relações socias aos processos decisórios, as  formas de aprendizagem até a economia, cada setor da sociedade foi profundamente afetado e transformado pela disseminação do vírus. Junto com este, difundiu-se a consciência do surgimento de uma nova época caraterizada pelo advento de um novo tipo de complexidade na qual a dúvida e as qualidades emergentes tornam-se o horizonte natural.',
             'researchers' => [User::MARINA_MAGALHAES, User::MATHEUS_SOARES_CRUZ, User::TERESA_NEVES, User::TATIANA_REVOREDO, User::THIAGO_CARDOSO_FRANCO, User::ELIANE_SCHLEMMER],
             'thumbnail' => '/images/series/dialogos-atopicos.jpg',
+            'thumbnail-novo' => '/images/webseries/dialogos_atopicos.png',
             'background-image' => '/images/series/dialogos-atopicos_alina-grubnyak-unsplash.jpg',
+            'background-img' => '/images/series/dialogos-atopicos_alina-grubnyak-unsplash.jpg',
             'background-credit' => 'alina-grubnyak/unsplash',
             'subjects' => self::SERIES_SUBJECT_MAP[self::DIALOGOS_ATOPICOS],
         ],
         self::UNICO => [
             'title' => 'Masterclasses Identidade e Cidadania Digital - Unico & Atopos/USP',
             'tags_ids' => [],
+            'researchers' => [User::MASSIMO_DI_FELICE],
             'videos' => [
                 [
                     'id' => 'ZeSqVsT2hmA',
@@ -497,6 +510,8 @@ class Subject extends Model
                     'text' =>
                         '<b>Professor Massimo di Felice</b> - Coordenador do Centro Internacional de Pesquisa Atopos e Professor da USP. <br>
                         <b>Pedro Henrique Oliveira (Peagá Oliveira)</b> - Diretor de Comunicação da Unico. ',
+                    'description' => 'As últimas gerações de redes conectam pessoas, dispositivos, coisas, dados, elementos da natureza e tudo mais que nos cerca. Esse é um novo tipo de ambiente não mais habitado apenas por humanos. Hoje, cada pessoa física e biológica corresponde a uma outra digital, semelhante e feita de dados.',
+                    'authors' => [User::MASSIMO_DI_FELICE, User::PEDRO_HENRIQUE_OLIVEIRA],
                 ],
                 [
                     'id' => 'xPSBviVQ0d8',
@@ -504,6 +519,8 @@ class Subject extends Model
                     'text' => '<b>Massimo di Felice</b> - Coordenador do Centro Internacional de Pesquisa Atopos e Professor da USP<br><br>
 As últimas gerações de redes conectam pessoas, dispositivos, coisas, dados, elementos da natureza e tudo mais que nos cerca. Esse é um novo tipo de ambiente não mais habitado apenas por humanos. Hoje, cada pessoa física e biológica corresponde a uma outra digital, semelhante e feita de dados. Sim, você é um infovíduo! Nesta aula, são desvendadas as características e a complexidade dessa nova condição.
 ',
+                    'description' => 'As últimas gerações de redes conectam pessoas, dispositivos, coisas, dados, elementos da natureza e tudo mais que nos cerca. Esse é um novo tipo de ambiente não mais habitado apenas por humanos. Hoje, cada pessoa física e biológica corresponde a uma outra digital, semelhante e feita de dados. Sim, você é um infovíduo! Nesta aula, são desvendadas as características e a complexidade dessa nova condição',
+                    'authors' => [User::MASSIMO_DI_FELICE],
                 ],
                 [
                     'id' => 'nLEF7PrvqLc',
@@ -511,13 +528,17 @@ As últimas gerações de redes conectam pessoas, dispositivos, coisas, dados, e
                     'text' => '<b>Derrick de Kerckhove</b> - Autor de The Skin of Culture and Connected Intelligence e professor na Universidade de Toronto - Canadá. Foi Diretor do Programa McLuhan em Cultura e Tecnologia de 1983 a 2008.<br><br>
 A evolução da internet superou as barreiras iniciais que separavam o mundo real do virtual. A conexão e os dispositivos móveis, num primeiro momento, e as plataformas digitais e o metaverso, atualmente, permitem a experiência de uma condição "onlife" - uma mescla de corpos, dados, arquiteturas físicas e informativas. O conteúdo traz essa transformação digital e o surgimento do conceito de digital twin ou gêmeo digital.
 ',
-                ],
+                    'description' => 'A evolução da internet superou as barreiras iniciais que separavam o mundo real do virtual. A conexão e os dispositivos móveis, num primeiro momento, e as plataformas digitais e o metaverso, atualmente, permitem a experiência de uma condição "onlife" - uma mescla de corpos, dados, arquiteturas físicas e informativas. O conteúdo traz essa transformação digital e o surgimento do conceito de digital twin ou gêmeo digital.',
+                    'authors' => [User::DERRICK_DE_KERCKHOVE],
+                    ],
                 [
                     'id' => 'J1blB3gLFbc',
                     'title' => 'Aula 3 - Privacidade e Open Data',
                     'text' => '<b>Yasodara Cordova</b> – Ativista de privacidade na Internet há mais de 15 anos e pesquisadora-chefe de Privacidade da Unico.<br><br>
 O Open Data, ou dados abertos, significa que dados podem ser acessados por pessoas, empresas, instituições, times de pesquisa de forma livre, fácil e ágil. O que parece tentador para a prestação de serviços e até mesmo inovação guarda uma outra face: a ameaça à privacidade. Nesta masterclass, todo esse movimento reforça a necessidade de garantirmos segurança e proteção de dados pessoais, que são fundamentais inclusive para estabelecer relações de confiança e limites na sociedade.
 ',
+                    'description' => 'O Open Data, ou dados abertos, significa que dados podem ser acessados por pessoas, empresas, instituições, times de pesquisa de forma livre, fácil e ágil. O que parece tentador para a prestação de serviços e até mesmo inovação guarda uma outra face: a ameaça à privacidade. Nesta masterclass, todo esse movimento reforça a necessidade de garantirmos segurança e proteção de dados pessoais, que são fundamentais inclusive para estabelecer relações de confiança e limites na sociedade.',
+                    'authors' => [User::YASODARA_CORDOVA],
                 ],
                 [
                     'id' => 'wPcGA_PWGig',
@@ -525,6 +546,8 @@ O Open Data, ou dados abertos, significa que dados podem ser acessados por pesso
                     'text' => '<b>Eliete Pereira</b> - Doutora em Ciências da Comunicação pela Escola de Comunicações e Artes da USP e pesquisadora do Centro de Pesquisa ATOPOS (ECA/USP)<br><br>
 Nos últimos anos, a presença das culturas indígenas nas redes cresceu de forma relevante. Esta masterclass vai apresentar como a digitalização dos povos ameríndios significou a criação de um novo tipo de protagonismo baseado na defesa de seus territórios e na digitalização de idiomas, mitos e visões de mundo.
 ',
+                    'description' => 'Nos últimos anos, a presença das culturas indígenas nas redes cresceu de forma relevante. Esta masterclass vai apresentar como a digitalização dos povos ameríndios significou a criação de um novo tipo de protagonismo baseado na defesa de seus territórios e na digitalização de idiomas, mitos e visões de mundo.',
+                    'authors' => [User::ELIETE_PEREIRA],
                 ],
                 [
                     'id' => '9vAX6CrA8m4',
@@ -532,6 +555,8 @@ Nos últimos anos, a presença das culturas indígenas nas redes cresceu de form
                     'text' => '<b>Sonia Guajajara</b> – Atual ministra do Ministério dos povos Indígenas. Foi a primeira Deputada Federal Indígena em São Paulo, eleita em 2022. No mesmo ano, foi incluída na lista das 100 pessoas mais influentes da revista Time, publicada nos EUA.<br><br>
 A internet foi um grande ponto de virada para o movimento indígena. Nos últimos anos, indígenas, principalmente mulheres, têm assumido cada vez mais protagonismo nas redes sociais e na sociedade, em prol da conexão com demais povos e do respeito à diversidade. Este conteúdo vai apresentar exemplos desse movimento por meio da voz de uma das principais lideranças indígenas da atualidade.
 ',
+                    'description' => 'A internet foi um grande ponto de virada para o movimento indígena. Nos últimos anos, indígenas, principalmente mulheres, têm assumido cada vez mais protagonismo nas redes sociais e na sociedade, em prol da conexão com demais povos e do respeito à diversidade. Este conteúdo vai apresentar exemplos desse movimento por meio da voz de uma das principais lideranças indígenas da atualidade.',
+                    'authors' => [User::SONIA_GUAJAJARA],
                 ],
             ],
             'description' => 'Com a velocidade e complexidade das inovações tecnológicas, pode ser desafiador se manter atualizado nos temas da Era Digital e compreender as implicações atuais e futuras em nossas vidas, na carreira e na própria sociedade. Pensando nisso, a Unico, empresa brasileira especializada em identidade digital, fez uma parceria com o Centro Internacional de Pesquisa Atopos da Escola de Comunicações e Artes da Universidade de São Paulo (ECA/USP). Dessa colaboração inédita, surgiram as Masterclasses Identidade e Cidadania Digital - Unico & Atopos/USP, que são gratuitas e já estão disponíveis online.
@@ -543,6 +568,13 @@ Ao todo, são cinco aulas ministradas por professores e profissionais de mercado
             'thumbnail' => '',
             'background-image' => '/images/series/dialogos-atopicos_alina-grubnyak-unsplash.jpg',
             'background-credit' => 'alina-grubnyak/unsplash',
+            'background-img' => '/images/masterclasses-background.png',
+            'logo-title' => '/images/logos/masterclasses.png',
+            'sponsors' => [
+                '/images/logos/atopos.png',
+                '/images/logos/cidig.png',
+                '/images/logos/unico.png',
+            ],
         ],
     ];
 
