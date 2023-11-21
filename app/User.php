@@ -334,13 +334,13 @@ class User extends Authenticatable
 
     const THIAGO_CARDOSO_FRANCO = [
         'name' => 'Thiago Cardoso Franco',
-        'university' => 'Universidade Federal do Amazonas (UFAM)',
+        'university' => 'Professor Adjunto da Universidade Federal de Goiás',
         'picture_url' => '/images/team/c_thiago_foto.jpg',
         'lattes_url' => 'http://lattes.cnpq.br/7735628705551412',
         'orcid_url' => 'https://orcid.org/0000-0002-1774-4706',
         'linkedin_url' => null,
         'subject' => Subject::SUBJECT_NAMES_IMAGES[Subject::NET_ATIVISMO_INDIGENA],
-        'minibio' => 'Professor Adjunto da Universidade Federal do Amazonas. Membro/coordenador do Centro Internacional de Pesquisa ATOPOS (USP), onde trabalha com teorias da comunicação e redes digitais. No mesmo centro de pesquisa é integrante da linha de pesquisa - Tekó: a digitalização dos saberes locais. Membro do Sostenibilia (Osservatorio Internazionale di Teoria Sociale Sulle Nuove Tecnologie e la Sostenibilità), Università Sapienza di Roma. Pesquisador associado do Sostenibília. Doutor em Ciência da Comunicação pela Escola de Comunicações e Artes (ECA), da Universidade de São Paulo (USP), na área de Teoria e Pesquisa em Comunicação, na linha de Comunicação e Ambiências em Redes Digitais; mestre em Comunicação, Cidadania e Cultura (2014); especialista em Comunicação Integrada (2008); graduado em Ciência da Comunicação (2006), pela UFG. É um dos coordenadores do Projeto Xingu, realizado em parceria com a Universidade Sapienza de Roma. Coordenador Geral do projeto "Amazônia contra a Covid 19", em parceria com a UNESCO e membro do comitê de Combate a Covid 19 (UFAM).',
+        'minibio' => 'Professor Adjunto da Universidade Federal de Goiás, docente do quadro permanente do Programa de Pós-graduação Interdisciplinar em Direitos Humanos PPGIDH (UFG) e do curso de Relações Públicas da Faculdade de Informação e Comunicação (UFG). Doutor em Ciência da Comunicação pela Escola de Comunicações e Artes (ECA), da Universidade de São Paulo (USP), na área de Teoria e Pesquisa em Comunicação, na linha de Comunicação e Ambiências em Redes Digitais. Mestre em Comunicação, Cultura e Cidadania (UFG). Coordenador de Comunicação da Cátedra Sérgio Vieira de Mello (UFG), Programa da Agência ONU para Refugiados (ACNUR). Membro do Observatório Latino-americano de Cidadania Digital. Membro do Centro Internacional de Pesquisa ATOPOS (USP), onde trabalha com teorias da comunicação, redes digitais e comunidades ameríndias. Pesquisador associado ao Sostenibilia (Osservatorio Internazionale di Teoria Sociale Sulle Nuove Tecnologie e la Sostenibilità), Università Sapienza di Roma.',
     ];
 
     // International researchers
